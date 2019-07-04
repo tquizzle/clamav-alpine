@@ -12,8 +12,6 @@ Using this image is fairly straightforward.
 
 Pay attention to `-v /path/to/scan` as this is the mounted directory that this docker image will scan.
 
-### Interactive
-
 ```
 docker run -it \
   -v /path/to/scan:/scan:ro \
@@ -22,38 +20,37 @@ docker run -it \
 
 ## Expected Output
 
-### First Run
-
 ```
-# docker run -it -v clamav-db:/var/lib/clamav -v /opt:/scan:ro tquinnelly/clamav-alpine -i
+# docker run -it -v /opt:/scan:ro tquinnelly/clamav-alpine -i
 
-2019-06-13T23:11+0000 ClamAV scanning started
+2019-07-04T14:06:49+0000 ClamAV scanning started
 
 Updating ClamAV scan DB
-
-ClamAV update process started at Thu Jun 13 23:11:48 2019
-
+ClamAV update process started at Thu Jul  4 14:06:49 2019
+WARNING: Your ClamAV installation is OUTDATED!
+WARNING: Local version: 0.100.3 Recommended version: 0.101.2
+DON'T PANIC! Read https://www.clamav.net/documents/upgrading-clamav
 Downloading main.cvd [100%]
 main.cvd updated (version: 58, sigs: 4566249, f-level: 60, builder: sigmgr)
 Downloading daily.cvd [100%]
-daily.cvd updated (version: 25479, sigs: 1593437, f-level: 63, builder: raynman)
+daily.cvd updated (version: 25500, sigs: 1610180, f-level: 63, builder: raynman)
 Downloading bytecode.cvd [100%]
 bytecode.cvd updated (version: 328, sigs: 94, f-level: 63, builder: neo)
-Database updated (6159780 signatures) from database.clamav.net (IP: 104.16.218.84)
+Database updated (6176523 signatures) from database.clamav.net (IP: 104.16.218.84)
 
 Freshclam updated the DB
 
 Scanning /scan
 
 ----------- SCAN SUMMARY -----------
-Known viruses: 6150472
-Engine version: 0.101.2
-Scanned directories: 3151
-Scanned files: 20285
+Known viruses: 6167018
+Engine version: 0.100.3
+Scanned directories: 4
+Scanned files: 4
 Infected files: 0
-Data scanned: 2315.83 MB
-Data read: 7582.24 MB (ratio 0.31:1)
-Time: 883.476 sec (14 m 43 s)
-2019-06-13T23:27+0000 ClamAV scanning finished
-# 
+Data scanned: 0.66 MB
+Data read: 0.33 MB (ratio 2.00:1)
+Time: 61.979 sec (1 m 1 s)
+
+2019-07-04T14:08:59+0000 ClamAV scanning finished
 ```
