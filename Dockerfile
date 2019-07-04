@@ -5,4 +5,4 @@ RUN apk add clamav
 
 ENV SCANDIR=/scan
 COPY scan.sh /scan.sh
-ENTRYPOINT [ "/scan.sh" ]
+ENTRYPOINT [ "sh", "/scan.sh" ]
