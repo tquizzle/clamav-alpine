@@ -54,3 +54,7 @@ Time: 61.979 sec (1 m 1 s)
 
 2019-07-04T14:08:59+0000 ClamAV scanning finished
 ```
+
+### History
+2020-02-16
+Bump version for clamav (0.101.5-r0)
