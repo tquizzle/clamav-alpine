@@ -2,7 +2,7 @@
 
 set -euo pipefail
 echo ""
-echo "$( date -I'seconds' ) ClamAV scanning started"
+echo "$( date -I'seconds' ) ClamAV process starting"
 echo ""
 echo "Updating ClamAV scan DB"
 set +e
@@ -25,7 +25,8 @@ else
     echo ""
     exit $FRESHCLAM_EXIT
 fi
-
+echo ""
+clamscan -V
 echo ""
 echo "Scanning $SCANDIR"
 echo ""
