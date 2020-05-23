@@ -56,8 +56,8 @@ Time: 61.979 sec (1 m 1 s)
 ```
 
 ### History
-2020-05-23
-Bump version for clamav 0.102.3-r0
-Added unrar and unrar libs
-2020-02-16
-Bump version for clamav 0.102.1-r0
+#### 2020-05-23
+* Bump version for clamav 0.102.3-r0
+* Added unrar and unrar libs
+#### 2020-02-16
+* Bump version for clamav 0.102.1-r0
