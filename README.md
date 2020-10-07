@@ -26,29 +26,30 @@ docker run -it \
 2020-06-02T22:09:19+0000 ClamAV process starting
 
 Updating ClamAV scan DB
-ClamAV update process started at Tue Jun  2 22:09:19 2020
-daily database available for download (remote version: 25831)
-Time: 2.7s, ETA: 0.0s [=============================>] 64.82MiB/64.82MiB
-Testing database: '/var/lib/clamav/tmp.fa56e/clamav-0d94c6b7b3fa3b6c9def7e4670fe2764.tmp-daily.cvd' ...
+ClamAV update process started at Wed Oct  7 04:04:27 2020
+daily database available for download (remote version: 25949)
+Time: 1.6s, ETA: 0.0s [=============================>] 108.12MiB/108.12MiB
+Testing database: '/var/lib/clamav/tmp.bbcc2/clamav-9328d8ee72166612b0ff7745f1871812.tmp-daily.cvd
 Database test passed.
-daily.cvd updated (version: 25831, sigs: 2582185, f-level: 63, builder: raynman)
+daily.cvd updated (version: 25949, sigs: 4328154, f-level: 63, builder: raynman)
 main database available for download (remote version: 59)
-Time: 4.9s, ETA: 0.0s [=============================>] 112.40MiB/112.40MiB
-Testing database: '/var/lib/clamav/tmp.fa56e/clamav-bb7d37eedd3e36621c27529d52aef525.tmp-main.cvd' ...
+Time: 1.6s, ETA: 0.0s [=============================>] 112.40MiB/112.40MiB
+Testing database: '/var/lib/clamav/tmp.bbcc2/clamav-3533f1ff9c0acba3c5c80169c8db1bc9.tmp-main.cvd'
 Database test passed.
 main.cvd updated (version: 59, sigs: 4564902, f-level: 60, builder: sigmgr)
 bytecode database available for download (remote version: 331)
 Time: 0.1s, ETA: 0.0s [=============================>] 289.44KiB/289.44KiB
-Testing database: '/var/lib/clamav/tmp.fa56e/clamav-12bd5de6505f5289d66d4bbd68f82737.tmp-bytecode.cvd' ...
+Testing database: '/var/lib/clamav/tmp.bbcc2/clamav-746c265d927ae6cf9a1c3103cee74c51.tmp-bytecode.
 Database test passed.
 bytecode.cvd updated (version: 331, sigs: 94, f-level: 63, builder: anvilleg)
-WARNING: Clamd was NOT notified: Can't connect to clamd through /run/clamav/clamd.sock: No such file or directory
+WARNING: Clamd was NOT notified: Can't connect to clamd through /run/clamav/clamd.sock: No such fi
 
 
 Freshclam updated the DB
 
 
-ClamAV 0.102.3/25831/Tue Jun  2 12:41:03 2020
+ClamAV 0.102.4/25949/Tue Oct  6 13:58:16 2020
+
 
 Scanning /scan
 
@@ -63,10 +64,14 @@ Data scanned: 0.00 MB
 Data read: 0.00 MB (ratio 0.00:1)
 Time: 26.493 sec (0 m 26 s)
 
-2020-06-02T22:10:17+0000 ClamAV scanning finished
+2020-10-07T04:05:32+0000 ClamAV scanning finished
 ```
 
 ### History
+
+#### 2020-10-06
+
+* Bump version for clamav 0.102.4-r1
 
 #### 2020-05-23
 
