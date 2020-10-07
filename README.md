@@ -23,7 +23,7 @@ docker run -it \
 ```
 # docker run -it -v /opt:/scan:ro tquinnelly/clamav-alpine -i
 
-2020-06-02T22:09:19+0000 ClamAV process starting
+2020-10-07T04:04:27+0000 ClamAV process starting
 
 Updating ClamAV scan DB
 ClamAV update process started at Wed Oct  7 04:04:27 2020
