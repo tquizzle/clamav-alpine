@@ -69,6 +69,9 @@ Time: 26.493 sec (0 m 26 s)
 
 ### History
 
+#### 2021-01-31
+* Bump version for clamav 0.103.0-r1
+
 #### 2020-10-06
 
 * Bump version for clamav 0.102.4-r1
