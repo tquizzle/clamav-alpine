@@ -8,6 +8,7 @@ It will always update the ClamAV Database, by using the standard `freshclam` bef
 If the local ClamAV Database is up-to-date, it will check and continue.
 
 ## How-To
+### Usage
 Using this image is fairly straightforward.
 
 Pay attention to `-v /path/to/scan` as this is the mounted directory that this docker image will scan.
@@ -17,54 +18,63 @@ docker run -it \
   -v /path/to/scan:/scan:ro \
   tquinnelly/clamav-alpine -i
 ```
+Use `-d` instead of `-it` if you want to detach and move along.
+### Post-Args
+I took the liberty to include `-i` by default. You can, however, add any you desire.
+
+`-i` - Only print infected files
+`--log=FILE` - save scan report to FILE
+`--database=FILE/DIR` - load virus database from FILE or load all supported db files from DIR
+`--official-db-only[=yes/no(*)]` - only load official signatures
+`--max-filesize=#n` - files larger than this will be skipped and assumed clean
+`--max-scansize=#n` - the maximum amount of data to scan for each container file
+`--leave-temps[=yes/no(*)]`- do not remove temporary files
+`--file-list=FILE` - scan files from FILE
+`--quiet` - only output error messages
+`--bell` - sound bell on virus detection
+`--cross-fs[=yes(*)/no]` - scan files and directories on other filesystems
+`--move=DIRECTORY` - move infected files into DIRECTORY
+`--copy=DIRECTORY` - copy infected files into DIRECTORY
+`--bytecode-timeout=N` - set bytecode timeout (in milliseconds)
+`--heuristic-alerts[=yes(*)/no]` - toggles heuristic alerts
+`--alert-encrypted[=yes/no(*)]` - alert on encrypted archives and documents
+`--nocerts` - disable authenticode certificate chain verification in PE files
+`--disable-cache` - disable caching and cache checks for hash sums of scanned files
 
 ## Expected Output
 
 ```
 # docker run -it -v /opt:/scan:ro tquinnelly/clamav-alpine -i
 
-2020-10-07T04:04:27+0000 ClamAV process starting
+2021-04-17T20:20:56+0000 ClamAV process starting
 
 Updating ClamAV scan DB
-ClamAV update process started at Wed Oct  7 04:04:27 2020
-daily database available for download (remote version: 25949)
-Time: 1.6s, ETA: 0.0s [=============================>] 108.12MiB/108.12MiB
-Testing database: '/var/lib/clamav/tmp.bbcc2/clamav-9328d8ee72166612b0ff7745f1871812.tmp-daily.cvd
-Database test passed.
-daily.cvd updated (version: 25949, sigs: 4328154, f-level: 63, builder: raynman)
-main database available for download (remote version: 59)
-Time: 1.6s, ETA: 0.0s [=============================>] 112.40MiB/112.40MiB
-Testing database: '/var/lib/clamav/tmp.bbcc2/clamav-3533f1ff9c0acba3c5c80169c8db1bc9.tmp-main.cvd'
-Database test passed.
-main.cvd updated (version: 59, sigs: 4564902, f-level: 60, builder: sigmgr)
-bytecode database available for download (remote version: 331)
-Time: 0.1s, ETA: 0.0s [=============================>] 289.44KiB/289.44KiB
-Testing database: '/var/lib/clamav/tmp.bbcc2/clamav-746c265d927ae6cf9a1c3103cee74c51.tmp-bytecode.
-Database test passed.
-bytecode.cvd updated (version: 331, sigs: 94, f-level: 63, builder: anvilleg)
-WARNING: Clamd was NOT notified: Can't connect to clamd through /run/clamav/clamd.sock: No such fi
+ClamAV update process started at Sat Apr 17 20:20:56 2021
+daily.cld database is up-to-date (version: 26143, sigs: 3971196, f-level: 63, builder: raynman)
+main.cld database is up-to-date (version: 59, sigs: 4564902, f-level: 60, builder: sigmgr)
+bytecode.cld database is up-to-date (version: 333, sigs: 92, f-level: 63, builder: awillia2)
 
 
 Freshclam updated the DB
 
 
-ClamAV 0.102.4/25949/Tue Oct  6 13:58:16 2020
-
+ClamAV 0.103.2/26143/Sat Apr 17 11:06:39 2021
 
 Scanning /scan
 
-
 ----------- SCAN SUMMARY -----------
-Known viruses: 7136236
-Engine version: 0.102.3
-Scanned directories: 1
-Scanned files: 1
+Known viruses: 8520831
+Engine version: 0.103.2
+Scanned directories: 232
+Scanned files: 5024
 Infected files: 0
-Data scanned: 0.00 MB
-Data read: 0.00 MB (ratio 0.00:1)
-Time: 26.493 sec (0 m 26 s)
+Data scanned: 53482.56 MB
+Data read: 140471.02 MB (ratio 0.38:1)
+Time: 5801.541 sec (96 m 41 s)
+Start Date: 2021:04:17 20:20:56
+End Date:   2021:04:17 21:57:37
 
-2020-10-07T04:05:32+0000 ClamAV scanning finished
+2021-04-17T21:57:38+0000 ClamAV scanning finished
 ```
 
 ### History
