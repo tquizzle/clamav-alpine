@@ -22,24 +22,24 @@ Use `-d` instead of `-it` if you want to detach and move along.
 ### Post-Args
 I took the liberty to include `-i` by default. You can, however, add any you desire.
 
-`-i` - Only print infected files
-`--log=FILE` - save scan report to FILE
-`--database=FILE/DIR` - load virus database from FILE or load all supported db files from DIR
-`--official-db-only[=yes/no(*)]` - only load official signatures
-`--max-filesize=#n` - files larger than this will be skipped and assumed clean
-`--max-scansize=#n` - the maximum amount of data to scan for each container file
-`--leave-temps[=yes/no(*)]`- do not remove temporary files
-`--file-list=FILE` - scan files from FILE
-`--quiet` - only output error messages
-`--bell` - sound bell on virus detection
-`--cross-fs[=yes(*)/no]` - scan files and directories on other filesystems
-`--move=DIRECTORY` - move infected files into DIRECTORY
-`--copy=DIRECTORY` - copy infected files into DIRECTORY
-`--bytecode-timeout=N` - set bytecode timeout (in milliseconds)
-`--heuristic-alerts[=yes(*)/no]` - toggles heuristic alerts
-`--alert-encrypted[=yes/no(*)]` - alert on encrypted archives and documents
-`--nocerts` - disable authenticode certificate chain verification in PE files
-`--disable-cache` - disable caching and cache checks for hash sums of scanned files
+* `-i` - Only print infected files
+* `--log=FILE` - save scan report to FILE
+* `--database=FILE/DIR` - load virus database from FILE or load all supported db files from DIR
+* `--official-db-only[=yes/no(*)]` - only load official signatures
+* `--max-filesize=#n` - files larger than this will be skipped and assumed clean
+* `--max-scansize=#n` - the maximum amount of data to scan for each container file
+* `--leave-temps[=yes/no(*)]`- do not remove temporary files
+* `--file-list=FILE` - scan files from FILE
+* `--quiet` - only output error messages
+* `--bell` - sound bell on virus detection
+* `--cross-fs[=yes(*)/no]` - scan files and directories on other filesystems
+* `--move=DIRECTORY` - move infected files into DIRECTORY
+* `--copy=DIRECTORY` - copy infected files into DIRECTORY
+* `--bytecode-timeout=N` - set bytecode timeout (in milliseconds)
+* `--heuristic-alerts[=yes(*)/no]` - toggles heuristic alerts
+* `--alert-encrypted[=yes/no(*)]` - alert on encrypted archives and documents
+* `--nocerts` - disable authenticode certificate chain verification in PE files
+* `--disable-cache` - disable caching and cache checks for hash sums of scanned files
 
 ## Expected Output
 
