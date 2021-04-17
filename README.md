@@ -72,10 +72,10 @@ Time: 26.493 sec (0 m 26 s)
 #### 2021-04-17
 * Bump version for clamav 0.103.2-r0
 * Pull Requests
-* Added Upgrade openssl
-  * PR - https://github.com/tquizzle/clamav-alpine/pull/5
-* Added ca-certificates package
-  * PR - https://github.com/tquizzle/clamav-alpine/pull/6
+  * Added Upgrade openssl
+    * PR - https://github.com/tquizzle/clamav-alpine/pull/5
+  * Added ca-certificates package
+    * PR - https://github.com/tquizzle/clamav-alpine/pull/6
 #### 2021-01-31
 * Bump version for clamav 0.103.0-r1
 
