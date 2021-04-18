@@ -2,6 +2,8 @@
 
 ![Docker Pulls](https://img.shields.io/docker/pulls/tquinnelly/clamav-alpine.svg?style=for-the-badge)
 
+!(https://img.shields.io/badge/PayPal-Docker%20Love-informational)
+
 This container allows you a very simple way to scan a mounted directory using `clamscan`.
 
 It will always update the ClamAV Database, by using the standard `freshclam` before running `clamscan`.
@@ -38,8 +40,7 @@ I took the liberty to include `-i` by default. You can, however, add any you des
 * `--bytecode-timeout=N` - set bytecode timeout (in milliseconds)
 * `--heuristic-alerts[=yes(*)/no]` - toggles heuristic alerts
 * `--alert-encrypted[=yes/no(*)]` - alert on encrypted archives and documents
-* `--nocerts` - disable authenticode certificate chain verification in PE files
-* `--disable-cache` - disable caching and cache checks for hash sums of scanned files
+* `--nocerts` - disable authenticode certificate chain verification in PE files`--disable-cache` - disable caching and cache checks for hash sums of scanned files
 
 ## Expected Output
 
