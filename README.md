@@ -2,7 +2,7 @@
 
 ![Docker Pulls](https://img.shields.io/docker/pulls/tquinnelly/clamav-alpine.svg?style=for-the-badge)
 
-[<img src="https://img.shields.io/badge/PayPal-Docker%20Love-informational">](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=FMYAA6ZDFC4BE&source=url)
+[<img src="https://img.shields.io/badge/PayPal-Docker%20Love-informational?style=for-the-badge">])(https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=FMYAA6ZDFC4BE&source=url)
 
 This container allows you a very simple way to scan a mounted directory using `clamscan`.
 
