@@ -21,7 +21,7 @@ docker run -it \
   tquinnelly/clamav-alpine -i
 ```
 Use `-d` instead of `-it` if you want to detach and move along.
-### Post-Args
+#### Post-Args
 I took the liberty to include `-i` by default. You can, however, add any you desire.
 
 * `-i` - Only print infected files
@@ -40,7 +40,33 @@ I took the liberty to include `-i` by default. You can, however, add any you des
 * `--bytecode-timeout=N` - set bytecode timeout (in milliseconds)
 * `--heuristic-alerts[=yes(*)/no]` - toggles heuristic alerts
 * `--alert-encrypted[=yes/no(*)]` - alert on encrypted archives and documents
-* `--nocerts` - disable authenticode certificate chain verification in PE files`--disable-cache` - disable caching and cache checks for hash sums of scanned files
+* `--nocerts` - disable authenticode certificate chain verification in PE files
+* `--disable-cache` - disable caching and cache checks for hash sums of scanned files
+
+#### Volumes
+I only have the `/scan` directory noted above. You can add others in conjunction with the post-args as well.
+
+**Save AV Signatures**
+
+* `-v /path/to/sig:/var/lib/clamav`
+
+**Infected Dir**
+
+* `-v /path/to/infected:/infected`
+* Then  you can use either the `--move` or `--copy` post-arg above.
+
+### Examples
+Here are some examples of various configurations.
+
+This is the one **I** run. I target 2 cores of my CPU as to not cripple my host. I also log to the DB directory and limit 2G file size scan.
+
+```
+docker run -d --name=ClamAV \
+  --cpuset-cpus='0,1' \
+  -v /path/to/scan:/scan:ro \
+  -v /path/to/sig:/var/lib/clamav:rw \
+  tquinnelly/clamav-alpine -i --log=/var/lib/clamav/log.log --max-filesize=2048M
+```
 
 ## Expected Output
 
