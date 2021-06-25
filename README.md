@@ -106,6 +106,9 @@ End Date:   2021:04:17 21:57:37
 
 ### History
 
+#### 2021-06-24
+* Bump version for clamav 0.103.3-r0
+
 #### 2021-04-17
 * Bump version for clamav 0.103.2-r0
 * Pull Requests
