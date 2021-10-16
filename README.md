@@ -114,6 +114,8 @@ End Date:   2021:04:17 21:57:37
 
 
 ## History
+#### 2021-10-08
+* Bump edge version for clamav to 0.103.3-r1
 
 #### 2021-06-24
 * Bump version for clamav 0.103.3-r0
