@@ -1,8 +1,9 @@
 # ClamAV scanning Docker container based on Alpine
+<img src="http://its.ucsc.edu/software/images/clam.png">
 
 ![Docker Pulls](https://img.shields.io/docker/pulls/tquinnelly/clamav-alpine.svg?style=for-the-badge)
 
-[<img src="https://img.shields.io/badge/PayPal-Docker%20Love-informational?style=for-the-badge">](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=FMYAA6ZDFC4BE&source=url)
+[<img src="https://img.shields.io/badge/Show%20me%20some%20Love-informational?style=for-the-badge">](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=FMYAA6ZDFC4BE&source=url)
 
 This container allows you a very simple way to scan a mounted directory using `clamscan`.
 
@@ -104,12 +105,20 @@ End Date:   2021:04:17 21:57:37
 2021-04-17T21:57:38+0000 ClamAV scanning finished
 ```
 
-### History
+## Supported Tags | Versions
+
+| Tag | ClamAV Version | Alpine Version |
+| --- | --- | --- |
+| latest | 0.103.3-r0 | 3.14 |
+| edge | 0.103.3-r1 | Edge |
+
+
+## History
 
 #### 2021-06-24
 * Bump version for clamav 0.103.3-r0
 
-#### 2021-04-17
+### 2021-04-17
 * Bump version for clamav 0.103.2-r0
 * Pull Requests
   * Added Upgrade openssl
