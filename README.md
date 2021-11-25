@@ -110,10 +110,14 @@ End Date:   2021:04:17 21:57:37
 | Tag | ClamAV Version | Alpine Version |
 | --- | --- | --- |
 | latest | 0.103.3-r0 | 3.14 |
-| edge | 0.103.3-r1 | Edge |
+| edge | 0.104.1-r0 | Edge |
 
 
 ## History
+
+#### 2021-11-25
+* Bump edge version for clamav to 0.104.1-r0
+
 #### 2021-10-08
 * Bump edge version for clamav to 0.103.3-r1
 
@@ -127,18 +131,16 @@ End Date:   2021:04:17 21:57:37
     * PR - https://github.com/tquizzle/clamav-alpine/pull/5
   * Added ca-certificates package
     * PR - https://github.com/tquizzle/clamav-alpine/pull/6
+
 #### 2021-01-31
 * Bump version for clamav 0.103.0-r1
 
 #### 2020-10-06
-
 * Bump version for clamav 0.102.4-r1
 
 #### 2020-05-23
-
 * Bump version for clamav 0.102.3-r0
 * Added unrar and unrar libs
 
 #### 2020-02-16
-
 * Bump version for clamav 0.102.1-r0
