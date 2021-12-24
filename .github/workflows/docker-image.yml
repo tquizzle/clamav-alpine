@@ -4,11 +4,13 @@ on:
   push:
     branches: 
       - master
+      - latest
       - edge
 
   pull_request:
     branches: 
       - master
+      - latest
       - edge
 
 jobs:
