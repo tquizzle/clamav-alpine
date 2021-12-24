@@ -22,7 +22,7 @@
       - [2021-11-25](#2021-11-25)
       - [2021-10-08](#2021-10-08)
       - [2021-06-24](#2021-06-24)
-    - [2021-04-17](#2021-04-17)
+      - [2021-04-17](#2021-04-17)
       - [2021-01-31](#2021-01-31)
       - [2020-10-06](#2020-10-06)
       - [2020-05-23](#2020-05-23)
@@ -175,7 +175,7 @@ According to our scan, you are currently using the most secure version of the se
 #### 2021-06-24
 * Bump version for clamav 0.103.3-r0
 
-### 2021-04-17
+#### 2021-04-17
 * Bump version for clamav 0.103.2-r0
 * Pull Requests
   * Added Upgrade openssl
