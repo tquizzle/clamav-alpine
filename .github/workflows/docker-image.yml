@@ -1,0 +1,23 @@
+name: Docker Image CI
+
+on:
+  push:
+    branches: 
+      - master
+      - edge
+
+  pull_request:
+    branches: 
+      - master
+      - edge
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Build the Docker image
+      run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
