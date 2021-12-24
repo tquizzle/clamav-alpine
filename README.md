@@ -112,6 +112,29 @@ End Date:   2021:04:17 21:57:37
 | latest | 0.103.3-r0 | 3.14 |
 | edge | 0.104.1-r0 | Edge |
 
+## Vuln Scanning
+### Edge
+Testing tquinnelly/clamav-alpine:edge...
+
+Package manager:   apk
+Project name:      docker-image|tquinnelly/clamav-alpine
+Docker image:      tquinnelly/clamav-alpine:edge
+Platform:          linux/amd64
+
+✔ Tested 39 dependencies for known vulnerabilities, no vulnerable paths found.
+
+### Latest
+Testing tquinnelly/clamav-alpine...
+
+Package manager:   apk
+Project name:      docker-image|tquinnelly/clamav-alpine
+Docker image:      tquinnelly/clamav-alpine
+Platform:          linux/amd64
+Base image:        alpine:3.14.3
+
+✔ Tested 37 dependencies for known vulnerabilities, no vulnerable paths found.
+
+According to our scan, you are currently using the most secure version of the selected base image
 
 ## History
 
