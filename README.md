@@ -5,6 +5,30 @@
 
 [<img src="https://img.shields.io/badge/Show%20me%20some%20Love-informational?style=for-the-badge">](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=FMYAA6ZDFC4BE&source=url)
 
+<!-- TOC -->
+- [ClamAV scanning Docker container based on Alpine](#clamav-scanning-docker-container-based-on-alpine)
+  - [How-To](#how-to)
+    - [Usage](#usage)
+      - [Post-Args](#post-args)
+      - [Volumes](#volumes)
+    - [Examples](#examples)
+  - [Expected Output](#expected-output)
+  - [Supported Tags | Versions](#supported-tags--versions)
+  - [Vuln Scanning](#vuln-scanning)
+    - [Edge](#edge)
+    - [Latest](#latest)
+  - [History](#history)
+      - [2021-12-24](#2021-12-24)
+      - [2021-11-25](#2021-11-25)
+      - [2021-10-08](#2021-10-08)
+      - [2021-06-24](#2021-06-24)
+    - [2021-04-17](#2021-04-17)
+      - [2021-01-31](#2021-01-31)
+      - [2020-10-06](#2020-10-06)
+      - [2020-05-23](#2020-05-23)
+      - [2020-02-16](#2020-02-16)
+<!-- /TOC -->
+
 This container allows you a very simple way to scan a mounted directory using `clamscan`.
 
 It will always update the ClamAV Database, by using the standard `freshclam` before running `clamscan`.
@@ -137,6 +161,10 @@ Base image:        alpine:3.14.3
 According to our scan, you are currently using the most secure version of the selected base image
 
 ## History
+
+#### 2021-12-24
+* Updating packages for vuln scan
+* Reorganizing commands
 
 #### 2021-11-25
 * Bump edge version for clamav to 0.104.1-r0
