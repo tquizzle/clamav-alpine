@@ -1,9 +1,10 @@
 # ClamAV scanning Docker container based on Alpine
 <img src="http://its.ucsc.edu/software/images/clam.png">
 
-![Docker Pulls](https://img.shields.io/docker/pulls/tquinnelly/clamav-alpine.svg?style=for-the-badge)
+<!-- ![Docker Pulls](https://img.shields.io/docker/pulls/tquinnelly/clamav-alpine.svg?style=for-the-badge) -->
+![Downloads](https://img.shields.io/github/downloads/tquinnelly/clamav-alpine/total.svg)
 
-[<img src="https://img.shields.io/badge/Show%20me%20some%20Love-informational?style=for-the-badge">](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=FMYAA6ZDFC4BE&source=url)
+[<img src="https://img.shields.io/badge/PayPal-00457C?style=for-the-badge&logo=paypal&logoColor=white">](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=FMYAA6ZDFC4BE&source=url)
 
 <!-- TOC -->
 - [ClamAV scanning Docker container based on Alpine](#clamav-scanning-docker-container-based-on-alpine)
@@ -140,21 +141,21 @@ End Date:   2021:04:17 21:57:37
 ### Edge
 Testing tquinnelly/clamav-alpine:edge...
 
-Package manager:   apk
-Project name:      docker-image|tquinnelly/clamav-alpine
-Docker image:      tquinnelly/clamav-alpine:edge
-Platform:          linux/amd64
+* Package manager:   apk
+* Project name:      docker-image|tquinnelly/clamav-alpine
+* Docker image:      tquinnelly/clamav-alpine:edge
+* Platform:          linux/amd64
 
 ✔ Tested 39 dependencies for known vulnerabilities, no vulnerable paths found.
 
 ### Latest
 Testing tquinnelly/clamav-alpine...
 
-Package manager:   apk
-Project name:      docker-image|tquinnelly/clamav-alpine
-Docker image:      tquinnelly/clamav-alpine
-Platform:          linux/amd64
-Base image:        alpine:3.14.3
+* Package manager:   apk
+* Project name:      docker-image|tquinnelly/clamav-alpine
+* Docker image:      tquinnelly/clamav-alpine
+* Platform:          linux/amd64
+* Base image:        alpine:3.14.3
 
 ✔ Tested 37 dependencies for known vulnerabilities, no vulnerable paths found.
 
