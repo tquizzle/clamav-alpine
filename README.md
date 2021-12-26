@@ -2,7 +2,7 @@
 <img src="http://its.ucsc.edu/software/images/clam.png">
 
 <!-- ![Docker Pulls](https://img.shields.io/docker/pulls/tquinnelly/clamav-alpine.svg?style=for-the-badge) -->
-![Downloads](https://img.shields.io/github/downloads/tquinnelly/clamav-alpine/total.svg)
+![Downloads](https://img.shields.io/github/downloads/tquizzle/clamav-alpine/total.svg)
 
 [<img src="https://img.shields.io/badge/PayPal-00457C?style=for-the-badge&logo=paypal&logoColor=white">](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=FMYAA6ZDFC4BE&source=url)
 
