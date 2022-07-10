@@ -95,7 +95,7 @@ docker run -d --name=ClamAV \
 ## Expected Output
 
 ```
-# docker run -it -v /opt:/scan:ro tquinnelly/clamav-alpine -i
+# docker run -it -v /path:/scan:ro tquinnelly/clamav-alpine -i
 
 2022-07-10T13:05:10+00:00 ClamAV process starting
 
