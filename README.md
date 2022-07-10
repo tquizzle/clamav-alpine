@@ -16,6 +16,7 @@
     - [Edge](#edge)
     - [Latest](#latest)
   - [History](#history)
+      - [2022-07-10](#2022-07-10)
       - [2021-12-24](#2021-12-24)
       - [2021-11-25](#2021-11-25)
       - [2021-10-08](#2021-10-08)
@@ -96,43 +97,50 @@ docker run -d --name=ClamAV \
 ```
 # docker run -it -v /opt:/scan:ro tquinnelly/clamav-alpine -i
 
-2021-04-17T20:20:56+0000 ClamAV process starting
+2022-07-10T13:05:10+00:00 ClamAV process starting
 
 Updating ClamAV scan DB
-ClamAV update process started at Sat Apr 17 20:20:56 2021
-daily.cld database is up-to-date (version: 26143, sigs: 3971196, f-level: 63, builder: raynman)
-main.cld database is up-to-date (version: 59, sigs: 4564902, f-level: 60, builder: sigmgr)
-bytecode.cld database is up-to-date (version: 333, sigs: 92, f-level: 63, builder: awillia2)
-
+ClamAV update process started at Sun Jul 10 13:05:10 2022
+daily database available for download (remote version: 26597)
+Testing database: '/var/lib/clamav/tmp.c94c177031/clamav-5960cb40f091d042fdbe87b6656dc482.tmp-daily.cvd' ...
+Database test passed.
+daily.cvd updated (version: 26597, sigs: 1989376, f-level: 90, builder: raynman)
+main database available for download (remote version: 62)
+Testing database: '/var/lib/clamav/tmp.c94c177031/clamav-f97772d5bbd6c13c61c4ea14c3ebeb86.tmp-main.cvd' ...
+Database test passed.
+main.cvd updated (version: 62, sigs: 6647427, f-level: 90, builder: sigmgr)
+bytecode database available for download (remote version: 333)
+Testing database: '/var/lib/clamav/tmp.c94c177031/clamav-5ce3fe7b3dd82e9d6f61c4d68dde2ab0.tmp-bytecode.cvd' ...
+Database test passed.
+bytecode.cvd updated (version: 333, sigs: 92, f-level: 63, builder: awillia2)
 
 Freshclam updated the DB
 
-
-ClamAV 0.103.2/26143/Sat Apr 17 11:06:39 2021
+ClamAV 0.104.3/26597/Sun Jul 10 07:56:43 2022
 
 Scanning /scan
 
 ----------- SCAN SUMMARY -----------
-Known viruses: 8520831
-Engine version: 0.103.2
-Scanned directories: 232
-Scanned files: 5024
+Known viruses: 8621438
+Engine version: 0.104.3
+Scanned directories: 3171
+Scanned files: 16683
 Infected files: 0
-Data scanned: 53482.56 MB
-Data read: 140471.02 MB (ratio 0.38:1)
-Time: 5801.541 sec (96 m 41 s)
-Start Date: 2021:04:17 20:20:56
-End Date:   2021:04:17 21:57:37
+Data scanned: 3131.81 MB
+Data read: 3120.78 MB (ratio 1.00:1)
+Time: 375.514 sec (6 m 15 s)
+Start Date: 2022:07:10 13:05:53
+End Date:   2022:07:10 13:12:08
 
-2021-04-17T21:57:38+0000 ClamAV scanning finished
+2022-07-10T13:12:08+00:00 ClamAV scanning finished
 ```
 
 ## Supported Tags | Versions
 
 | Tag | ClamAV Version | Alpine Version |
 | --- | --- | --- |
-| latest | 0.103.3-r0 | 3.14 |
-| edge | 0.104.1-r0 | Edge |
+| latest | 0.104.3-r0 | 3.16 |
+| edge | 0.104.3-r0 | Edge |
 
 ## Vuln Scanning
 ### Edge
@@ -152,13 +160,17 @@ Testing tquinnelly/clamav-alpine...
 * Project name:      docker-image|tquinnelly/clamav-alpine
 * Docker image:      tquinnelly/clamav-alpine
 * Platform:          linux/amd64
-* Base image:        alpine:3.14.3
+* Base image:        alpine:3.16.0
 
-✔ Tested 37 dependencies for known vulnerabilities, no vulnerable paths found.
+✔ Tested 39 dependencies for known vulnerabilities, no vulnerable paths found.
 
 According to our scan, you are currently using the most secure version of the selected base image
 
 ## History
+
+#### 2022-07-10
+* Updating `latest` to Alpine 3.16
+* Updating ClamAV to 0.104.3-r0 on `latest` and `edge`
 
 #### 2021-12-24
 * Updating packages for vuln scan
