@@ -16,7 +16,7 @@
     - [Edge](#edge)
     - [Latest](#latest)
   - [History](#history)
-      - [2022-10-01](#2022-10-01)
+      - [2022-09-02](#2022-09-02)
       - [2022-07-10](#2022-07-10)
       - [2021-12-24](#2021-12-24)
       - [2021-11-25](#2021-11-25)
@@ -169,7 +169,7 @@ According to our scan, you are currently using the most secure version of the se
 
 ## History
 
-#### 2022-10-01
+#### 2022-09-02
 * Updated ClamAV to 0.104.4-r1 on `edge`
 
 #### 2022-07-10
