@@ -16,6 +16,7 @@
     - [Edge](#edge)
     - [Latest](#latest)
   - [History](#history)
+      - [2023-02-11](#2023-02-11)
       - [2022-09-02](#2022-09-02)
       - [2022-07-10](#2022-07-10)
       - [2021-12-24](#2021-12-24)
@@ -46,6 +47,7 @@ docker run -it \
   tquinnelly/clamav-alpine -i
 ```
 Use `-d` instead of `-it` if you want to detach and move along.
+
 #### Post-Args
 I took the liberty to include `-i` by default. You can, however, add any you desire.
 
@@ -140,10 +142,10 @@ End Date:   2022:07:10 13:12:08
 
 | Tag | ClamAV Version | Alpine Version |
 | --- | --- | --- |
-| latest | 0.104.3-r0 | 3.16 |
+| latest | 0.105.1-r0 | 3.17 |
 | edge | 0.104.4-r1 | Edge |
 
-## Vuln Scanning
+<!-- ## Vuln Scanning
 ### Edge
 Testing tquinnelly/clamav-alpine:edge...
 
@@ -165,9 +167,13 @@ Testing tquinnelly/clamav-alpine...
 
 ✔ Tested 39 dependencies for known vulnerabilities, no vulnerable paths found.
 
-According to our scan, you are currently using the most secure version of the selected base image
+According to our scan, you are currently using the most secure version of the selected base image -->
 
 ## History
+
+#### 2023-02-11
+* Updated `latest` to Alpine 3.17
+* Updated ClamAV to 0.105.1-r0
 
 #### 2022-09-02
 * Updated ClamAV to 0.104.4-r1 on `edge`
