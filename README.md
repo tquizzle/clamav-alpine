@@ -175,27 +175,27 @@ According to our scan, you are currently using the most secure version of the se
 * Updated `latest` to Alpine 3.17
 * Updated ClamAV to 0.105.1-r0
 
-#### 2022-09-02
+#### [2022-09-02](#2022-09-02)
 * Updated ClamAV to 0.104.4-r1 on `edge`
 
-#### 2022-07-10
+#### [2022-07-10](#2022-07-10)
 * Updating `latest` to Alpine 3.16
 * Updating ClamAV to 0.104.3-r0 on `latest` and `edge`
 
-#### 2021-12-24
+#### [2021-12-24](#2021-12-24)
 * Updating packages for vuln scan
 * Reorganizing commands
 
-#### 2021-11-25
+#### [2021-11-25](#2021-11-25)
 * Bump edge version for clamav to 0.104.1-r0
 
-#### 2021-10-08
+#### [2021-10-08](#2021-10-08)
 * Bump edge version for clamav to 0.103.3-r1
 
-#### 2021-06-24
+#### [2021-06-24](#2021-06-24)
 * Bump version for clamav 0.103.3-r0
 
-#### 2021-04-17
+#### [2021-04-17](#2021-04-17)
 * Bump version for clamav 0.103.2-r0
 * Pull Requests
   * Added Upgrade openssl
@@ -203,15 +203,15 @@ According to our scan, you are currently using the most secure version of the se
   * Added ca-certificates package
     * PR - https://github.com/tquizzle/clamav-alpine/pull/6
 
-#### 2021-01-31
+#### [2021-01-31](#2021-01-31)
 * Bump version for clamav 0.103.0-r1
 
-#### 2020-10-06
+#### [2020-10-06](#2020-10-06)
 * Bump version for clamav 0.102.4-r1
 
-#### 2020-05-23
+#### [2020-05-23](#2020-05-23)
 * Bump version for clamav 0.102.3-r0
 * Added unrar and unrar libs
 
-#### 2020-02-16
+#### [2020-02-16](#2020-02-16)
 * Bump version for clamav 0.102.1-r0
