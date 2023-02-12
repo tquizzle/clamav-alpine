@@ -171,7 +171,7 @@ According to our scan, you are currently using the most secure version of the se
 
 ## History
 
-#### 2023-02-11
+#### [2023-02-11](#2023-02-11)
 * Updated `latest` to Alpine 3.17
 * Updated ClamAV to 0.105.1-r0
 
