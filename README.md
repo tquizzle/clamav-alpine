@@ -38,6 +38,7 @@ It will always update the ClamAV Database, by using the standard `freshclam` bef
 If the local ClamAV Database is up-to-date, it will check and continue.
 
 ## How-To
+
 ### Usage
 Using this image is fairly straightforward.
 
