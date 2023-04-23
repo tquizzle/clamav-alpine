@@ -1,9 +1,8 @@
 FROM alpine:3.17
-#LABEL maintainer="https://github.com/tquizzle"
 LABEL maintainer="Travis Quinnelly" maintainer_url="https://github.com/tquizzle/"
 
 RUN apk update && \
-apk add --no-cache pv ca-certificates clamav=0.105.1-r0 clamav-libunrar && \
+apk add --no-cache pv ca-certificates clamav=0.105.2-r0 clamav-libunrar && \
 apk add --upgrade apk-tools libcurl openssl busybox && \
 rm -rf /var/cache/apk/*
 
