@@ -16,6 +16,7 @@
     - [Edge](#edge)
     - [Latest](#latest)
   - [History](#history)
+      - [2023-04-22](#2023-04-22)
       - [2023-02-11](#2023-02-11)
       - [2022-09-02](#2022-09-02)
       - [2022-07-10](#2022-07-10)
@@ -142,7 +143,7 @@ End Date:   2022:07:10 13:12:08
 
 | Tag | ClamAV Version | Alpine Version |
 | --- | --- | --- |
-| latest | 0.105.1-r0 | 3.17 |
+| latest | 0.105.2-r0 | 3.17 |
 | edge | 0.104.4-r1 | Edge |
 
 <!-- ## Vuln Scanning
@@ -170,6 +171,9 @@ Testing tquinnelly/clamav-alpine...
 According to our scan, you are currently using the most secure version of the selected base image -->
 
 ## History
+
+#### [2023-04-22](#2023-04-22)
+* Updated ClamAV to 0.105.2-r0
 
 #### [2023-02-11](#2023-02-11)
 * Updated `latest` to Alpine 3.17
