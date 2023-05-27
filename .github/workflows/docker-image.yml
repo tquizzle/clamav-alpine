@@ -16,3 +16,6 @@ jobs:
     - uses: actions/checkout@v2
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag tquinnelly/clamav-alpine:$(date +%s)
+
+name: Create .env file
+  uses: SpicyPizza/create-envfile@v1.3.0
