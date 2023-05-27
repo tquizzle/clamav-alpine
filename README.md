@@ -175,6 +175,10 @@ According to our scan, you are currently using the most secure version of the se
 
 ## History
 
+#### [2023-05-27](#2023-05-27) 
+* Updated `scan.sh` to fix the new line issue
+* Updated `edge` and `latest` Dockerfiles to remove hardcoded ClamAV version
+
 #### [2023-05-26](#2023-05-26) 
 * Updated `latest` to Alpine 3.18
 * Updated ClamAV to 1.10-r0 on `latest` and `edge`
