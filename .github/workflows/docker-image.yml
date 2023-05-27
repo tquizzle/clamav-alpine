@@ -17,5 +17,18 @@ jobs:
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag tquinnelly/clamav-alpine:$(date +%s)
 
-- name: Create .env file
-  uses: SpicyPizza/create-envfile@v1.3.0
+    - name: Generate env file
+      # You may pin to the exact commit or the version.
+      # uses: GoldenPeople/gh-env@0b025de5ff62286260692244ac2a6e70ac902c38
+      uses: GoldenPeople/gh-env@v1.0.0
+      with:
+        # name of env file to save. Default: .env
+        file: .env # optional, default is .env
+        # prefix to include in .env file. Default: ENV
+        prefix: # optional, default is ENV
+        # Prefix separator. Default: _ (underscore)
+        sep: # optional, default is _
+        # 
+        secrets: # optional
+        # 
+        vars: # optional
