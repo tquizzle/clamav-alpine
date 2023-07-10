@@ -1,4 +1,4 @@
-FROM alpine:3.18
+FROM alpine:3
 LABEL maintainer="Travis Quinnelly" maintainer_url="https://github.com/tquizzle/"
 
 RUN apk update && \
