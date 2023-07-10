@@ -2,8 +2,8 @@ name: Docker Image CI
 
 on:
   push:
-    branches: 
-      - master
+    tags:
+      - '*'
 
 #  pull_request:
 #    branches: 
@@ -30,6 +30,11 @@ jobs:
         uses: docker/metadata-action@818d4b7b91585d195f67373fd9cb0332e31a7175
         with:
           images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
+
+      - name: GitHub Tag Name 
+        run: |
+          echo "Tag name from GITHUB_REF_NAME: $GITHUB_REF_NAME"
+          echo "Tag name from github.ref_name: ${{  github.ref_name }}"
       
       - name: Build and push
         uses: docker/build-push-action@v4.1.1
