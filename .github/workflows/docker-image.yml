@@ -34,12 +34,13 @@ jobs:
       - name: GitHub Tag Name 
         run: |
           echo "Tag name from GITHUB_REF_NAME: $GITHUB_REF_NAME"
-          echo "Tag name from github.ref_name: ${{  github.ref_name }}"
+          echo "Tag name from github.ref_name: ${{ github.ref_name }}"
       
       - name: Build and push
         uses: docker/build-push-action@v4.1.1
         with:
           context: "{{defaultContext}}"
           push: true
-          tags: ${{steps.tag.outputs.tag}}
+          #tags: ${{steps.tag.outputs.tag}}
+          tags: ${{ github.ref_name }}
           labels: ${{ steps.meta.outputs.labels }}
