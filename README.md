@@ -1,5 +1,5 @@
 # ClamAV scanning Docker container based on Alpine
-<img src="http://its.ucsc.edu/software/images/clam.png">
+<img src="http://its.ucsc.edu/software/images/clam.png"> 
 
 ![Docker Pulls](https://img.shields.io/docker/pulls/tquinnelly/clamav-alpine.svg?style=for-the-badge) [<img src="https://img.shields.io/badge/PayPal-00457C?style=for-the-badge&logo=paypal&color=086DA5&logoColor=white">](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=FMYAA6ZDFC4BE&source=url) ![GitHub Build](https://img.shields.io/github/actions/workflow/status/tquizzle/clamav-alpine/docker-image.yml?color=086DA5&style=for-the-badge)
 
