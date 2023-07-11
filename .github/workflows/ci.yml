@@ -7,7 +7,6 @@ on:
       - 'master'
     tags:
       - 'latest'
-      - 'edge'
   pull_request:
     branches:
       - 'master'
@@ -24,7 +23,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v4
         with:
-          images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ env.DOCKER_TAG }}
+          images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
       -
         name: Login to DockerHub
         if: github.event_name != 'pull_request'
@@ -39,4 +38,5 @@ jobs:
           context: .
           push: ${{ github.event_name != 'pull_request' }}
           tags: ${{ steps.meta.outputs.tags }}
+          tags: ${{ env.DOCKER_TAG }}
           labels: ${{ steps.meta.outputs.labels }}
