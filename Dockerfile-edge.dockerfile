@@ -2,7 +2,7 @@ FROM alpine:edge
 LABEL maintainer="Travis Quinnelly" maintainer_url="https://github.com/tquizzle/"
 
 RUN apk update && \
-apk add --no-cache pv clamav clamav-libunrar ca-certificates && \
+apk add --no-cache pv clamav clamav-libunrar ca-certificates tzdata && \
 apk add --upgrade openssl apk-tools busybox && \
 rm -rf /var/cache/apk/*
 
