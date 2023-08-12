@@ -16,6 +16,7 @@
     - [Edge](#edge)
     - [Latest](#latest)
   - [History](#history)
+      - [2023-07](#2023-07)
       - [2023-05-27](#2023-05-27)
       - [2023-05-26](#2023-05-26)
       - [2023-04-23](#2023-04-23)
@@ -147,7 +148,7 @@ End Date:   2022:07:10 13:12:08
 
 | Tag | ClamAV Version | Alpine Version |
 | --- | --- | --- |
-| latest | 1.1.0-r0 | 3.18 |
+| latest | 1.1.0-r0 | 3 |
 | edge | 1.0.1-r1 | Edge |
 
 <!-- ## Vuln Scanning
@@ -175,6 +176,9 @@ Testing tquinnelly/clamav-alpine...
 According to our scan, you are currently using the most secure version of the selected base image -->
 
 ## History
+
+#### [2023-07](#2023-07) 
+* Added `tzdata` for local timezone data
 
 #### [2023-05-27](#2023-05-27) 
 * Updated `scan.sh` to fix the new line issue
