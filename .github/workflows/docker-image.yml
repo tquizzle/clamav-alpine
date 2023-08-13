@@ -5,8 +5,8 @@ on:
     tags:
       - 'latest'
       - 'edge'
-    branches:
-      - master
+#    branches:
+#      - master
 
 #  pull_request:
 #    branches: 
@@ -67,9 +67,9 @@ jobs:
         id: build-and-push
         uses: docker/build-push-action@v4.1.1
         with:
-          context: .
+          context: ./Dockerfile
           push: ${{ github.event_name != 'pull_request' }}
           #tags: ${{ steps.meta.outputs.tags }}
           tags: ${{ env.IMAGE_TAG }}
-          labels: ${{ steps.meta.outputs.labels }}
+#          labels: ${{ steps.meta.outputs.labels }}
 
