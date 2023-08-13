@@ -3,9 +3,10 @@ name: Docker Image CI
 on:
   push:
     tags:
-      - '*'
-#    branches:
-#      - master
+      - 'latest'
+      - 'edge'
+    branches:
+      - master
 
 #  pull_request:
 #    branches: 
