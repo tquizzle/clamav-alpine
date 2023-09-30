@@ -1,7 +1,8 @@
 # ClamAV scanning Docker container based on Alpine
 <img src="http://its.ucsc.edu/software/images/clam.png"> 
 
-![Docker Pulls](https://img.shields.io/docker/pulls/tquinnelly/clamav-alpine.svg?style=for-the-badge) [<img src="https://img.shields.io/badge/PayPal-00457C?style=for-the-badge&logo=paypal&color=086DA5&logoColor=white">](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=FMYAA6ZDFC4BE&source=url) 
+![Docker Pulls](https://img.shields.io/docker/pulls/tquinnelly/clamav-alpine.svg?style=for-the-badge) ![GitHub Build Status (with event)](https://img.shields.io/github/actions/workflow/status/tquizzle/clamav-alpine/.github%2Fworkflows%2Fdocker-cicd.yml?style=for-the-badge)
+ [<img src="https://img.shields.io/badge/PayPal-00457C?style=for-the-badge&logo=paypal&color=086DA5&logoColor=white">](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=FMYAA6ZDFC4BE&source=url) 
 
 <!-- TOC -->
 - [ClamAV scanning Docker container based on Alpine](#clamav-scanning-docker-container-based-on-alpine)
