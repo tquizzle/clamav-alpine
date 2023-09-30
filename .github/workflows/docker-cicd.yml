@@ -4,8 +4,8 @@ on:
   push:
     tags:
       - 'latest'
-      - 'edge'  
-#    branches: [ "master" ]
+#      - 'edge'  
+    branches: [ "master" ]
   pull_request:
     branches: [ "master" ]
 
