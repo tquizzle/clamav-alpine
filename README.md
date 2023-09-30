@@ -149,7 +149,7 @@ End Date:   2022:07:10 13:12:08
 
 | Tag | ClamAV Version | Alpine Version |
 | --- | --- | --- |
-| latest | 1.1.0-r0 | 3 |
+| latest | 1.1.2-r0 | 3 |
 | edge | 1.0.1-r1 | Edge |
 
 <!-- ## Vuln Scanning
@@ -177,6 +177,14 @@ Testing tquinnelly/clamav-alpine...
 According to our scan, you are currently using the most secure version of the selected base image -->
 
 ## History
+
+#### [2023-09-30](#2023-09-30) 
+* Updated ClamAV to `1.1.2-r0` 
+* CVE Squash
+  * [CVE-2022-48174⁠](https://nvd.nist.gov/vuln/detail/CVE-2022-48174) 9.8
+  * [CVE-2023-3817](https://nvd.nist.gov/vuln/detail/CVE-2023-3817) 5.3
+  * [CVE-2023-2975](https://nvd.nist.gov/vuln/detail/CVE-2023-2975) 5.3
+  * [CVE-2023-2650](https://nvd.nist.gov/vuln/detail/CVE-2023-2650) 6.5
 
 #### [2023-07](#2023-07) 
 * Added `tzdata` for local timezone data
