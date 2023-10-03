@@ -9,13 +9,17 @@ on:
   pull_request:
     branches: [ "master" ]
 
+env:
+  # Use docker.io for Docker Hub if empty
+  REGISTRY: docker.io
+  IMAGE_NAME: ${{ github.repository }}
+  SHA: ${{ github.event.pull_request.head.sha || github.event.after }}
+
 jobs:
-
   build:
-
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v4
     - name: Build the Docker image
+      uses: actions/checkout@v4
       run: docker build . --file Dockerfile --tag tquinnelly/clamav-alpine:$(date +%s)
