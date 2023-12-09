@@ -34,9 +34,7 @@ jobs:
     - name: Push it
       uses: docker/build-push-action@v5.1.0
       with:
-        context: .
-        file: ./Dockerfile
         push: true
         tags: latest #${{ steps.meta.outputs.tags }}
-        labels: ${{ steps.meta.outputs.labels }}
+      #  labels: ${{ steps.meta.outputs.labels }}
         
