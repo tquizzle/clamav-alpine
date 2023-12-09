@@ -1,7 +1,8 @@
 # ClamAV scanning Docker container based on Alpine
 <img src="http://its.ucsc.edu/software/images/clam.png"> 
 
-![Docker Pulls](https://img.shields.io/docker/pulls/tquinnelly/clamav-alpine.svg?style=for-the-badge) [<img src="https://img.shields.io/badge/PayPal-00457C?style=for-the-badge&logo=paypal&color=086DA5&logoColor=white">](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=FMYAA6ZDFC4BE&source=url) ![GitHub Build](https://img.shields.io/github/actions/workflow/status/tquizzle/clamav-alpine/docker-image.yml?color=086DA5&style=for-the-badge)
+![Docker Pulls](https://img.shields.io/docker/pulls/tquinnelly/clamav-alpine.svg?style=for-the-badge) ![GitHub Build Status (with event)](https://img.shields.io/github/actions/workflow/status/tquizzle/clamav-alpine/.github%2Fworkflows%2Fdocker-cicd.yml?style=for-the-badge)
+ [<img src="https://img.shields.io/badge/PayPal-00457C?style=for-the-badge&logo=paypal&color=086DA5&logoColor=white">](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=FMYAA6ZDFC4BE&source=url) 
 
 <!-- TOC -->
 - [ClamAV scanning Docker container based on Alpine](#clamav-scanning-docker-container-based-on-alpine)
@@ -16,6 +17,8 @@
     - [Edge](#edge)
     - [Latest](#latest)
   - [History](#history)
+      - [2023-09-30](#2023-09-30)
+      - [2023-07](#2023-07)
       - [2023-12-09](#2023-12-09)
       - [2023-05-27](#2023-05-27)
       - [2023-05-26](#2023-05-26)
@@ -33,7 +36,7 @@
       - [2020-10-06](#2020-10-06)
       - [2020-05-23](#2020-05-23)
       - [2020-02-16](#2020-02-16)
-<!-- /TOC -->
+<!-- /TOC --> 
 
 This container allows you a very simple way to scan a mounted directory using `clamscan`.
 
@@ -148,8 +151,8 @@ End Date:   2022:07:10 13:12:08
 
 | Tag | ClamAV Version | Alpine Version |
 | --- | --- | --- |
-| latest | 1.2.1-r0 | 3.19 |
-| edge | 1.2.1-r0 | Edge |
+| latest | 1.1.0-r0 | 3.18 |
+| edge | 1.0.1-r1 | Edge |
 
 <!-- ## Vuln Scanning
 ### Edge
@@ -176,9 +179,6 @@ Testing tquinnelly/clamav-alpine...
 According to our scan, you are currently using the most secure version of the selected base image -->
 
 ## History
-
-#### [2023-12-09](#2023-12-09)
-* Updated ClamAV to 1.2.1-r0 on `latest` and `edge`
 
 #### [2023-05-27](#2023-05-27) 
 * Updated `scan.sh` to fix the new line issue
@@ -235,6 +235,7 @@ According to our scan, you are currently using the most secure version of the se
 #### [2020-05-23](#2020-05-23)
 * Bump version for clamav 0.102.3-r0
 * Added unrar and unrar libs
+
 
 #### [2020-02-16](#2020-02-16)
 * Bump version for clamav 0.102.1-r0
