@@ -1,0 +1,71 @@
+name: Docker Image CI
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+#    - uses: actions/checkout@v3
+#    - name: Build the Docker image
+#      run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
+#    -
+#      name: Login to Docker Hub
+#      uses: docker/login-action@v3
+#      with:
+#        username: ${{ secrets.DOCKERHUB_USERNAME }}
+#        password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+    - name: Docker build and push
+      # You may pin to the exact commit or the version.
+      # uses: cloudposse/github-action-docker-build-push@f1139911cacb0c4e6a2a79ae5c215684e87fd8fb
+      uses: cloudposse/github-action-docker-build-push@1.14.0
+      with:
+        # Working directory
+        workdir: # optional, default is ./
+        # Dockerfile name
+        file: # optional, default is Dockerfile
+        # List of build-time variables
+        build-args: # optional
+        # Organization
+        organization: 
+        # Repository
+        repository: tquinnelly/clamav-alpine
+        # Docker registry
+        registry: docker.io
+        # Sets the target stage to build
+        target: linux/amd64 # optional, default is 
+        # List of target platforms for build (e.g. linux/amd64,linux/arm64,linux/riscv64,linux/ppc64le,linux/s390x,etc)
+        platforms: # optional, default is linux/amd64
+        # Generate provenance attestation for the build
+        provenance: # optional
+        # Image name (excluding registry). Defaults to {{$organization/$repository}}.
+        image_name: # optional, default is 
+        # Docker login
+        login: ${{ secrets.DOCKERHUB_USERNAME }} # optional, default is 
+        # Docker password
+        password: ${{ secrets.DOCKERHUB_TOKEN }} # optional, default is 
+        # List of external cache sources for buildx (e.g., user/app:cache, type=local,src=path/to/dir)
+        cache-from: # optional, default is type=gha
+        # List of cache export destinations for buildx (e.g., user/app:cache, type=local,dest=path/to/dir)
+        cache-to: # optional, default is type=gha,mode=max
+        # Send the --no-cache flag to the docker build process
+        no-cache: # optional, default is false
+        # List of SSH agent socket or keys to expose to the build
+        ssh: # optional
+        # List of tags (supports https://github.com/docker/metadata-action#tags-input)
+        tags: # optional
+        # List of secrets to expose to the build (e.g., key=string, GIT_AUTH_TOKEN=mytoken)
+        secrets: # optional
+        # List of secret files to expose to the build (e.g., key=filename, MY_SECRET=./secret.txt)
+        secret-files: # optional
+        # Set to `true` to tag images with the PR HEAD SHA instead of the merge commit SHA within pull requests.
+        docker-metadata-pr-head-sha: # optional, default is false
+              
