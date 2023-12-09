@@ -16,6 +16,7 @@
     - [Edge](#edge)
     - [Latest](#latest)
   - [History](#history)
+      - [2023-12-09](#2023-12-09)
       - [2023-05-27](#2023-05-27)
       - [2023-05-26](#2023-05-26)
       - [2023-04-23](#2023-04-23)
@@ -147,8 +148,8 @@ End Date:   2022:07:10 13:12:08
 
 | Tag | ClamAV Version | Alpine Version |
 | --- | --- | --- |
-| latest | 1.1.0-r0 | 3.18 |
-| edge | 1.0.1-r1 | Edge |
+| latest | 1.2.1-r0 | 3.19 |
+| edge | 1.2.1-r0 | Edge |
 
 <!-- ## Vuln Scanning
 ### Edge
@@ -175,6 +176,9 @@ Testing tquinnelly/clamav-alpine...
 According to our scan, you are currently using the most secure version of the selected base image -->
 
 ## History
+
+#### [2023-12-09](#2023-12-09)
+* Updated ClamAV to 1.2.1-r0 on `latest` and `edge`
 
 #### [2023-05-27](#2023-05-27) 
 * Updated `scan.sh` to fix the new line issue
