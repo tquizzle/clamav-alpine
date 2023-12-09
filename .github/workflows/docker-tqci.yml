@@ -1,4 +1,4 @@
-name: Docker Image TQ CICD
+name: Docker Image TQ CI
 
 on:
   push:
@@ -31,9 +31,11 @@ jobs:
       with:
         images: tquinnelly/clamav-alpine
     
-    - name: Push it
+    - name: Push it - Latest
       uses: docker/build-push-action@v5.1.0
       with:
+        context: .
+        file: ./Dockerfile
         push: true
         tags: ${{ secrets.DOCKER_USERNAME }}/clamav-alpine:latest #${{ steps.meta.outputs.tags }}
       #  labels: ${{ steps.meta.outputs.labels }}
