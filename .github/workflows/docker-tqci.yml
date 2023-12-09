@@ -35,6 +35,6 @@ jobs:
       uses: docker/build-push-action@v5.1.0
       with:
         push: true
-        tags: latest #${{ steps.meta.outputs.tags }}
+        tags: tquinnelly/clamav-alpine:latest #${{ steps.meta.outputs.tags }}
       #  labels: ${{ steps.meta.outputs.labels }}
         
