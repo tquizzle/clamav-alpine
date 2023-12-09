@@ -57,15 +57,15 @@ jobs:
         # List of cache export destinations for buildx (e.g., user/app:cache, type=local,dest=path/to/dir)
         cache-to: # optional, default is type=gha,mode=max
         # Send the --no-cache flag to the docker build process
-        no-cache: # optional, default is false
+#        no-cache: # optional, default is false
         # List of SSH agent socket or keys to expose to the build
-        ssh: # optional
+#        ssh: # optional
         # List of tags (supports https://github.com/docker/metadata-action#tags-input)
         tags: # optional
         # List of secrets to expose to the build (e.g., key=string, GIT_AUTH_TOKEN=mytoken)
-        secrets: # optional
+#        secrets: # optional
         # List of secret files to expose to the build (e.g., key=filename, MY_SECRET=./secret.txt)
-        secret-files: # optional
+ #       secret-files: # optional
         # Set to `true` to tag images with the PR HEAD SHA instead of the merge commit SHA within pull requests.
         docker-metadata-pr-head-sha: # optional, default is false
               
