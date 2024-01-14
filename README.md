@@ -17,6 +17,7 @@
     - [Edge](#edge)
     - [Latest](#latest)
   - [History](#history)
+      - [2024-01-14](#2024-01-14)
       - [2023-12-09](#2023-12-09)
       - [2023-09-30](#2023-09-30)
       - [2023-07](#2023-07)
@@ -180,6 +181,9 @@ Testing tquinnelly/clamav-alpine...
 According to our scan, you are currently using the most secure version of the selected base image -->
 
 ## History
+
+#### [2024-01-14](#2024-01-14)
+* Updated openssl to 3.1.4-r3 on `latest` and `edge` to mitigate [CVE-2023-6129](https://security.snyk.io/vuln/SNYK-ALPINE319-OPENSSL-6148881)
 
 #### [2023-12-09](#2023-12-09)
 * Updated ClamAV to 1.2.1-r0 on `latest` and `edge`
