@@ -1,5 +1,6 @@
 FROM alpine:edge
-LABEL maintainer="Travis Quinnelly" maintainer_url="https://github.com/tquizzle/"
+LABEL maintainer="Travis Quinnelly" 
+LABEL maintainer_url="https://github.com/tquizzle/"
 
 RUN apk update && \
 apk add --no-cache pv clamav clamav-libunrar ca-certificates tzdata && \
