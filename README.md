@@ -2,7 +2,7 @@
 <img src="https://github.com/tquizzle/clamav-alpine/blob/master/img/clamav.png" width=300 alt="ClamAV"> 
 
 ![Docker Pulls](https://img.shields.io/docker/pulls/tquinnelly/clamav-alpine.svg?style=for-the-badge) ![GitHub Build Status (with event)](https://img.shields.io/github/actions/workflow/status/tquizzle/clamav-alpine/.github%2Fworkflows%2Fdocker-tqci.yml?style=for-the-badge)
- [<img src="https://img.shields.io/badge/PayPal-00457C?style=for-the-badge&logo=paypal&color=086DA5&logoColor=white">](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=FMYAA6ZDFC4BE&source=url) 
+<script type='text/javascript' src='https://storage.ko-fi.com/cdn/widget/Widget_2.js'></script><script type='text/javascript'>kofiwidget2.init('Support Me on Ko-fi', '#29abe0', 'R6R5SWT3A');kofiwidget2.draw();</script> 
 
 <!-- TOC -->
 - [ClamAV scanning Docker container based on Alpine](#clamav-scanning-docker-container-based-on-alpine)
