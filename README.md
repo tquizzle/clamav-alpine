@@ -20,6 +20,7 @@
     - [Edge](#edge)
     - [Latest](#latest)
   - [History](#history)
+      - [2024-03-08](#2024-03-08)
       - [2024-01-14](#2024-01-14)
       - [2023-12-09](#2023-12-09)
       - [2023-09-30](#2023-09-30)
@@ -156,8 +157,8 @@ End Date:   2022:07:10 13:12:08
 
 | Tag | ClamAV Version | Alpine Version |
 | --- | --- | --- |
-| latest | 1.2.1-r0 | 3.19 |
-| edge | 1.2.1-r0 | Edge |
+| latest | 1.2.2-r0 | 3.19 |
+| edge | 1.2.2-r0 | Edge |
 
 <!-- ## Vuln Scanning
 ### Edge
@@ -184,6 +185,9 @@ Testing tquinnelly/clamav-alpine...
 According to our scan, you are currently using the most secure version of the selected base image -->
 
 ## History
+
+#### [2024-01-14](#2024-03-08)
+* Updated ClamAV to 1.2.2-r0 on `latest` and `edge`
 
 #### [2024-01-14](#2024-01-14)
 * Updated openssl to 3.1.4-r3 on `latest` and `edge` to mitigate [CVE-2023-6129](https://security.snyk.io/vuln/SNYK-ALPINE319-OPENSSL-6148881)
