@@ -31,7 +31,7 @@ jobs:
         images: ${{ secrets.DOCKER_USERNAME }}/clamav-alpine
     
     - name: Push it - Latest
-      uses: docker/build-push-action@v5.1.0
+      uses: docker/build-push-action@v5.2.0
       with:
         context: .
         file: ./Dockerfile
@@ -39,7 +39,7 @@ jobs:
         tags: ${{ secrets.DOCKER_USERNAME }}/clamav-alpine:latest 
       
     - name: Push it - Edge
-      uses: docker/build-push-action@v5.1.0
+      uses: docker/build-push-action@v5.2.0
       with:
         context: .
         file: ./Dockerfile-edge.dockerfile
