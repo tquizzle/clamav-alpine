@@ -186,7 +186,7 @@ According to our scan, you are currently using the most secure version of the se
 
 ## History
 
-#### [2024-01-14](#2024-03-08)
+#### [2024-03-08](#2024-03-08)
 * Updated ClamAV to 1.2.2-r0 on `latest` and `edge`
 
 #### [2024-01-14](#2024-01-14)
