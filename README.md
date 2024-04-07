@@ -5,7 +5,7 @@
  ![GitHub Build Status (with event)](https://img.shields.io/github/actions/workflow/status/tquizzle/clamav-alpine/.github%2Fworkflows%2Fdocker-tqci.yml?style=for-the-badge) ![Last Commit](https://img.shields.io/github/last-commit/tquizzle/clamav-alpine?style=for-the-badge)
 
 [<img src="https://raw.githubusercontent.com/tquizzle/clamav-alpine/master/img/kofi_long_button_red-402x500.png" width=225 />](https://ko-fi.com/tquinnelly)
-
+ 
 <!-- TOC -->
 - [ClamAV scanning Docker container based on Alpine](#clamav-scanning-docker-container-based-on-alpine)
   - [How-To](#how-to)
