@@ -44,7 +44,7 @@ jobs:
         tags: ${{ secrets.DOCKER_USERNAME }}/clamav-alpine:latest 
       
     - name: Push it - Edge
-      uses: docker/build-push-action@v5.3.0
+      uses: docker/build-push-action@v6.5.0
       with:
         context: .
         file: ./Dockerfile-edge.dockerfile
