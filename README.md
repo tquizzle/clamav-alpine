@@ -157,8 +157,8 @@ End Date:   2022:07:10 13:12:08
 
 | Tag | ClamAV Version | Alpine Version |
 | --- | --- | --- |
-| latest | 1.2.2-r0 | 3.19 |
-| edge | 1.2.2-r0 | Edge |
+| latest | 1.2.2-r0 | 3.20 |
+| edge | 1.3.1-r0 | Edge |
 
 <!-- ## Vuln Scanning
 ### Edge
