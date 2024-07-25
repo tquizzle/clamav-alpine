@@ -1,7 +1,7 @@
 name: Docker Image TQ CI
 
 on:
- push:
+  push:
    branches: [ "master" ]
   pull_request:
     branches: [ "master" ]
