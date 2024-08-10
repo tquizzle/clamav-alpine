@@ -35,6 +35,14 @@ jobs:
       with:
         images: ${{ secrets.DOCKER_USERNAME }}/clamav-alpine:edge
 
+    - name: Run Trivy vulnerability scanner
+      uses: aquasecurity/trivy-action@0.20.0
+      with:
+        image-ref: '${{ secrets.DOCKER_USERNAME }}/clamav-alpine:${{ github.sha }}'
+        format: 'table'
+        exit-code: '1'
+        ignore-unfixed: true
+
     - name: Push it - Latest
       uses: docker/build-push-action@v6.5.0
       with:
@@ -50,3 +58,4 @@ jobs:
         file: ./Dockerfile-edge.dockerfile
         push: true
         tags: ${{ secrets.DOCKER_USERNAME }}/clamav-alpine:edge 
+
