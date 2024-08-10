@@ -38,7 +38,7 @@ jobs:
     - name: Run Trivy vulnerability scanner
       uses: aquasecurity/trivy-action@0.20.0
       with:
-        image-ref: '${{ secrets.DOCKER_USERNAME }}/clamav-alpine:${{ github.sha }}'
+        image-ref: ${{ secrets.DOCKER_USERNAME }}/clamav-alpine:${{ github.sha }}
         format: 'table'
         exit-code: '1'
         ignore-unfixed: true
