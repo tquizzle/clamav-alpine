@@ -17,7 +17,7 @@ jobs:
 
 ## Build and scan Latest image
       - name: Build an image from Dockerfile - latest
-        uses: docker/build-push-action@v6.6.0
+        uses: docker/build-push-action@v6.6.1
         with:
           context: .
           file: ./Dockerfile
