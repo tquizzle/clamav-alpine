@@ -1,4 +1,4 @@
-name: Trivy Container Image Scan 
+name: Trivy Container Image Scan - Edge
 
 on:
     push:
