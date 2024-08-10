@@ -14,9 +14,24 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
+    #   - name: Build an image from Dockerfile
+    #     run: |
+    #       docker build -t docker.io/tquinnelly/clamav-alpine:${{ github.sha }} .
+    #   - name: Run Trivy vulnerability scanner
+    #     uses: aquasecurity/trivy-action@0.20.0
+    #     with:
+    #       image-ref: 'docker.io/tquinnelly/clamav-alpine:${{ github.sha }}'
+    #       format: 'sarif'
+    #       output: 'trivy-results.sarif'
+
       - name: Build an image from Dockerfile
-        run: |
-          docker build -t docker.io/tquinnelly/clamav-alpine:${{ github.sha }} .
+        uses: docker/build-push-action@v6.5.0
+        with:
+            context: .
+            file: ./Dockerfile
+            push: false
+            tags: ${{ secrets.DOCKER_USERNAME }}/clamav-alpine:${{ github.sha }} 
+
       - name: Run Trivy vulnerability scanner
         uses: aquasecurity/trivy-action@0.20.0
         with:
