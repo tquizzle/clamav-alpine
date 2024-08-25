@@ -254,3 +254,6 @@ According to our scan, you are currently using the most secure version of the se
 
 #### [2020-02-16](#2020-02-16)
 * Bump version for clamav 0.102.1-r0
+
+
+<img src="https://tianji.0hq.cc/telemetry/clnzoxcy10001vy2ohi4obbi0/cm09ricjj0069kl2u25b2mi8m.gif" alt="ClamAV">
