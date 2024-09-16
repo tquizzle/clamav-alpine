@@ -157,8 +157,8 @@ End Date:   2022:07:10 13:12:08
 
 | Tag | ClamAV Version | Alpine Version |
 | --- | --- | --- |
-| latest | 1.2.2-r0 | 3.20 |
-| edge | 1.3.1-r0 | Edge |
+| latest | 1.2.2-r0 | 3.20.3 |
+| edge | 1.3.2-r0 | Edge |
 
 <!-- ## Vuln Scanning
 ### Edge
@@ -185,6 +185,10 @@ Testing tquinnelly/clamav-alpine...
 According to our scan, you are currently using the most secure version of the selected base image -->
 
 ## History
+
+#### [2024-09-15](#2024-09-15)
+* Updated Alpine to 3.20.3 `latest`
+* Updated ClamAV to 1.3.2-r0 on `edge`
 
 #### [2024-03-08](#2024-03-08)
 * Updated ClamAV to 1.2.2-r0 on `latest` and `edge`
