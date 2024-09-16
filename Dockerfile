@@ -1,4 +1,4 @@
-FROM alpine:3.19
+FROM alpine:3.20.3
 LABEL maintainer="Travis Quinnelly" 
 LABEL maintainer_url="https://github.com/tquizzle/"
 
