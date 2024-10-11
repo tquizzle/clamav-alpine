@@ -25,7 +25,7 @@ jobs:
           tags: ${{ secrets.DOCKER_USERNAME }}/clamav-alpine:${{ github.sha }} 
 
       - name: Run Trivy vulnerability scanner - latest
-        uses: aquasecurity/trivy-action@0.24.0
+        uses: aquasecurity/trivy-action@0.27.0
         with:
           image-ref: 'docker.io/tquinnelly/clamav-alpine:${{ github.sha }}'
           format: 'sarif'
