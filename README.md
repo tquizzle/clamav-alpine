@@ -20,6 +20,7 @@
     - [Edge](#edge)
     - [Latest](#latest)
   - [History](#history)
+      - [2024-12-03](#2024-12-03)
       - [2024-03-08](#2024-03-08)
       - [2024-01-14](#2024-01-14)
       - [2023-12-09](#2023-12-09)
@@ -158,9 +159,10 @@ End Date:   2022:07:10 13:12:08
 | Tag | ClamAV Version | Alpine Version |
 | --- | --- | --- |
 | latest | 1.2.2-r0 | 3.20.3 |
-| edge | 1.3.2-r0 | Edge |
+| edge | 1.4.1-r0 | Edge |
 
-<!-- ## Vuln Scanning
+<!-- 
+## Vuln Scanning
 ### Edge
 Testing tquinnelly/clamav-alpine:edge...
 
@@ -182,9 +184,13 @@ Testing tquinnelly/clamav-alpine...
 
 ✔ Tested 39 dependencies for known vulnerabilities, no vulnerable paths found.
 
-According to our scan, you are currently using the most secure version of the selected base image -->
+According to our scan, you are currently using the most secure version of the selected base image 
+-->
 
 ## History
+
+#### [2024-12-03](#2024-12-03)
+* Updated ClamAV to 1.4.4-r0 on `edge`
 
 #### [2024-09-15](#2024-09-15)
 * Updated Alpine to 3.20.3 `latest`
