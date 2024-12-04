@@ -190,7 +190,7 @@ According to our scan, you are currently using the most secure version of the se
 ## History
 
 #### [2024-12-03](#2024-12-03)
-* Updated ClamAV to 1.4.4-r0 on `edge`
+* Updated ClamAV to 1.4.1-r0 on `edge`
 
 #### [2024-09-15](#2024-09-15)
 * Updated Alpine to 3.20.3 `latest`
