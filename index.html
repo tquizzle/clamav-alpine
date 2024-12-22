@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		
+		
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		
+		
+		
+		<link rel="shortcut icon" href="./img/favicon.ico">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+		<title>ClamAV scanning Docker container based on Alpine - ClamAV - Alpine Docs</title>
+		<link href="./bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+		<link href="./css/font-awesome-5.12.2-all.min.css" rel="stylesheet">
+		<link href="./css/base.css" rel="stylesheet">
+		<link rel="stylesheet" href="./css/highlight-github.css">
+		<script src="./bootstrap/dist/js/bootstrap.min.js"></script>
+		<script src="./js/highlight.pack.js"></script>
+		
+		<script>
+			var base_url = '.';
+			var home_url = './home';
+			var is_outer_page = false;
+			
+			var pageToc = [
+				{title: "ClamAV scanning Docker container based on Alpine", url: "#_top", children: [
+						
+				{title: "How-To", url: "#_top", children: [
+				]},
+				{title: "Expected Output", url: "#expected-output", children: [
+				]},
+				{title: "Supported Tags | Versions", url: "#supported-tags-versions", children: [
+				]},
+				{title: "History", url: "#history", children: [
+				]},
+				]},
+			];
+
+		</script>
+		<script src="./js/base.js"></script> 
+	</head>
+
+	<body class="inner-page">
+		
+
+		<div class="container-fluid wm-page-content">
+			<a name="_top" aria-hidden="true"></a>
+			
+
+			
+
+			<h1 id="clamav-scanning-docker-container-based-on-alpine">ClamAV scanning Docker container based on Alpine</h1>
+<p><img src="https://github.com/tquizzle/clamav-alpine/blob/master/img/clamav.png" width=300 alt="ClamAV"> </p>
+<p><img alt="Docker Pulls" src="https://img.shields.io/docker/pulls/tquinnelly/clamav-alpine.svg?style=for-the-badge" /> <img alt="Docker Image Size" src="https://img.shields.io/docker/image-size/tquinnelly/clamav-alpine/latest?style=for-the-badge" /> <img alt="Docker Stars" src="https://img.shields.io/docker/stars/tquinnelly/clamav-alpine?style=for-the-badge" />
+ <img alt="GitHub Build Status (with event)" src="https://img.shields.io/github/actions/workflow/status/tquizzle/clamav-alpine/.github%2Fworkflows%2Fdocker-tqci.yml?style=for-the-badge" /> <img alt="Last Commit" src="https://img.shields.io/github/last-commit/tquizzle/clamav-alpine?style=for-the-badge" /></p>
+<p><a href="https://ko-fi.com/tquinnelly"><img src="https://raw.githubusercontent.com/tquizzle/clamav-alpine/master/img/kofi_long_button_red-402x500.png" width=225 /></a></p>
+<!-- TOC -->
+<ul>
+<li><a href="#clamav-scanning-docker-container-based-on-alpine">ClamAV scanning Docker container based on Alpine</a></li>
+<li><a href="#how-to">How-To</a><ul>
+<li><a href="#usage">Usage</a></li>
+<li><a href="#post-args">Post-Args</a></li>
+<li><a href="#volumes">Volumes</a></li>
+<li><a href="#examples">Examples</a></li>
+</ul>
+</li>
+<li><a href="#expected-output">Expected Output</a></li>
+<li><a href="#supported-tags--versions">Supported Tags | Versions</a></li>
+<li><a href="#vuln-scanning">Vuln Scanning</a><ul>
+<li><a href="#edge">Edge</a></li>
+<li><a href="#latest">Latest</a></li>
+</ul>
+</li>
+<li><a href="#history">History</a><ul>
+<li><a href="#2024-12-03">2024-12-03</a></li>
+<li><a href="#2024-03-08">2024-03-08</a></li>
+<li><a href="#2024-01-14">2024-01-14</a></li>
+<li><a href="#2023-12-09">2023-12-09</a></li>
+<li><a href="#2023-09-30">2023-09-30</a></li>
+<li><a href="#2023-07">2023-07</a></li>
+<li><a href="#2023-12-09">2023-12-09</a></li>
+<li><a href="#2023-05-27">2023-05-27</a></li>
+<li><a href="#2023-05-26">2023-05-26</a></li>
+<li><a href="#2023-04-23">2023-04-23</a></li>
+<li><a href="#2023-04-22">2023-04-22</a></li>
+<li><a href="#2023-02-11">2023-02-11</a></li>
+<li><a href="#2022-09-02">2022-09-02</a></li>
+<li><a href="#2022-07-10">2022-07-10</a></li>
+<li><a href="#2021-12-24">2021-12-24</a></li>
+<li><a href="#2021-11-25">2021-11-25</a></li>
+<li><a href="#2021-10-08">2021-10-08</a></li>
+<li><a href="#2021-06-24">2021-06-24</a></li>
+<li><a href="#2021-04-17">2021-04-17</a></li>
+<li><a href="#2021-01-31">2021-01-31</a></li>
+<li><a href="#2020-10-06">2020-10-06</a></li>
+<li><a href="#2020-05-23">2020-05-23</a></li>
+<li><a href="#2020-02-16">2020-02-16</a></li>
+</ul>
+</li>
+</ul>
+<!-- /TOC -->
+
+<p>This container allows you a very simple way to scan a mounted directory using <code>clamscan</code>.</p>
+<p>It will always update the ClamAV Database, by using the standard <code>freshclam</code> before running <code>clamscan</code>.
+If the local ClamAV Database is up-to-date, it will check and continue.</p>
+<h2 id="how-to">How-To</h2>
+<h3 id="usage">Usage</h3>
+<p>Using this image is fairly straightforward.</p>
+<p>Pay attention to <code>-v /path/to/scan</code> as this is the mounted directory that this docker image will scan.</p>
+<pre><code>docker run -it \
+  -v /path/to/scan:/scan:ro \
+  tquinnelly/clamav-alpine -i
+</code></pre>
+<p>Use <code>-d</code> instead of <code>-it</code> if you want to detach and move along.</p>
+<h4 id="post-args">Post-Args</h4>
+<p>I took the liberty to include <code>-i</code> by default. You can, however, add any you desire.</p>
+<ul>
+<li><code>-i</code> - Only print infected files</li>
+<li><code>--log=FILE</code> - save scan report to FILE</li>
+<li><code>--database=FILE/DIR</code> - load virus database from FILE or load all supported db files from DIR</li>
+<li><code>--official-db-only[=yes/no(*)]</code> - only load official signatures</li>
+<li><code>--max-filesize=#n</code> - files larger than this will be skipped and assumed clean</li>
+<li><code>--max-scansize=#n</code> - the maximum amount of data to scan for each container file</li>
+<li><code>--leave-temps[=yes/no(*)]</code>- do not remove temporary files</li>
+<li><code>--file-list=FILE</code> - scan files from FILE</li>
+<li><code>--quiet</code> - only output error messages</li>
+<li><code>--bell</code> - sound bell on virus detection</li>
+<li><code>--cross-fs[=yes(*)/no]</code> - scan files and directories on other filesystems</li>
+<li><code>--move=DIRECTORY</code> - move infected files into DIRECTORY</li>
+<li><code>--copy=DIRECTORY</code> - copy infected files into DIRECTORY</li>
+<li><code>--bytecode-timeout=N</code> - set bytecode timeout (in milliseconds)</li>
+<li><code>--heuristic-alerts[=yes(*)/no]</code> - toggles heuristic alerts</li>
+<li><code>--alert-encrypted[=yes/no(*)]</code> - alert on encrypted archives and documents</li>
+<li><code>--nocerts</code> - disable authenticode certificate chain verification in PE files</li>
+<li><code>--disable-cache</code> - disable caching and cache checks for hash sums of scanned files</li>
+</ul>
+<h4 id="volumes">Volumes</h4>
+<p>I only have the <code>/scan</code> directory noted above. You can add others in conjunction with the post-args as well.</p>
+<p><strong>Save AV Signatures</strong></p>
+<ul>
+<li><code>-v /path/to/sig:/var/lib/clamav</code></li>
+</ul>
+<p><strong>Infected Dir</strong></p>
+<ul>
+<li><code>-v /path/to/infected:/infected</code></li>
+<li>Then  you can use either the <code>--move</code> or <code>--copy</code> post-arg above.</li>
+</ul>
+<h3 id="examples">Examples</h3>
+<p>Here are some examples of various configurations.</p>
+<p>This is the one <strong>I</strong> run. I target 2 cores of my CPU as to not cripple my host. I also log to the DB directory and limit 2G file size scan.</p>
+<pre><code>docker run -d --name=ClamAV \
+  --cpuset-cpus='0,1' \
+  -v /path/to/scan:/scan:ro \
+  -v /path/to/sig:/var/lib/clamav:rw \
+  tquinnelly/clamav-alpine -i --log=/var/lib/clamav/log.log --max-filesize=2048M
+</code></pre>
+<h2 id="expected-output">Expected Output</h2>
+<pre><code># docker run -it -v /path:/scan:ro tquinnelly/clamav-alpine -i
+
+2022-07-10T13:05:10+00:00 ClamAV process starting
+
+Updating ClamAV scan DB
+ClamAV update process started at Sun Jul 10 13:05:10 2022
+daily database available for download (remote version: 26597)
+Testing database: '/var/lib/clamav/tmp.c94c177031/clamav-5960cb40f091d042fdbe87b6656dc482.tmp-daily.cvd' ...
+Database test passed.
+daily.cvd updated (version: 26597, sigs: 1989376, f-level: 90, builder: raynman)
+main database available for download (remote version: 62)
+Testing database: '/var/lib/clamav/tmp.c94c177031/clamav-f97772d5bbd6c13c61c4ea14c3ebeb86.tmp-main.cvd' ...
+Database test passed.
+main.cvd updated (version: 62, sigs: 6647427, f-level: 90, builder: sigmgr)
+bytecode database available for download (remote version: 333)
+Testing database: '/var/lib/clamav/tmp.c94c177031/clamav-5ce3fe7b3dd82e9d6f61c4d68dde2ab0.tmp-bytecode.cvd' ...
+Database test passed.
+bytecode.cvd updated (version: 333, sigs: 92, f-level: 63, builder: awillia2)
+
+Freshclam updated the DB
+
+ClamAV 0.104.3/26597/Sun Jul 10 07:56:43 2022
+
+Scanning /scan
+
+----------- SCAN SUMMARY -----------
+Known viruses: 8621438
+Engine version: 0.104.3
+Scanned directories: 3171
+Scanned files: 16683
+Infected files: 0
+Data scanned: 3131.81 MB
+Data read: 3120.78 MB (ratio 1.00:1)
+Time: 375.514 sec (6 m 15 s)
+Start Date: 2022:07:10 13:05:53
+End Date:   2022:07:10 13:12:08
+
+2022-07-10T13:12:08+00:00 ClamAV scanning finished
+</code></pre>
+<h2 id="supported-tags-versions">Supported Tags | Versions</h2>
+<table>
+<thead>
+<tr>
+<th>Tag</th>
+<th>ClamAV Version</th>
+<th>Alpine Version</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>latest</td>
+<td>1.2.2-r0</td>
+<td>3.20.3</td>
+</tr>
+<tr>
+<td>edge</td>
+<td>1.4.1-r0</td>
+<td>Edge</td>
+</tr>
+</tbody>
+</table>
+<h2 id="history">History</h2>
+<h4 id="2024-12-03"><a href="#2024-12-03">2024-12-03</a></h4>
+<ul>
+<li>Updated ClamAV to 1.4.1-r0 on <code>edge</code></li>
+</ul>
+<h4 id="2024-09-15"><a href="#2024-09-15">2024-09-15</a></h4>
+<ul>
+<li>Updated Alpine to 3.20.3 <code>latest</code></li>
+<li>Updated ClamAV to 1.3.2-r0 on <code>edge</code></li>
+</ul>
+<h4 id="2024-03-08"><a href="#2024-03-08">2024-03-08</a></h4>
+<ul>
+<li>Updated ClamAV to 1.2.2-r0 on <code>latest</code> and <code>edge</code></li>
+</ul>
+<h4 id="2024-01-14"><a href="#2024-01-14">2024-01-14</a></h4>
+<ul>
+<li>Updated openssl to 3.1.4-r3 on <code>latest</code> and <code>edge</code> to mitigate <a href="https://security.snyk.io/vuln/SNYK-ALPINE319-OPENSSL-6148881">CVE-2023-6129</a></li>
+</ul>
+<h4 id="2023-12-09"><a href="#2023-12-09">2023-12-09</a></h4>
+<ul>
+<li>Updated ClamAV to 1.2.1-r0 on <code>latest</code> and <code>edge</code></li>
+</ul>
+<h4 id="2023-05-27"><a href="#2023-05-27">2023-05-27</a></h4>
+<ul>
+<li>Updated <code>scan.sh</code> to fix the new line issue</li>
+<li>Updated <code>edge</code> and <code>latest</code> Dockerfiles to remove hardcoded ClamAV version</li>
+</ul>
+<h4 id="2023-05-26"><a href="#2023-05-26">2023-05-26</a></h4>
+<ul>
+<li>Updated <code>latest</code> to Alpine 3.18</li>
+<li>Updated ClamAV to 1.10-r0 on <code>latest</code> and <code>edge</code></li>
+</ul>
+<h4 id="2023-04-23"><a href="#2023-04-23">2023-04-23</a></h4>
+<ul>
+<li>Updated ClamAV to 1.0.1-r0 on <code>edge</code></li>
+</ul>
+<h4 id="2023-04-22"><a href="#2023-04-22">2023-04-22</a></h4>
+<ul>
+<li>Updated ClamAV to 0.105.2-r0 on <code>latest</code></li>
+</ul>
+<h4 id="2023-02-11"><a href="#2023-02-11">2023-02-11</a></h4>
+<ul>
+<li>Updated <code>latest</code> to Alpine 3.17</li>
+<li>Updated ClamAV to 0.105.1-r0</li>
+</ul>
+<h4 id="2022-09-02"><a href="#2022-09-02">2022-09-02</a></h4>
+<ul>
+<li>Updated ClamAV to 0.104.4-r1 on <code>edge</code></li>
+</ul>
+<h4 id="2022-07-10"><a href="#2022-07-10">2022-07-10</a></h4>
+<ul>
+<li>Updating <code>latest</code> to Alpine 3.16</li>
+<li>Updating ClamAV to 0.104.3-r0 on <code>latest</code> and <code>edge</code></li>
+</ul>
+<h4 id="2021-12-24"><a href="#2021-12-24">2021-12-24</a></h4>
+<ul>
+<li>Updating packages for vuln scan</li>
+<li>Reorganizing commands</li>
+</ul>
+<h4 id="2021-11-25"><a href="#2021-11-25">2021-11-25</a></h4>
+<ul>
+<li>Bump edge version for clamav to 0.104.1-r0</li>
+</ul>
+<h4 id="2021-10-08"><a href="#2021-10-08">2021-10-08</a></h4>
+<ul>
+<li>Bump edge version for clamav to 0.103.3-r1</li>
+</ul>
+<h4 id="2021-06-24"><a href="#2021-06-24">2021-06-24</a></h4>
+<ul>
+<li>Bump version for clamav 0.103.3-r0</li>
+</ul>
+<h4 id="2021-04-17"><a href="#2021-04-17">2021-04-17</a></h4>
+<ul>
+<li>Bump version for clamav 0.103.2-r0</li>
+<li>Pull Requests</li>
+<li>Added Upgrade openssl<ul>
+<li>PR - https://github.com/tquizzle/clamav-alpine/pull/5</li>
+</ul>
+</li>
+<li>Added ca-certificates package<ul>
+<li>PR - https://github.com/tquizzle/clamav-alpine/pull/6</li>
+</ul>
+</li>
+</ul>
+<h4 id="2021-01-31"><a href="#2021-01-31">2021-01-31</a></h4>
+<ul>
+<li>Bump version for clamav 0.103.0-r1</li>
+</ul>
+<h4 id="2020-10-06"><a href="#2020-10-06">2020-10-06</a></h4>
+<ul>
+<li>Bump version for clamav 0.102.4-r1</li>
+</ul>
+<h4 id="2020-05-23"><a href="#2020-05-23">2020-05-23</a></h4>
+<ul>
+<li>Bump version for clamav 0.102.3-r0</li>
+<li>Added unrar and unrar libs</li>
+</ul>
+<h4 id="2020-02-16"><a href="#2020-02-16">2020-02-16</a></h4>
+<ul>
+<li>Bump version for clamav 0.102.1-r0</li>
+</ul>
+<p><img src="https://tianji.0hq.cc/telemetry/clnzoxcy10001vy2ohi4obbi0/cm09ricjj0069kl2u25b2mi8m.gif" alt="ClamAV"></p>
+
+			<br>
+			
+
+			<br>
+		</div>
+
+		<footer class="container-fluid wm-page-content text-center small">
+			<details>
+				<summary>
+					Documentation built with <a href="http://www.mkdocs.org/" target="_blank">MkDocs</a> using  <a href="https://github.com/Siphalor/mkdocs-custommill" target="_blank">CustomMill</a>.
+				</summary>
+				<h6 class="mt-2">Additional Licenses</h6>
+				<ul><li>
+						CustomMill is based on the <a href="https://github.com/gristlabs/mkdocs-windmill" target="_blank">Windmill</a> theme by Grist Labs, licensed under the <a href="https://github.com/gristlabs/mkdocs-windmill/blob/master/LICENSE" target="_blank">MIT License</a>
+					</li>
+					<li>
+						CustomMill includes <a href="https://getbootstrap.com" target="_blank">Bootstrap</a> version 5.1.3. This is available under the <a href="https://github.com/twbs/bootstrap/blob/master/LICENSE" target="_blank">MIT License</a>.
+					</li>
+					<li>
+						Syntax highlighting is implemented via <a href="https://highlightjs.org" target="_blank">highlight.js</a> licensed under the BSD 3-Clause License and the included github styling made by Vasily Polovnyov.
+					</li>
+					<li>
+						Icons on this site are from <a href="https://fontawesome.com/" target="_blank">Font Awesome</a> which is licensed under the <a href="https://fontawesome.com/license/free" target="_blank">Font Awesome Free License</a>.
+					</li></ul>
+				<p>Built at 2024-12-22 16:16:37 UTC</p>
+			</details>
+		</footer>
+
+		
+	</body>
+</html>
