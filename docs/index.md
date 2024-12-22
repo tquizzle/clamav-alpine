@@ -1,5 +1,5 @@
 # ClamAV scanning Docker container based on Alpine
-<img src="https://github.com/tquizzle/clamav-alpine/blob/master/img/clamav.png" width=300 alt="ClamAV"> 
+<img src="https://raw.githubusercontent.com/tquizzle/clamav-alpine/refs/heads/master/img/clamav.png" width=300 alt="ClamAV"> 
 
 ![Docker Pulls](https://img.shields.io/docker/pulls/tquinnelly/clamav-alpine.svg?style=for-the-badge) ![Docker Image Size](https://img.shields.io/docker/image-size/tquinnelly/clamav-alpine/latest?style=for-the-badge) ![Docker Stars](https://img.shields.io/docker/stars/tquinnelly/clamav-alpine?style=for-the-badge)
  ![GitHub Build Status (with event)](https://img.shields.io/github/actions/workflow/status/tquizzle/clamav-alpine/.github%2Fworkflows%2Fdocker-tqci.yml?style=for-the-badge) ![Last Commit](https://img.shields.io/github/last-commit/tquizzle/clamav-alpine?style=for-the-badge)
@@ -162,7 +162,7 @@ End Date:   2022:07:10 13:12:08
 | edge | 1.4.1-r0 | Edge |
 
 
-## History
+## Changelog
 
 #### [2024-12-03](#2024-12-03)
 * Updated ClamAV to 1.4.1-r0 on `edge`
