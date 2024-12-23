@@ -1,0 +1,25 @@
+name: MkDocs Deploy
+on:
+  push:
+    branches:
+    - main
+    - gh-pages
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/setup-python@v5
+      with:
+        python-version: 3.12.6
+    - uses: actions/checkout@v4
+      with:
+        fetch-depth: 0 # otherwise, you will failed to push refs to dest repo
+    - name: Build and Commit
+      uses: iSOLveIT/mkdocs-notes@main
+      with:
+        config_file_path: mkdocs.yml
+    - name: Push changes
+      uses: ad-m/github-push-action@master
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        branch: gh-pages
