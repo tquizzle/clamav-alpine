@@ -1,2 +1,11 @@
 site_name: ClamAV - Alpine Docs
-theme: custommill
+theme: readthedocs
+show_sidebar: true
+nav:
+  - Home: index.md
+  - Installation: #how-to
+  - Usage: #usage
+  - Expeted Output: #expected-output
+  - Supported Tags | Versions: #supported-tags--versions
+  - Changelog: #changelog
+  
