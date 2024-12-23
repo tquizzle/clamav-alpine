@@ -10,9 +10,4 @@ markdown_extensions:
 
 nav:
   - Home: index.md
-  - Installation: #how-to
-  - Usage: #usage
-  - Expeted Output: #expected-output
-  - Supported Tags | Versions: #supported-tags--versions
-  - Changelog: #changelog
   
