@@ -1,57 +1,138 @@
 <!DOCTYPE html>
-<html lang="en">
-	<head>
-		
-		
-		<meta charset="utf-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		
-		
-		
-		<link rel="shortcut icon" href="./img/favicon.ico">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-		<title>ClamAV scanning Docker container based on Alpine - ClamAV - Alpine Docs</title>
-		<link href="./bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-		<link href="./css/font-awesome-5.12.2-all.min.css" rel="stylesheet">
-		<link href="./css/base.css" rel="stylesheet">
-		<link rel="stylesheet" href="./css/highlight-github.css">
-		<script src="./bootstrap/dist/js/bootstrap.min.js"></script>
-		<script src="./js/highlight.pack.js"></script>
-		
-		<script>
-			var base_url = '.';
-			var home_url = './home';
-			var is_outer_page = false;
-			
-			var pageToc = [
-				{title: "ClamAV scanning Docker container based on Alpine", url: "#_top", children: [
-						
-				{title: "How-To", url: "#_top", children: [
-				]},
-				{title: "Expected Output", url: "#expected-output", children: [
-				]},
-				{title: "Supported Tags | Versions", url: "#supported-tags-versions", children: [
-				]},
-				{title: "History", url: "#history", children: [
-				]},
-				]},
-			];
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="description" content="None" />
+      <link rel="shortcut icon" href="img/favicon.ico" />
+    <title>ClamAV - Alpine Docs</title>
+    <link rel="stylesheet" href="css/theme.css" />
+    <link rel="stylesheet" href="css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "ClamAV scanning Docker container based on Alpine";
+        var mkdocs_page_input_path = "index.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
 
-		</script>
-		<script src="./js/base.js"></script> 
-	</head>
+<body class="wy-body-for-nav" role="document">
 
-	<body class="inner-page">
-		
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="." class="icon icon-home"> ClamAV - Alpine Docs
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
 
-		<div class="container-fluid wm-page-content">
-			<a name="_top" aria-hidden="true"></a>
-			
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">ClamAV scanning Docker container based on Alpine</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#how-to">How-To</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#usage">Usage</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#post-args">Post-Args</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#volumes">Volumes</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#examples">Examples</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#expected-output">Expected Output</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#supported-tags-versions">Supported Tags | Versions</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#changelog">Changelog</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#2024-12-03">2024-12-03</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#2024-09-15">2024-09-15</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#2024-03-08">2024-03-08</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#2024-01-14">2024-01-14</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#2023-12-09">2023-12-09</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#2023-05-27">2023-05-27</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#2023-05-26">2023-05-26</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#2023-04-23">2023-04-23</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#2023-04-22">2023-04-22</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#2023-02-11">2023-02-11</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#2022-09-02">2022-09-02</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#2022-07-10">2022-07-10</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#2021-12-24">2021-12-24</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#2021-11-25">2021-11-25</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#2021-10-08">2021-10-08</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#2021-06-24">2021-06-24</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#2021-04-17">2021-04-17</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#2021-01-31">2021-01-31</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#2020-10-06">2020-10-06</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#2020-05-23">2020-05-23</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#2020-02-16">2020-02-16</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
 
-			
-
-			<h1 id="clamav-scanning-docker-container-based-on-alpine">ClamAV scanning Docker container based on Alpine</h1>
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href=".">ClamAV - Alpine Docs</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">ClamAV scanning Docker container based on Alpine</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="clamav-scanning-docker-container-based-on-alpine">ClamAV scanning Docker container based on Alpine</h1>
 <p><img src="https://raw.githubusercontent.com/tquizzle/clamav-alpine/refs/heads/master/img/clamav.png" width=300 alt="ClamAV"> </p>
 <p><img alt="Docker Pulls" src="https://img.shields.io/docker/pulls/tquinnelly/clamav-alpine.svg?style=for-the-badge" /> <img alt="Docker Image Size" src="https://img.shields.io/docker/image-size/tquinnelly/clamav-alpine/latest?style=for-the-badge" /> <img alt="Docker Stars" src="https://img.shields.io/docker/stars/tquinnelly/clamav-alpine?style=for-the-badge" />
  <img alt="GitHub Build Status (with event)" src="https://img.shields.io/github/actions/workflow/status/tquizzle/clamav-alpine/.github%2Fworkflows%2Fdocker-tqci.yml?style=for-the-badge" /> <img alt="Last Commit" src="https://img.shields.io/github/last-commit/tquizzle/clamav-alpine?style=for-the-badge" /></p>
@@ -218,7 +299,7 @@ End Date:   2022:07:10 13:12:08
 </tr>
 </tbody>
 </table>
-<h2 id="history">History</h2>
+<h2 id="changelog">Changelog</h2>
 <h4 id="2024-12-03"><a href="#2024-12-03">2024-12-03</a></h4>
 <ul>
 <li>Updated ClamAV to 1.4.1-r0 on <code>edge</code></li>
@@ -320,35 +401,48 @@ End Date:   2022:07:10 13:12:08
 <li>Bump version for clamav 0.102.1-r0</li>
 </ul>
 <p><img src="https://tianji.0hq.cc/telemetry/clnzoxcy10001vy2ohi4obbi0/cm09ricjj0069kl2u25b2mi8m.gif" alt="ClamAV"></p>
+              
+            </div>
+          </div><footer>
 
-			<br>
-			
+  <hr/>
 
-			<br>
-		</div>
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
 
-		<footer class="container-fluid wm-page-content text-center small">
-			<details>
-				<summary>
-					Documentation built with <a href="http://www.mkdocs.org/" target="_blank">MkDocs</a> using  <a href="https://github.com/Siphalor/mkdocs-custommill" target="_blank">CustomMill</a>.
-				</summary>
-				<h6 class="mt-2">Additional Licenses</h6>
-				<ul><li>
-						CustomMill is based on the <a href="https://github.com/gristlabs/mkdocs-windmill" target="_blank">Windmill</a> theme by Grist Labs, licensed under the <a href="https://github.com/gristlabs/mkdocs-windmill/blob/master/LICENSE" target="_blank">MIT License</a>
-					</li>
-					<li>
-						CustomMill includes <a href="https://getbootstrap.com" target="_blank">Bootstrap</a> version 5.1.3. This is available under the <a href="https://github.com/twbs/bootstrap/blob/master/LICENSE" target="_blank">MIT License</a>.
-					</li>
-					<li>
-						Syntax highlighting is implemented via <a href="https://highlightjs.org" target="_blank">highlight.js</a> licensed under the BSD 3-Clause License and the included github styling made by Vasily Polovnyov.
-					</li>
-					<li>
-						Icons on this site are from <a href="https://fontawesome.com/" target="_blank">Font Awesome</a> which is licensed under the <a href="https://fontawesome.com/license/free" target="_blank">Font Awesome Free License</a>.
-					</li></ul>
-				<p>Built at 2024-12-22 18:43:06 UTC</p>
-			</details>
-		</footer>
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
 
-		
-	</body>
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+    
+  </span>
+</div>
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = ".";</script>
+    <script src="js/theme_extra.js"></script>
+    <script src="js/theme.js"></script>
+      <script src="search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
 </html>
+
+<!--
+MkDocs version : 1.6.1
+Build Date UTC : 2024-12-23 07:15:59.133264+00:00
+-->
