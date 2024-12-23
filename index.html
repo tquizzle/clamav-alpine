@@ -12,7 +12,7 @@
     
       <script>
         // Current page data
-        var mkdocs_page_name = "ClamAV scanning Docker container based on Alpine";
+        var mkdocs_page_name = "Home";
         var mkdocs_page_input_path = "index.md";
         var mkdocs_page_url = null;
       </script>
@@ -40,7 +40,7 @@
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul class="current">
-                <li class="toctree-l1 current"><a class="reference internal current" href="#">ClamAV scanning Docker container based on Alpine</a>
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">Home</a>
     <ul class="current">
     <li class="toctree-l2"><a class="reference internal" href="#how-to">How-To</a>
         <ul>
@@ -123,7 +123,7 @@
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
     <li><a href="." class="icon icon-home" aria-label="Docs"></a></li>
-      <li class="breadcrumb-item active">ClamAV scanning Docker container based on Alpine</li>
+      <li class="breadcrumb-item active">Home</li>
     <li class="wy-breadcrumbs-aside">
     </li>
   </ul>
@@ -138,51 +138,42 @@
  <img alt="GitHub Build Status (with event)" src="https://img.shields.io/github/actions/workflow/status/tquizzle/clamav-alpine/.github%2Fworkflows%2Fdocker-tqci.yml?style=for-the-badge" /> <img alt="Last Commit" src="https://img.shields.io/github/last-commit/tquizzle/clamav-alpine?style=for-the-badge" /></p>
 <p><a href="https://ko-fi.com/tquinnelly"><img src="https://raw.githubusercontent.com/tquizzle/clamav-alpine/master/img/kofi_long_button_red-402x500.png" width=225 /></a></p>
 <!-- TOC -->
-<ul>
-<li><a href="#clamav-scanning-docker-container-based-on-alpine">ClamAV scanning Docker container based on Alpine</a></li>
-<li><a href="#how-to">How-To</a><ul>
-<li><a href="#usage">Usage</a></li>
-<li><a href="#post-args">Post-Args</a></li>
-<li><a href="#volumes">Volumes</a></li>
-<li><a href="#examples">Examples</a></li>
-</ul>
-</li>
-<li><a href="#expected-output">Expected Output</a></li>
-<li><a href="#supported-tags--versions">Supported Tags | Versions</a></li>
-<li><a href="#vuln-scanning">Vuln Scanning</a><ul>
-<li><a href="#edge">Edge</a></li>
-<li><a href="#latest">Latest</a></li>
-</ul>
-</li>
-<li><a href="#history">History</a><ul>
-<li><a href="#2024-12-03">2024-12-03</a></li>
-<li><a href="#2024-03-08">2024-03-08</a></li>
-<li><a href="#2024-01-14">2024-01-14</a></li>
-<li><a href="#2023-12-09">2023-12-09</a></li>
-<li><a href="#2023-09-30">2023-09-30</a></li>
-<li><a href="#2023-07">2023-07</a></li>
-<li><a href="#2023-12-09">2023-12-09</a></li>
-<li><a href="#2023-05-27">2023-05-27</a></li>
-<li><a href="#2023-05-26">2023-05-26</a></li>
-<li><a href="#2023-04-23">2023-04-23</a></li>
-<li><a href="#2023-04-22">2023-04-22</a></li>
-<li><a href="#2023-02-11">2023-02-11</a></li>
-<li><a href="#2022-09-02">2022-09-02</a></li>
-<li><a href="#2022-07-10">2022-07-10</a></li>
-<li><a href="#2021-12-24">2021-12-24</a></li>
-<li><a href="#2021-11-25">2021-11-25</a></li>
-<li><a href="#2021-10-08">2021-10-08</a></li>
-<li><a href="#2021-06-24">2021-06-24</a></li>
-<li><a href="#2021-04-17">2021-04-17</a></li>
-<li><a href="#2021-01-31">2021-01-31</a></li>
-<li><a href="#2020-10-06">2020-10-06</a></li>
-<li><a href="#2020-05-23">2020-05-23</a></li>
-<li><a href="#2020-02-16">2020-02-16</a></li>
-</ul>
-</li>
-</ul>
-<!-- /TOC -->
-
+<!-- - [ClamAV scanning Docker container based on Alpine](#clamav-scanning-docker-container-based-on-alpine)
+  - [How-To](#how-to)
+    - [Usage](#usage)
+      - [Post-Args](#post-args)
+      - [Volumes](#volumes)
+    - [Examples](#examples)
+  - [Expected Output](#expected-output)
+  - [Supported Tags | Versions](#supported-tags--versions)
+  - [Vuln Scanning](#vuln-scanning)
+    - [Edge](#edge)
+    - [Latest](#latest)
+  - [History](#history)
+      - [2024-12-03](#2024-12-03)
+      - [2024-03-08](#2024-03-08)
+      - [2024-01-14](#2024-01-14)
+      - [2023-12-09](#2023-12-09)
+      - [2023-09-30](#2023-09-30)
+      - [2023-07](#2023-07)
+      - [2023-12-09](#2023-12-09)
+      - [2023-05-27](#2023-05-27)
+      - [2023-05-26](#2023-05-26)
+      - [2023-04-23](#2023-04-23)
+      - [2023-04-22](#2023-04-22)
+      - [2023-02-11](#2023-02-11)
+      - [2022-09-02](#2022-09-02)
+      - [2022-07-10](#2022-07-10)
+      - [2021-12-24](#2021-12-24)
+      - [2021-11-25](#2021-11-25)
+      - [2021-10-08](#2021-10-08)
+      - [2021-06-24](#2021-06-24)
+      - [2021-04-17](#2021-04-17)
+      - [2021-01-31](#2021-01-31)
+      - [2020-10-06](#2020-10-06)
+      - [2020-05-23](#2020-05-23)
+      - [2020-02-16](#2020-02-16)
+ -->
 <p>This container allows you a very simple way to scan a mounted directory using <code>clamscan</code>.</p>
 <p>It will always update the ClamAV Database, by using the standard <code>freshclam</code> before running <code>clamscan</code>.
 If the local ClamAV Database is up-to-date, it will check and continue.</p>
@@ -401,6 +392,7 @@ End Date:   2022:07:10 13:12:08
 <li>Bump version for clamav 0.102.1-r0</li>
 </ul>
 <p><img src="https://tianji.0hq.cc/telemetry/clnzoxcy10001vy2ohi4obbi0/cm09ricjj0069kl2u25b2mi8m.gif" alt="ClamAV"></p>
+<!-- /TOC -->
               
             </div>
           </div><footer>
@@ -444,5 +436,5 @@ End Date:   2022:07:10 13:12:08
 
 <!--
 MkDocs version : 1.6.1
-Build Date UTC : 2024-12-23 07:15:59.133264+00:00
+Build Date UTC : 2024-12-23 13:13:47.174994+00:00
 -->
