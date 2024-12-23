@@ -195,3 +195,7 @@ td, th {
     flex: 1;
     text-align: center;
 }
+
+.wy-nav-content {
+    max-width: 1000px;
+}
