@@ -24,6 +24,7 @@ jobs:
       run: |
         git config user.name github-actions
         git config user.email github-actions@github.com
+        git config advice.mergeConflict false
         git pull origin gh-pages --rebase
     - name: Build and Commit
       uses: iSOLveIT/mkdocs-notes@main
