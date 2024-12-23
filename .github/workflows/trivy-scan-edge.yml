@@ -2,9 +2,15 @@ name: Trivy Container Image Scan - Edge
 
 on:
     push:
-     branches: [ "master" ]
+      branches: [ "master" ]
+      paths-ignore:
+        - './mkdocs.yml'
+        - './docs/**'
     pull_request:
       branches: [ "master" ]
+      paths-ignore:
+        - './mkdocs.yml'
+        - './docs/**'
     workflow_dispatch:
 
 jobs:
