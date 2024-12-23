@@ -1,8 +1,13 @@
 name: MkDocs Deploy
 on:
   push:
-    branches:
-    - gh-pages
+    paths: #Target only MkDocs config
+      - './mkdocs.yml'
+      - './docs/**'
+  pull_request: #Target only MkDocs folder for content
+    paths:
+      - './mkdocs.yml'
+      - './docs/**'
   workflow_dispatch:
 
 jobs:
