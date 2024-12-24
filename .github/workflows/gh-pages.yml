@@ -36,5 +36,5 @@ jobs:
       uses: ad-m/github-push-action@master
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        branch: master
-        target-branch: gh-pages
+        branch: gh-pages
+#        target-branch: gh-pages
