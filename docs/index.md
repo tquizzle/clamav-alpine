@@ -1,7 +1,7 @@
 # ClamAV scanning Docker container based on Alpine
 <img src="https://raw.githubusercontent.com/tquizzle/clamav-alpine/refs/heads/master/img/clamav.png" width=300 alt="ClamAV"> 
 
-![Docker Pulls](https://flat.badgen.net/docker/pulls/tquinnelly/clamav-alpine) ![Docker Image Size](https://flat.badgen.net/docker/image-size/tquinnelly/clamav-alpine/latest?) ![Docker Stars](https://flat.badgen.net/docker/stars/tquinnelly/clamav-alpine)
+![Docker Pulls](https://flat.badgen.net/docker/pulls/tquinnelly/clamav-alpine) ![Docker Image Size](https://flat.badgen.net/docker/size/tquinnelly/clamav-alpine) ![Docker Stars](https://flat.badgen.net/docker/stars/tquinnelly/clamav-alpine)
 
 ![GitHub Build Status (with event)](https://flat.badgen.net/github/actions/workflow/status/tquizzle/clamav-alpine/.github%2Fworkflows%2Fdocker-tqci.yml) ![Last Commit](https://flat.badgen.net/github/last-commit/tquizzle/clamav-alpine)
 
