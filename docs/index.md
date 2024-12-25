@@ -1,51 +1,12 @@
 # ClamAV scanning Docker container based on Alpine
 <img src="https://raw.githubusercontent.com/tquizzle/clamav-alpine/refs/heads/master/img/clamav.png" width=300 alt="ClamAV"> 
 
-![Docker Pulls](https://img.shields.io/docker/pulls/tquinnelly/clamav-alpine.svg?style=for-the-badge) ![Docker Image Size](https://img.shields.io/docker/image-size/tquinnelly/clamav-alpine/latest?style=for-the-badge) ![Docker Stars](https://img.shields.io/docker/stars/tquinnelly/clamav-alpine?style=for-the-badge)
- ![GitHub Build Status (with event)](https://img.shields.io/github/actions/workflow/status/tquizzle/clamav-alpine/.github%2Fworkflows%2Fdocker-tqci.yml?style=for-the-badge) ![Last Commit](https://img.shields.io/github/last-commit/tquizzle/clamav-alpine?style=for-the-badge)
+![Docker Pulls](https://flat.badgen.net/docker/pulls/tquinnelly/clamav-alpine) ![Docker Image Size](https://flat.badgen.net/docker/image-size/tquinnelly/clamav-alpine/latest?) ![Docker Stars](https://flat.badgen.net/docker/stars/tquinnelly/clamav-alpine)
+ ![GitHub Build Status (with event)](https://flat.badgen.net/github/actions/workflow/status/tquizzle/clamav-alpine/.github%2Fworkflows%2Fdocker-tqci.yml) ![Last Commit](https://flat.badgen.net/github/last-commit/tquizzle/clamav-alpine)
 
 [<img src="https://raw.githubusercontent.com/tquizzle/clamav-alpine/master/img/kofi_long_button_red-402x500.png" width=225 />](https://ko-fi.com/tquinnelly)
  
- 
-<!-- TOC -->
-<!-- - [ClamAV scanning Docker container based on Alpine](#clamav-scanning-docker-container-based-on-alpine)
-  - [How-To](#how-to)
-    - [Usage](#usage)
-      - [Post-Args](#post-args)
-      - [Volumes](#volumes)
-    - [Examples](#examples)
-  - [Expected Output](#expected-output)
-  - [Supported Tags | Versions](#supported-tags--versions)
-  - [Vuln Scanning](#vuln-scanning)
-    - [Edge](#edge)
-    - [Latest](#latest)
-  - [History](#history)
-      - [2024-12-03](#2024-12-03)
-      - [2024-03-08](#2024-03-08)
-      - [2024-01-14](#2024-01-14)
-      - [2023-12-09](#2023-12-09)
-      - [2023-09-30](#2023-09-30)
-      - [2023-07](#2023-07)
-      - [2023-12-09](#2023-12-09)
-      - [2023-05-27](#2023-05-27)
-      - [2023-05-26](#2023-05-26)
-      - [2023-04-23](#2023-04-23)
-      - [2023-04-22](#2023-04-22)
-      - [2023-02-11](#2023-02-11)
-      - [2022-09-02](#2022-09-02)
-      - [2022-07-10](#2022-07-10)
-      - [2021-12-24](#2021-12-24)
-      - [2021-11-25](#2021-11-25)
-      - [2021-10-08](#2021-10-08)
-      - [2021-06-24](#2021-06-24)
-      - [2021-04-17](#2021-04-17)
-      - [2021-01-31](#2021-01-31)
-      - [2020-10-06](#2020-10-06)
-      - [2020-05-23](#2020-05-23)
-      - [2020-02-16](#2020-02-16)
- --><!-- /TOC --> 
-
-This container allows you a very simple way to scan a mounted directory using `clamscan`.
+ This container allows you a very simple way to scan a mounted directory using `clamscan`.
 
 It will always update the ClamAV Database, by using the standard `freshclam` before running `clamscan`.
 If the local ClamAV Database is up-to-date, it will check and continue.
