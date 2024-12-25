@@ -1,0 +1,12 @@
+title: ClamAV - Alpine Docs
+description: ClamAV - Alpine Docs
+remote_theme: carlosperate/jekyll-theme-rtd
+
+# Theme settings
+site_author: Travis Quinnelly
+repo_url: https://github.com/tquizzle/clamav-alpine
+github_docs_folder: true
+sticky_navigation: true
+prev_next_buttons_location: bottom
+search_enabled: true
+hljs_style: github-gist
