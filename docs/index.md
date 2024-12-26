@@ -1,11 +1,12 @@
 # ClamAV scanning Docker container based on Alpine
-<img src="https://raw.githubusercontent.com/tquizzle/clamav-alpine/refs/heads/master/img/clamav.png" width=300 alt="ClamAV"> 
 
 ![Docker Pulls](https://flat.badgen.net/docker/pulls/tquinnelly/clamav-alpine) ![Docker Image Size](https://flat.badgen.net/docker/size/tquinnelly/clamav-alpine) ![Docker Stars](https://flat.badgen.net/docker/stars/tquinnelly/clamav-alpine)
 
-![GitHub Build Status (with event)](https://flat.badgen.net/github/actions/workflow/status/tquizzle/clamav-alpine/.github%2Fworkflows%2Fdocker-tqci.yml) ![Last Commit](https://flat.badgen.net/github/last-commit/tquizzle/clamav-alpine)
+![Last Commit](https://flat.badgen.net/github/last-commit/tquizzle/clamav-alpine)
 
 [<img src="https://raw.githubusercontent.com/tquizzle/clamav-alpine/master/img/kofi_long_button_red-402x500.png" width=225 />](https://ko-fi.com/tquinnelly)
+
+---
  
  This container allows you a very simple way to scan a mounted directory using `clamscan`.
 
@@ -73,49 +74,6 @@ docker run -d --name=ClamAV \
   tquinnelly/clamav-alpine -i --log=/var/lib/clamav/log.log --max-filesize=2048M
 ```
 
-## Expected Output
-
-```
-# docker run -it -v /path:/scan:ro tquinnelly/clamav-alpine -i
-
-2022-07-10T13:05:10+00:00 ClamAV process starting
-
-Updating ClamAV scan DB
-ClamAV update process started at Sun Jul 10 13:05:10 2022
-daily database available for download (remote version: 26597)
-Testing database: '/var/lib/clamav/tmp.c94c177031/clamav-5960cb40f091d042fdbe87b6656dc482.tmp-daily.cvd' ...
-Database test passed.
-daily.cvd updated (version: 26597, sigs: 1989376, f-level: 90, builder: raynman)
-main database available for download (remote version: 62)
-Testing database: '/var/lib/clamav/tmp.c94c177031/clamav-f97772d5bbd6c13c61c4ea14c3ebeb86.tmp-main.cvd' ...
-Database test passed.
-main.cvd updated (version: 62, sigs: 6647427, f-level: 90, builder: sigmgr)
-bytecode database available for download (remote version: 333)
-Testing database: '/var/lib/clamav/tmp.c94c177031/clamav-5ce3fe7b3dd82e9d6f61c4d68dde2ab0.tmp-bytecode.cvd' ...
-Database test passed.
-bytecode.cvd updated (version: 333, sigs: 92, f-level: 63, builder: awillia2)
-
-Freshclam updated the DB
-
-ClamAV 0.104.3/26597/Sun Jul 10 07:56:43 2022
-
-Scanning /scan
-
------------ SCAN SUMMARY -----------
-Known viruses: 8621438
-Engine version: 0.104.3
-Scanned directories: 3171
-Scanned files: 16683
-Infected files: 0
-Data scanned: 3131.81 MB
-Data read: 3120.78 MB (ratio 1.00:1)
-Time: 375.514 sec (6 m 15 s)
-Start Date: 2022:07:10 13:05:53
-End Date:   2022:07:10 13:12:08
-
-2022-07-10T13:12:08+00:00 ClamAV scanning finished
-```
-
 ## Supported Tags | Versions
 
 | Tag | ClamAV Version | Alpine Version |
@@ -126,61 +84,61 @@ End Date:   2022:07:10 13:12:08
 
 ## Changelog
 
-#### [2024-12-03](#2024-12-03)
+### [2024-12-03](#2024-12-03)
 * Updated ClamAV to 1.4.1-r0 on `edge`
 
-#### [2024-09-15](#2024-09-15)
+### [2024-09-15](#2024-09-15)
 * Updated Alpine to 3.20.3 `latest`
 * Updated ClamAV to 1.3.2-r0 on `edge`
 
-#### [2024-03-08](#2024-03-08)
+### [2024-03-08](#2024-03-08)
 * Updated ClamAV to 1.2.2-r0 on `latest` and `edge`
 
-#### [2024-01-14](#2024-01-14)
+### [2024-01-14](#2024-01-14)
 * Updated openssl to 3.1.4-r3 on `latest` and `edge` to mitigate [CVE-2023-6129](https://security.snyk.io/vuln/SNYK-ALPINE319-OPENSSL-6148881)
 
-#### [2023-12-09](#2023-12-09)
+### [2023-12-09](#2023-12-09)
 * Updated ClamAV to 1.2.1-r0 on `latest` and `edge`
 
-#### [2023-05-27](#2023-05-27) 
+### [2023-05-27](#2023-05-27) 
 * Updated `scan.sh` to fix the new line issue
 * Updated `edge` and `latest` Dockerfiles to remove hardcoded ClamAV version
 
-#### [2023-05-26](#2023-05-26) 
+### [2023-05-26](#2023-05-26) 
 * Updated `latest` to Alpine 3.18
 * Updated ClamAV to 1.10-r0 on `latest` and `edge`
 
-#### [2023-04-23](#2023-04-23)
+### [2023-04-23](#2023-04-23)
 * Updated ClamAV to 1.0.1-r0 on `edge`
 
-#### [2023-04-22](#2023-04-22)
+### [2023-04-22](#2023-04-22)
 * Updated ClamAV to 0.105.2-r0 on `latest`
 
-#### [2023-02-11](#2023-02-11)
+### [2023-02-11](#2023-02-11)
 * Updated `latest` to Alpine 3.17
 * Updated ClamAV to 0.105.1-r0
 
-#### [2022-09-02](#2022-09-02)
+### [2022-09-02](#2022-09-02)
 * Updated ClamAV to 0.104.4-r1 on `edge`
 
-#### [2022-07-10](#2022-07-10)
+### [2022-07-10](#2022-07-10)
 * Updating `latest` to Alpine 3.16
 * Updating ClamAV to 0.104.3-r0 on `latest` and `edge`
 
-#### [2021-12-24](#2021-12-24)
+### [2021-12-24](#2021-12-24)
 * Updating packages for vuln scan
 * Reorganizing commands
 
-#### [2021-11-25](#2021-11-25)
+### [2021-11-25](#2021-11-25)
 * Bump edge version for clamav to 0.104.1-r0
 
-#### [2021-10-08](#2021-10-08)
+### [2021-10-08](#2021-10-08)
 * Bump edge version for clamav to 0.103.3-r1
 
-#### [2021-06-24](#2021-06-24)
+### [2021-06-24](#2021-06-24)
 * Bump version for clamav 0.103.3-r0
 
-#### [2021-04-17](#2021-04-17)
+### [2021-04-17](#2021-04-17)
 * Bump version for clamav 0.103.2-r0
 * Pull Requests
   * Added Upgrade openssl
@@ -188,18 +146,18 @@ End Date:   2022:07:10 13:12:08
   * Added ca-certificates package
     * PR - https://github.com/tquizzle/clamav-alpine/pull/6
 
-#### [2021-01-31](#2021-01-31)
+### [2021-01-31](#2021-01-31)
 * Bump version for clamav 0.103.0-r1
 
-#### [2020-10-06](#2020-10-06)
+### [2020-10-06](#2020-10-06)
 * Bump version for clamav 0.102.4-r1
 
-#### [2020-05-23](#2020-05-23)
+### [2020-05-23](#2020-05-23)
 * Bump version for clamav 0.102.3-r0
 * Added unrar and unrar libs
 
 
-#### [2020-02-16](#2020-02-16)
+### [2020-02-16](#2020-02-16)
 * Bump version for clamav 0.102.1-r0
 
 
