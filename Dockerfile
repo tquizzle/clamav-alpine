@@ -1,5 +1,5 @@
 FROM alpine:3.21
-LABEL maintainer="Travis Quinnelly" 
+LABEL maintainer="Travis Quinnelly"
 LABEL maintainer_url="https://github.com/tquizzle/"
 LABEL clamav_version="1.4.1-r0"
 
