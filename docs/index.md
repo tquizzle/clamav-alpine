@@ -7,7 +7,7 @@
 [<img src="https://raw.githubusercontent.com/tquizzle/clamav-alpine/master/img/kofi_long_button_red-402x500.png" width=225 />](https://ko-fi.com/tquinnelly)
 
 ---
- 
+
  This container allows you a very simple way to scan a mounted directory using `clamscan`.
 
 It will always update the ClamAV Database, by using the standard `freshclam` before running `clamscan`.
@@ -78,11 +78,15 @@ docker run -d --name=ClamAV \
 
 | Tag | ClamAV Version | Alpine Version |
 | --- | --- | --- |
-| latest | 1.2.2-r0 | 3.20.3 |
+| latest | 1.4.1-r0 | 3.21 |
 | edge | 1.4.1-r0 | Edge |
 
 
 ## Changelog
+
+### [2024-12-23](#2024-12-23)
+* Updated Alpine to 3.21 `latest`
+* Updated ClamAV to 1.4.1-r0 on `latest`
 
 ### [2024-12-03](#2024-12-03)
 * Updated ClamAV to 1.4.1-r0 on `edge`

@@ -2,7 +2,7 @@ name: Trivy Container Image Scan - Edge
 
 on:
     push:
-      branches: [ "master" ]
+#      branches: [ "master" ]
       paths-ignore:
         - './mkdocs.yml'
         - './docs/**'
