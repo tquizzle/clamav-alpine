@@ -10,5 +10,5 @@ sticky_navigation: true
 prev_next_buttons_location: bottom
 search_enabled: true
 hljs_style: github-gist
-logo: 'https://github.com/tquizzle/clamav-alpine/blob/master/img/clamav-docker.png'
-site_favicon: 'https://github.com/tquizzle/clamav-alpine/blob/master/img/favicon.ico'
+logo: 'https://raw.githubusercontent.com/tquizzle/clamav-alpine/refs/heads/master/img/clamav-docker.png'
+site_favicon: 'https://raw.githubusercontent.com/tquizzle/clamav-alpine/refs/heads/master/img/favicon.ico'
