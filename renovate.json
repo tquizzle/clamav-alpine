@@ -1,6 +1,35 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
-    "config:recommended"
+    "config:recommended",
+    "docker:pinDigests",
+    ":semanticCommits",
+    ":rebaseStalePrs",
+    ":disableRateLimiting"
+  ],
+  "timezone": "America/Chicago",
+  "assignees": [
+    "tquizzle"
+  ],
+   "gitAuthor": "<tquinnelly@gmail.com>",
+   "packageRules": [
+    {
+      "groupName": "all non-major dependencies",
+      "groupSlug": "all-minor-patch-digest",
+      "matchUpdateTypes": [
+        "minor",
+        "patch",
+        "digest"
+      ],
+      "minimumReleaseAge": "1 day",
+      "automerge": true,
+      "automergeType": "branch",
+      "extends": [
+        "schedule:weekends"
+      ],
+      "matchPackageNames": [
+        "*"
+      ]
+    }
   ]
 }
