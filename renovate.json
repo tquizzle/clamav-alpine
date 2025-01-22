@@ -3,10 +3,12 @@
   "extends": [
     "config:recommended",
     "docker:pinDigests",
+    "docker:enableMajor",
     ":semanticCommits",
     ":rebaseStalePrs",
     ":disableRateLimiting"
   ],
+  "ignorePaths": ["docs/"],
   "timezone": "America/Chicago",
   "assignees": [
     "tquizzle"
@@ -14,13 +16,8 @@
    "gitAuthor": "<tquinnelly@gmail.com>",
    "packageRules": [
     {
-      "groupName": "all non-major dependencies",
-      "groupSlug": "all-minor-patch-digest",
-      "matchUpdateTypes": [
-        "minor",
-        "patch",
-        "digest"
-      ],
+      "matchDatasources": ["docker"],
+      "matchPackageNames": ["clamav"],
       "minimumReleaseAge": "1 day",
       "automerge": true,
       "automergeType": "branch",
