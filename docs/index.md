@@ -78,11 +78,14 @@ docker run -d --name=ClamAV \
 
 | Tag | ClamAV Version | Alpine Version |
 | --- | --- | --- |
-| latest | 1.4.1-r0 | 3.21 |
-| edge | 1.4.1-r0 | Edge |
+| latest | 1.4.2-r0 | 3.21 |
+| edge | 1.4.2-r0 | Edge |
 
 
 ## Changelog
+
+### [2025-02-25](#2025-02-25)
+* Updated ClamAV to 1.4.2-r0 on `latest` and `edge`
 
 ### [2024-12-23](#2024-12-23)
 * Updated Alpine to 3.21 `latest`
