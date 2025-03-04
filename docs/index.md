@@ -1,7 +1,3 @@
----
-cover: 'https://raw.githubusercontent.com/tquizzle/clamav-alpine/refs/heads/master/img/clamav-docker.png'
----
-
 # ClamAV scanning Docker container based on Alpine
 
 ![Docker Pulls](https://flat.badgen.net/docker/pulls/tquinnelly/clamav-alpine) ![Docker Image Size](https://flat.badgen.net/docker/size/tquinnelly/clamav-alpine) ![Docker Stars](https://flat.badgen.net/docker/stars/tquinnelly/clamav-alpine)
