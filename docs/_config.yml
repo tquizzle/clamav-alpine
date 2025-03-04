@@ -8,6 +8,7 @@ sticky_navigation: true
 edit_on_github: false
 prev_next_buttons_location: bottom
 hljs_style: github-gist
+author: Travis Quinnelly
 syntax_highlighter_style: colorful
 search_enabled: true
 search:
