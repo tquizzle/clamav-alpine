@@ -1,18 +1,38 @@
-title: ClamAV - Alpine Documentation
-description: ClamAV - Alpine Docs
-#remote_theme: carlosperate/jekyll-theme-rtd
+
 remote_theme:     sighingnow/jekyll-gitbook
 
 # Theme settings
-site_author: TQ
 repo_url: https://github.com/tquizzle/clamav-alpine
 github_docs_folder: true
 sticky_navigation: true
 edit_on_github: false
 prev_next_buttons_location: bottom
-search_enabled: true
 hljs_style: github-gist
 syntax_highlighter_style: colorful
-
+search_enabled: true
+search:
+    facebook: false
+    google: false
+    telegram: false
+    twitter: false
+    stackoverflow: false
+    instagram: false
+    instapaper: false
+    vk: false
+    weibo: false
+    whatsapp: false
+    all: false
+    github: true
+    github_link: https://github.com/tquizzle/clamav-alpine/
 #logo: 'https://raw.githubusercontent.com/tquizzle/clamav-alpine/refs/heads/master/img/clamav-docker.png'
 #site_favicon: 'https://raw.githubusercontent.com/tquizzle/clamav-alpine/refs/heads/master/img/favicon.ico'
+
+toc:
+    enabled: true
+    h_min: 1
+    h_max: 3
+
+#title: ClamAV - Alpine Documentation
+#description: ClamAV - Alpine Docs
+#remote_theme: carlosperate/jekyll-theme-rtd
+#site_author: TQ
