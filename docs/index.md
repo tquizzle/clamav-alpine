@@ -1,3 +1,8 @@
+---
+cover: https://raw.githubusercontent.com/tquizzle/clamav-alpine/refs/heads/master/img/clamav-docker.png
+title: ClamAV scanning Docker container based on Alpine
+---
+
 # ClamAV scanning Docker container based on Alpine
 
 ![Docker Pulls](https://flat.badgen.net/docker/pulls/tquinnelly/clamav-alpine) ![Docker Image Size](https://flat.badgen.net/docker/size/tquinnelly/clamav-alpine) ![Docker Stars](https://flat.badgen.net/docker/stars/tquinnelly/clamav-alpine)
@@ -8,7 +13,7 @@
 
 ---
 
- This container allows you a very simple way to scan a mounted directory using `clamscan`.
+This container allows you a very simple way to scan a mounted directory using `clamscan`.
 
 It will always update the ClamAV Database, by using the standard `freshclam` before running `clamscan`.
 If the local ClamAV Database is up-to-date, it will check and continue.
