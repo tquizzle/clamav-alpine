@@ -19,6 +19,10 @@
       "matchDatasources": ["docker"],
       "matchPackageNames": ["clamav"],
       "minimumReleaseAge": "1 day",
+      "matchPackagePatterns": ["*"],
+      "matchUpdateTypes": ["minor", "patch"],
+      "groupName": "all non-major dependencies",
+      "groupSlug": "all-minor-patch",
       "automerge": true,
       "automergeType": "branch",
       "extends": [
