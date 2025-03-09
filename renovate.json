@@ -13,7 +13,7 @@
   "assignees": [
     "tquizzle"
   ],
-   "gitAuthor": "<tquinnelly@gmail.com>",
+   "gitAuthor": `${process.env.GIT_AUTHOR} <${process.env.GIT_EMAIL}>`,
    "packageRules": [
     {
       "matchDatasources": ["docker"],
