@@ -13,7 +13,7 @@
   "assignees": [
     "tquizzle"
   ],
-   "gitAuthor": `${process.env.GIT_AUTHOR} <${process.env.GIT_EMAIL}>`,
+   "gitAuthor": "Renovate Bot <bot@renovateapp.com>",
    "packageRules": [
     {
       "matchDatasources": ["docker"],
