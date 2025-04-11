@@ -3,7 +3,7 @@ set -euo pipefail
 echo ""
 echo -e "$( date -I'seconds' ) ClamAV process starting"
 echo ""
-echo -e "Unpdating ClamAV scan DB"
+echo -e "Updating ClamAV scan DB"
 echo ""
 set +e
 freshclam
