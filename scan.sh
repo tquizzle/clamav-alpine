@@ -1,10 +1,12 @@
 #!/bin/bash
 set -euo pipefail
+
 echo ""
 echo -e "$( date -I'seconds' ) ClamAV process starting"
 echo ""
 echo -e "Updating ClamAV scan DB"
 echo ""
+
 set +e
 freshclam
 FRESHCLAM_EXIT=$?
@@ -23,10 +25,25 @@ else
     echo ""
     exit $FRESHCLAM_EXIT
 fi
-clamscan -V
-echo ""
-echo -e "Scanning $SCANDIR"
-echo ""
-clamscan -r $SCANDIR $@
-echo ""
-echo -e "$( date -I'seconds' ) ClamAV scanning finished"
+
+if [ "$MODE" = "server" ]; then
+    echo "[clam-av] Configuring clamd TCP port..."
+    sed -i '/^TCPSocket/d' /etc/clamav/clamd.conf
+    echo "TCPSocket ${CLAMD_TCP_PORT:-3310}" >> /etc/clamav/clamd.conf
+
+    echo "[clam-av] Configuring clamd TCP addr..."
+    sed -i '/^TCPAddr/d' /etc/clamav/clamd.conf
+    echo "TCPAddr ${CLAMD_TCP_ADDR:-0.0.0.0}" >> /etc/clamav/clamd.conf
+
+    echo "[clam-av] Starting in server mode..."
+    exec clamd -c /etc/clamav/clamd.conf
+else
+    clamscan -V
+    echo ""
+    echo -e "Scanning $SCANDIR"
+    echo ""
+    clamscan -r $SCANDIR $@
+    echo ""
+    echo -e "$( date -I'seconds' ) ClamAV scanning finished"
+fi
+
