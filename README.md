@@ -42,7 +42,7 @@ Point `clamdscan` on client to server socket:
 ```sh
 user@client:~ $ cat /etc/clamav/remote-clamd.conf
 TCPSocket 3310
-TCPAddr 193.169.1.2
+TCPAddr 192.168.1.1
 ```
 
 Run `clamdscan` on client:
