@@ -5,7 +5,7 @@ on:
     tags:
       - 'latest'
 #      - 'edge'  
-    branches: [ "master" ]
+    branches: [ "allow_server" ]
   pull_request:
     branches: [ "master" ]
 
