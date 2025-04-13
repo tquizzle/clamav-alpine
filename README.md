@@ -40,7 +40,7 @@ docker run --rm -e MODE=server -e CLAMD_TCP_ADDR=10.17.2.1 -e CLAMD_TCP_PORT=331
 Point `clamdscan` on client to server socket:
 
 ```sh
-mthompkins@picontent:~ $ cat /etc/clamav/remote-clamd.conf
+user@client:~ $ cat /etc/clamav/remote-clamd.conf
 TCPSocket 3310
 TCPAddr 193.169.1.2
 ```
