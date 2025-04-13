@@ -1,10 +1,12 @@
 # ClamAV scanning Docker container based on Alpine
 
-![clamav](img/clamav.png "test")
+<img src="https://github.com/tquizzle/clamav-alpine/blob/master/img/clamav.png" width=300 alt="ClamAV"> 
+
+# Usage
 
 Documentation is available at its [own site](https://tquizzle.github.io/clamav-alpine/).
 
-# Usage Example
+Some examples are below.
 
 ## Local scan
 
