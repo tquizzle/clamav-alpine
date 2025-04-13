@@ -7,7 +7,7 @@ Documentation is available at its [own site](https://tquizzle.github.io/clamav-a
 
 # Usage Example
 
-Scanning locally:
+## Local scan
 
 ```sh
 docker run --rm -e MODE=scan -v "$PWD/test_dir:/scan" clamav
@@ -19,6 +19,9 @@ or
 docker run --rm -v "$PWD/test_dir:/scan" clamav
 ```
 
+## Server
+
+### Start server
 Starting a default server instance:
 
 ```sh
@@ -29,4 +32,20 @@ Setting custom port and address:
 
 ```sh
 docker run --rm -e MODE=server -e CLAMD_TCP_ADDR=10.17.2.1 -e CLAMD_TCP_PORT=3311 -p 3311:3311 clamav
+```
+
+### Usage on client
+
+Point `clamdscan` on client to server socket:
+
+```sh
+mthompkins@picontent:~ $ cat /etc/clamav/remote-clamd.conf
+TCPSocket 3310
+TCPAddr 193.169.1.2
+```
+
+Run `clamdscan` on client:
+
+```sh
+$ clamdscan --config-file=/etc/clamav/remote-clamd.conf /path/to/scan
 ```
