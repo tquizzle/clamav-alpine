@@ -28,7 +28,7 @@ jobs:
           context: .
           file: ./edge-Dockerfile
           push: false
-          tags: ${{ secrets.DOCKER_USERNAME }}/clamav-alpine:${{ github.sha }} 
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/clamav-alpine:${{ github.sha }} 
   
       - name: Run Trivy vulnerability scanner - edge
         uses: aquasecurity/trivy-action@0.30.0
