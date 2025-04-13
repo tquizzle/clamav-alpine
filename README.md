@@ -13,6 +13,12 @@ Scanning locally:
 docker run --rm -e MODE=scan -v "$PWD/test_dir:/scan" clamav
 ```
 
+or
+
+```sh
+docker run --rm -v "$PWD/test_dir:/scan" clamav
+```
+
 Starting a default server instance:
 
 ```sh
