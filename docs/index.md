@@ -13,12 +13,56 @@ This container allows you a very simple way to scan a mounted directory using `c
 It will always update the ClamAV Database, by using the standard `freshclam` before running `clamscan`.
 If the local ClamAV Database is up-to-date, it will check and continue.
 
+Thanks to @MitchellThompkins, we have "modes" to run in now.
+You can simply switch the mode and instead of just the scan feature, you can run SERVER mode to enable another, perhaps small PC, have itself scanned by the SERVER.
+
 ## How-To
 
 ### Usage
-Using this image is fairly straightforward.
 
-Pay attention to `-v /path/to/scan` as this is the mounted directory that this docker image will scan.
+#### Local Scan Mode
+This is your typical behavior that we all know and love.
+
+```
+docker run --rm -e MODE=scan -v "$PWD/test_dir:/scan" tquinnelly/clamav-alpine
+```
+
+**Note: The default still works as scan mode.**
+
+#### Server Mode
+Starting a server instance:
+
+```
+docker run --rm -e MODE=server -p 3310:3310 tquinnelly/clamav-alpine
+```
+
+Setting custom port and address:
+
+```
+docker run --rm -e MODE=server -e CLAMD_TCP_ADDR=10.17.2.1 -e CLAMD_TCP_PORT=3311 -p 3311:3311 tquinnelly/clamav-alpine
+```
+
+
+#### Client Usage
+
+Ensure that `clamdscan` is installed on your Linux server.
+Point `clamdscan` on client to server socket:
+
+```
+cat << 'EOF' > /etc/clamav/remote-clamd.conf
+TCPSocket PORT
+TCPAddr SERVER-IP
+EOF
+```
+
+Run clamdscan on client:
+
+```
+clamdscan --config-file=/etc/clamav/remote-clamd.conf /path/to/scan
+```
+
+#### Original Usage 
+Again, this is the same as running in scan mode.
 
 ```
 docker run -it \
@@ -83,6 +127,10 @@ docker run -d --name=ClamAV \
 
 
 ## Changelog
+
+### [2025-04-15](#2025-04-15)
+* Added support for server mode as well as scan mode.
+  * Hat tip [@MitchellThompkins](https://github.com/MitchellThompkins)
 
 ### [2025-02-25](#2025-02-25)
 * Updated ClamAV to 1.4.2-r0 on `latest` and `edge`
@@ -168,5 +216,4 @@ docker run -d --name=ClamAV \
 * Bump version for clamav 0.102.1-r0
 
 
-<img src="https://tianji.0hq.cc/telemetry/clnzoxcy10001vy2ohi4obbi0/cm09ricjj0069kl2u25b2mi8m.gif" alt="ClamAV">
 <script defer src="https://anal.tq.network/script.js" data-website-id="9b728ee1-2d58-4ec4-b8a4-0fc3a2bc730b"></script>
