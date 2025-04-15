@@ -10,4 +10,6 @@ RUN apk update && \
 
 ENV SCANDIR=/scan
 COPY scan.sh /scan.sh
-ENTRYPOINT [ "sh", "/scan.sh" ]
+COPY clamd.conf /etc/clamav/clamd.conf
+
+ENTRYPOINT ["sh", "/scan.sh"]
