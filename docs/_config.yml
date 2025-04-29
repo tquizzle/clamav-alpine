@@ -165,5 +165,5 @@ compress_html:
   profile: false
   # ignore:
   #   envs: all
-logo: 'https://raw.githubusercontent.com/tquizzle/clamav-alpine/refs/heads/master/img/clamav-docker.png'
+logo: 'https://raw.githubusercontent.com/tquizzle/clamav-alpine/refs/heads/master/img/clamav-docker-removebg-preview.png'
 favicon_ico: 'https://raw.githubusercontent.com/tquizzle/clamav-alpine/refs/heads/master/img/favicon.ico'
