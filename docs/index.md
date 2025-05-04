@@ -216,4 +216,4 @@ docker run -d --name=ClamAV \
 * Bump version for clamav 0.102.1-r0
 
 
-<script defer src="https://anal.tq.network/script.js" data-website-id="9b728ee1-2d58-4ec4-b8a4-0fc3a2bc730b"></script>
+![tianji](https://tianji.tq.network/telemetry/clnzoxcy10001vy2ohi4obbi0/cma9opvvv10nqmitpg2ogqn80.gif)
