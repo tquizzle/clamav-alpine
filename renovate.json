@@ -18,25 +18,10 @@
   "gitAuthor": "Renovate Bot <bot@renovateapp.com>",
   "packageRules": [
     {
-      "matchDatasources": [
-        "docker"
-      ],
-      "matchPackageNames": [
-        "*",
-        "*"
-      ],
-      "minimumReleaseAge": "1 day",
-      "matchUpdateTypes": [
-        "minor",
-        "patch"
-      ],
-      "groupName": "all non-major dependencies",
-      "groupSlug": "all-minor-patch",
+      "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
       "automerge": true,
       "automergeType": "branch",
-      "extends": [
-        "schedule:weekends"
-      ]
+      "minimumReleaseAge": "1 day"
     }
   ]
 }
