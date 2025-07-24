@@ -26,18 +26,18 @@ jobs:
     
     - name: Extract metadata (tags, labels) for Docker
       id: meta-latest
-      uses: docker/metadata-action@418e4b98bf2841bd337d0b24fe63cb36dc8afa55
+      uses: docker/metadata-action@be19121bfd18b9c1ac415d9571d4f67b9b357886
       with:
         images: ${{ secrets.DOCKER_USERNAME }}/clamav-alpine:latest
 
     - name: Extract metadata (tags, labels) for Docker
       id: meta-edge
-      uses: docker/metadata-action@418e4b98bf2841bd337d0b24fe63cb36dc8afa55
+      uses: docker/metadata-action@be19121bfd18b9c1ac415d9571d4f67b9b357886
       with:
         images: ${{ secrets.DOCKER_USERNAME }}/clamav-alpine:edge
 
     - name: Push it - Latest
-      uses: docker/build-push-action@v6.16.0
+      uses: docker/build-push-action@v6.18.0
       with:
         context: .
         file: ./Dockerfile
@@ -45,7 +45,7 @@ jobs:
         tags: ${{ secrets.DOCKER_USERNAME }}/clamav-alpine:latest 
       
     - name: Push it - Edge
-      uses: docker/build-push-action@v6.16.0
+      uses: docker/build-push-action@v6.18.0
       with:
         context: .
         file: ./edge-Dockerfile
