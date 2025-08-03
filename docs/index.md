@@ -1,5 +1,5 @@
 ---
-title: "ClamAV scanning Docker container based on Alpine"
+title: "ClamAV on Alpine: Your Lightweight Container for Virus Scanning"
 description: "This container allows you a very simple way to scan a mounted directory using clamscan."
 ---
 # ClamAV on Alpine: Your Lightweight Container for Virus Scanning 🛡️
@@ -8,9 +8,7 @@ description: "This container allows you a very simple way to scan a mounted dire
 
 This Docker container offers a straightforward and efficient way to perform virus scans using **ClamAV**, built on the incredibly lightweight **Alpine Linux**. It's perfect for quickly scanning mounted directories or setting up a dedicated ClamAV server or client.
 
-![Docker Pulls](https://flat.badgen.net/docker/pulls/tquinnelly/clamav-alpine) ![Docker Image Size](https://flat.badgen.net/docker/size/tquinnelly/clamav-alpine) ![Docker Stars](https://flat.badgen.net/docker/stars/tquinnelly/clamav-alpine)
-
-![Last Commit](https://flat.badgen.net/github/last-commit/tquizzle/clamav-alpine)
+![Docker Pulls](https://flat.badgen.net/docker/pulls/tquinnelly/clamav-alpine) ![Docker Image Size](https://flat.badgen.net/docker/size/tquinnelly/clamav-alpine) ![Docker Stars](https://flat.badgen.net/docker/stars/tquinnelly/clamav-alpine) ![Github Stars](https://flat.badgen.net/github/stars/tquizzle/clamav-alpine) ![GitHub Issues](https://flat.badgen.net/github/issues/tquizzle/clamav-alpine) ![GitHub Contributors](https://flat.badgen.net/github/contributors/tquizzle/clamav-alpine) ![Last Commit](https://flat.badgen.net/github/last-commit/tquizzle/clamav-alpine)
 
 [<img src="https://raw.githubusercontent.com/tquizzle/clamav-alpine/master/img/kofi_long_button_red-402x500.png" width=225 />](https://ko-fi.com/tquinnelly)
 
