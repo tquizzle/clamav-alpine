@@ -2,8 +2,11 @@
 title: "ClamAV scanning Docker container based on Alpine"
 description: "This container allows you a very simple way to scan a mounted directory using clamscan."
 ---
+# ClamAV on Alpine: Your Lightweight Container for Virus Scanning 🛡️
 
-# ClamAV scanning Docker container based on Alpine
+-----
+
+This Docker container offers a straightforward and efficient way to perform virus scans using **ClamAV**, built on the incredibly lightweight **Alpine Linux**. It's perfect for quickly scanning mounted directories or setting up a dedicated ClamAV server or client.
 
 ![Docker Pulls](https://flat.badgen.net/docker/pulls/tquinnelly/clamav-alpine) ![Docker Image Size](https://flat.badgen.net/docker/size/tquinnelly/clamav-alpine) ![Docker Stars](https://flat.badgen.net/docker/stars/tquinnelly/clamav-alpine)
 
@@ -11,111 +14,125 @@ description: "This container allows you a very simple way to scan a mounted dire
 
 [<img src="https://raw.githubusercontent.com/tquizzle/clamav-alpine/master/img/kofi_long_button_red-402x500.png" width=225 />](https://ko-fi.com/tquinnelly)
 
----
+-----
+## Key Features ✨
 
-This container allows you a very simple way to scan a mounted directory using `clamscan`.
+  * **Always Up-to-Date:** Automatically updates the ClamAV database using `freshclam` before every scan, ensuring you have the latest threat definitions.
+  * **Flexible Modes:** Choose between **Scan Mode** for direct directory scanning or **Server Mode** to enable network-based scanning for other clients. (Thanks, @MitchellThompkins\!)
+  * **Lightweight & Fast:** Built on Alpine Linux, this container is designed for minimal overhead and quick operations.
+  * **Customizable:** Supports various `clamscan` arguments and volume mounts for advanced configurations.
 
-It will always update the ClamAV Database, by using the standard `freshclam` before running `clamscan`.
-If the local ClamAV Database is up-to-date, it will check and continue.
+-----
 
-Thanks to @MitchellThompkins, we have "modes" to run in now.
-You can simply switch the mode and instead of just the scan feature, you can run SERVER mode to enable another, perhaps small PC, have itself scanned by the SERVER.
+## Getting Started 🚀
 
-## How-To
+### Usage Modes
 
-### Usage
+This container supports two primary modes of operation, controlled by the `MODE` environment variable.
 
-#### Local Scan Mode
-This is your typical behavior that we all know and love.
+#### 📁 Local Scan Mode (Default)
 
-```
+This is the classic way to use ClamAV: scan a mounted directory directly. If no `MODE` is specified, `scan` is the default.
+
+```bash
 docker run --rm -e MODE=scan -v "$PWD/test_dir:/scan" tquinnelly/clamav-alpine
 ```
 
-**Note: The default still works as scan mode.**
+#### 🌐 Server Mode
 
-#### Server Mode
-Starting a server instance:
+Run ClamAV as a daemon, allowing other clients to connect and request scans.
 
-```
+```bash
 docker run --rm -e MODE=server -p 3310:3310 tquinnelly/clamav-alpine
 ```
 
-Setting custom port and address:
+**Custom Port and Address:**
 
-```
+```bash
 docker run --rm -e MODE=server -e CLAMD_TCP_ADDR=10.17.2.1 -e CLAMD_TCP_PORT=3311 -p 3311:3311 tquinnelly/clamav-alpine
 ```
 
+### Client Usage (with Server Mode)
 
-#### Client Usage
+If you're running the container in Server Mode, you can configure `clamdscan` on your client machines to connect to it.
 
-Ensure that `clamdscan` is installed on your Linux server.
-Point `clamdscan` on client to server socket:
+1.  **Install `clamdscan`:**
+    Ensure `clamdscan` is installed on your Linux client.
 
-```
-cat << 'EOF' > /etc/clamav/remote-clamd.conf
-TCPSocket PORT
-TCPAddr SERVER-IP
-EOF
-```
+2.  **Configure `clamdscan`:**
+    Create a configuration file to point to your ClamAV server:
 
-Run clamdscan on client:
+    ```bash
+    cat << 'EOF' | sudo tee /etc/clamav/remote-clamd.conf
+    TCPSocket PORT
+    TCPAddr SERVER-IP
+    EOF
+    ```
 
-```
-clamdscan --config-file=/etc/clamav/remote-clamd.conf /path/to/scan
-```
+      * Replace `PORT` with your server's ClamAV port (e.g., `3310`).
+      * Replace `SERVER-IP` with the IP address of your ClamAV server container.
 
-#### Standard Usage 
-Again, this is the same as running in scan mode.
+3.  **Run `clamdscan`:**
+    Execute a scan on the client, specifying the remote configuration:
 
-```
+    ```bash
+    clamdscan --config-file=/etc/clamav/remote-clamd.conf /path/to/scan
+    ```
+
+### Standard Scan Options
+
+For more control over your scans, you can pass additional `clamscan` arguments directly to the container. The `-i` flag (only print infected files) is included by default, but you can override or add to it.
+
+```bash
 docker run -it \
   -v /path/to/scan:/scan:ro \
   tquinnelly/clamav-alpine -i
 ```
-Use `-d` instead of `-it` if you want to detach and move along.
 
-#### Post-Args
-I took the liberty to include `-i` by default. You can, however, add any you desire.
+Use `-d` instead of `-it` if you prefer to run the scan in detached mode.
 
-* `-i` - Only print infected files
-* `--log=FILE` - save scan report to FILE
-* `--database=FILE/DIR` - load virus database from FILE or load all supported db files from DIR
-* `--official-db-only[=yes/no(*)]` - only load official signatures
-* `--max-filesize=#n` - files larger than this will be skipped and assumed clean
-* `--max-scansize=#n` - the maximum amount of data to scan for each container file
-* `--leave-temps[=yes/no(*)]`- do not remove temporary files
-* `--file-list=FILE` - scan files from FILE
-* `--quiet` - only output error messages
-* `--bell` - sound bell on virus detection
-* `--cross-fs[=yes(*)/no]` - scan files and directories on other filesystems
-* `--move=DIRECTORY` - move infected files into DIRECTORY
-* `--copy=DIRECTORY` - copy infected files into DIRECTORY
-* `--bytecode-timeout=N` - set bytecode timeout (in milliseconds)
-* `--heuristic-alerts[=yes(*)/no]` - toggles heuristic alerts
-* `--alert-encrypted[=yes/no(*)]` - alert on encrypted archives and documents
-* `--nocerts` - disable authenticode certificate chain verification in PE files
-* `--disable-cache` - disable caching and cache checks for hash sums of scanned files
+#### Common `clamscan` Post-Arguments
 
-#### Volumes
-I only have the `/scan` directory noted above. You can add others in conjunction with the post-args as well.
+You can append any of these arguments to your `docker run` command for scan customization:
 
-**Save AV Signatures**
+  * `-i`: **Only print infected files** (default behavior).
+  * `--log=FILE`: Save the scan report to a specified `FILE`.
+  * `--database=FILE/DIR`: Load the virus database from a specific `FILE` or all supported database files from a `DIR`.
+  * `--max-filesize=#n`: Skip files larger than `#n` bytes and assume them clean.
+  * `--max-scansize=#n`: Set the maximum amount of data to scan for each container file.
+  * `--move=DIRECTORY`: Move infected files to `DIRECTORY`.
+  * `--copy=DIRECTORY`: Copy infected files to `DIRECTORY`.
+  * `--bytecode-timeout=N`: Set the bytecode timeout in milliseconds.
+  * `--cross-fs`: Scan files and directories across different filesystems (default: enabled).
+  * `--heuristic-alerts`: Toggle heuristic alerts (default: enabled).
+  * `--alert-encrypted`: Alert on encrypted archives and documents (default: disabled).
+  * `--quiet`: Suppress all output except error messages.
+  * `--bell`: Sound a bell upon virus detection.
+  * `--disable-cache`: Disable caching and cache checks for hash sums of scanned files.
 
-* `-v /path/to/sig:/var/lib/clamav`
+### Volume Mounts 💾
 
-**Infected Dir**
+Beyond the primary `/scan` directory, you can mount additional volumes for enhanced functionality.
 
-* `-v /path/to/infected:/infected`
-* Then  you can use either the `--move` or `--copy` post-arg above.
+  * **Save AV Signatures:** Persist your ClamAV database updates to avoid re-downloading them on every container start.
 
-### Examples
-Here are some examples of various configurations.
+    ```bash
+    -v /path/to/sig:/var/lib/clamav
+    ```
 
-This is the one **I** run. I target 2 cores of my CPU as to not cripple my host. I also log to the DB directory and limit 2G file size scan.
+  * **Infected Files Directory:** Direct infected files to a specific location using `--move` or `--copy` post-arguments.
 
-```
+    ```bash
+    -v /path/to/infected:/infected
+    ```
+
+-----
+
+## Examples 💡
+
+Here's an example of a more advanced setup, typical for a persistent ClamAV scanner:
+
+```bash
 docker run -d --name=ClamAV \
   --cpuset-cpus='0,1' \
   -v /path/to/scan:/scan:ro \
@@ -123,102 +140,139 @@ docker run -d --name=ClamAV \
   tquinnelly/clamav-alpine -i --log=/var/lib/clamav/log.log --max-filesize=2048M
 ```
 
-## Supported Tags | Versions
+This command:
 
-| Tag | ClamAV Version | Alpine Version |
-| --- | --- | --- |
-| latest | 1.4.2-r0 | 3.21 |
-| edge | 1.4.2-r0 | Edge |
+  * Runs the container in **detached mode** (`-d`) and names it `ClamAV`.
+  * **Limits CPU usage** to cores 0 and 1.
+  * **Mounts** `/path/to/scan` as a **read-only** directory inside the container for scanning.
+  * **Mounts** `/path/to/sig` for **persistent storage of ClamAV signatures** and logs.
+  * Instructs `clamscan` to **only print infected files** (`-i`).
+  * **Logs scan reports** to `/var/lib/clamav/log.log`.
+  * **Skips files larger than 2GB** (`--max-filesize=2048M`).
 
+-----
 
-## Changelog
+## Supported Tags & Versions 🏷️
 
-### [2025-04-15](#2025-04-15)
-* Added support for server mode as well as scan mode.
-  * Hat tip [@MitchellThompkins](https://github.com/MitchellThompkins)
+| Tag      | ClamAV Version | Alpine Version |
+| :------- | :------------- | :------------- |
+| `latest` | 1.4.2-r0       | 3.21           |
+| `edge`   | 1.4.2-r0       | Edge           |
 
-### [2025-02-25](#2025-02-25)
-* Updated ClamAV to 1.4.2-r0 on `latest` and `edge`
+-----
 
-### [2024-12-23](#2024-12-23)
-* Updated Alpine to 3.21 `latest`
-* Updated ClamAV to 1.4.1-r0 on `latest`
+## Changelog 📜
 
-### [2024-12-03](#2024-12-03)
-* Updated ClamAV to 1.4.1-r0 on `edge`
+### 2025-04-15
 
-### [2024-09-15](#2024-09-15)
-* Updated Alpine to 3.20.3 `latest`
-* Updated ClamAV to 1.3.2-r0 on `edge`
+  * Added support for **server mode** as well as scan mode.
+      * Big thanks to [@MitchellThompkins](https://github.com/MitchellThompkins) for this contribution\!
 
-### [2024-03-08](#2024-03-08)
-* Updated ClamAV to 1.2.2-r0 on `latest` and `edge`
+### 2025-02-25
 
-### [2024-01-14](#2024-01-14)
-* Updated openssl to 3.1.4-r3 on `latest` and `edge` to mitigate [CVE-2023-6129](https://security.snyk.io/vuln/SNYK-ALPINE319-OPENSSL-6148881)
+  * Updated ClamAV to **1.4.2-r0** on `latest` and `edge` tags.
 
-### [2023-12-09](#2023-12-09)
-* Updated ClamAV to 1.2.1-r0 on `latest` and `edge`
+### 2024-12-23
 
-### [2023-05-27](#2023-05-27) 
-* Updated `scan.sh` to fix the new line issue
-* Updated `edge` and `latest` Dockerfiles to remove hardcoded ClamAV version
+  * Updated Alpine to **3.21** for the `latest` tag.
+  * Updated ClamAV to **1.4.1-r0** on the `latest` tag.
 
-### [2023-05-26](#2023-05-26) 
-* Updated `latest` to Alpine 3.18
-* Updated ClamAV to 1.10-r0 on `latest` and `edge`
+### 2024-12-03
 
-### [2023-04-23](#2023-04-23)
-* Updated ClamAV to 1.0.1-r0 on `edge`
+  * Updated ClamAV to **1.4.1-r0** on the `edge` tag.
 
-### [2023-04-22](#2023-04-22)
-* Updated ClamAV to 0.105.2-r0 on `latest`
+### 2024-09-15
 
-### [2023-02-11](#2023-02-11)
-* Updated `latest` to Alpine 3.17
-* Updated ClamAV to 0.105.1-r0
+  * Updated Alpine to **3.20.3** for the `latest` tag.
+  * Updated ClamAV to **1.3.2-r0** on the `edge` tag.
 
-### [2022-09-02](#2022-09-02)
-* Updated ClamAV to 0.104.4-r1 on `edge`
+### 2024-03-08
 
-### [2022-07-10](#2022-07-10)
-* Updating `latest` to Alpine 3.16
-* Updating ClamAV to 0.104.3-r0 on `latest` and `edge`
+  * Updated ClamAV to **1.2.2-r0** on `latest` and `edge` tags.
 
-### [2021-12-24](#2021-12-24)
-* Updating packages for vuln scan
-* Reorganizing commands
+### 2024-01-14
 
-### [2021-11-25](#2021-11-25)
-* Bump edge version for clamav to 0.104.1-r0
+  * Updated `openssl` to **3.1.4-r3** on `latest` and `edge` to mitigate [CVE-2023-6129](https://security.snyk.io/vuln/SNYK-ALPINE319-OPENSSL-6148881).
 
-### [2021-10-08](#2021-10-08)
-* Bump edge version for clamav to 0.103.3-r1
+### 2023-12-09
 
-### [2021-06-24](#2021-06-24)
-* Bump version for clamav 0.103.3-r0
+  * Updated ClamAV to **1.2.1-r0** on `latest` and `edge` tags.
 
-### [2021-04-17](#2021-04-17)
-* Bump version for clamav 0.103.2-r0
-* Pull Requests
-  * Added Upgrade openssl
-    * PR - https://github.com/tquizzle/clamav-alpine/pull/5
-  * Added ca-certificates package
-    * PR - https://github.com/tquizzle/clamav-alpine/pull/6
+### 2023-05-27
 
-### [2021-01-31](#2021-01-31)
-* Bump version for clamav 0.103.0-r1
+  * Fixed a new line issue in `scan.sh`.
+  * Removed hardcoded ClamAV version from `edge` and `latest` Dockerfiles.
 
-### [2020-10-06](#2020-10-06)
-* Bump version for clamav 0.102.4-r1
+### 2023-05-26
 
-### [2020-05-23](#2020-05-23)
-* Bump version for clamav 0.102.3-r0
-* Added unrar and unrar libs
+  * Updated `latest` to **Alpine 3.18**.
+  * Updated ClamAV to **1.10-r0** on `latest` and `edge` tags.
 
+### 2023-04-23
 
-### [2020-02-16](#2020-02-16)
-* Bump version for clamav 0.102.1-r0
+  * Updated ClamAV to **1.0.1-r0** on the `edge` tag.
 
+### 2023-04-22
+
+  * Updated ClamAV to **0.105.2-r0** on the `latest` tag.
+
+### 2023-02-11
+
+  * Updated `latest` to **Alpine 3.17**.
+  * Updated ClamAV to **0.105.1-r0**.
+
+### 2022-09-02
+
+  * Updated ClamAV to **0.104.4-r1** on the `edge` tag.
+
+### 2022-07-10
+
+  * Updated `latest` to **Alpine 3.16**.
+  * Updated ClamAV to **0.104.3-r0** on `latest` and `edge` tags.
+
+### 2021-12-24
+
+  * Updated packages for vulnerability scanning.
+  * Reorganized commands.
+
+### 2021-11-25
+
+  * Bumped `edge` version for ClamAV to **0.104.1-r0**.
+
+### 2021-10-08
+
+  * Bumped `edge` version for ClamAV to **0.103.3-r1**.
+
+### 2021-06-24
+
+  * Bumped version for ClamAV to **0.103.3-r0**.
+
+### 2021-04-17
+
+  * Bumped version for ClamAV to **0.103.2-r0**.
+  * **Pull Requests:**
+      * Added Upgrade `openssl` ([PR \#5](https://github.com/tquizzle/clamav-alpine/pull/5)).
+      * Added `ca-certificates` package ([PR \#6](https://github.com/tquizzle/clamav-alpine/pull/6)).
+
+### 2021-01-31
+
+  * Bumped version for ClamAV to **0.103.0-r1**.
+
+### 2020-10-06
+
+  * Bumped version for ClamAV to **0.102.4-r1**.
+
+### 2020-05-23
+
+  * Bumped version for ClamAV to **0.102.3-r0**.
+  * Added `unrar` and `unrar libs`.
+
+### 2020-02-16
+
+  * Bumped version for ClamAV to **0.102.1-r0**.
+
+-----
+
+Have questions or suggestions? Feel free to open an issue or pull request.
 
 ![tianji](https://tianji.tq.network/telemetry/clnzoxcy10001vy2ohi4obbi0/cma9opvvv10nqmitpg2ogqn80.gif)
