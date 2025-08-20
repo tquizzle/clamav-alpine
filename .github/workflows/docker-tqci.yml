@@ -26,13 +26,13 @@ jobs:
     
     - name: Extract metadata (tags, labels) for Docker
       id: meta-latest
-      uses: docker/metadata-action@c1e51972afc2121e065aed6d45c65596fe445f3f
+      uses: docker/metadata-action@032a4b3bda1b716928481836ac5bfe36e1feaad6
       with:
         images: ${{ secrets.DOCKER_USERNAME }}/clamav-alpine:latest
 
     - name: Extract metadata (tags, labels) for Docker
       id: meta-edge
-      uses: docker/metadata-action@c1e51972afc2121e065aed6d45c65596fe445f3f
+      uses: docker/metadata-action@032a4b3bda1b716928481836ac5bfe36e1feaad6
       with:
         images: ${{ secrets.DOCKER_USERNAME }}/clamav-alpine:edge
 
