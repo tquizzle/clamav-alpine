@@ -65,7 +65,7 @@ jobs:
       uses: docker/build-push-action@v6.18.0
       with:
         context: .
-        file: ./edge-Dockerfile
+        file: ./Dockerfile
         push: true
         tags: ghcr.io/${{ github.repository }}:latest 
       
