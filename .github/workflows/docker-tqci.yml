@@ -52,3 +52,28 @@ jobs:
         push: true
         tags: ${{ secrets.DOCKER_USERNAME }}/clamav-alpine:edge 
 
+    - name: Log in to the GitHub Container Registry
+      uses: docker/login-action@v3
+      with:
+        registry: ghcr.io
+        # GITHUB_TOKEN is a special secret that GitHub Actions provides automatically.
+        username: ${{ github.actor }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Push it - Latest - Github Container Registry
+      # This step pushes the image to the GitHub Container Registry
+      uses: docker/build-push-action@v6.18.0
+      with:
+        context: .
+        file: ./edge-Dockerfile
+        push: true
+        tags: ghcr.io/${{ github.repository }}:latest 
+      
+    - name: Push it - Edge - Github Container Registry
+      # This step pushes the image to the GitHub Container Registry
+      uses: docker/build-push-action@v6.18.0
+      with:
+        context: .
+        file: ./edge-Dockerfile
+        push: true
+        tags: ghcr.io/${{ github.repository }}:edge
