@@ -10,10 +10,19 @@ on:
 jobs:
 
   build:
-
     runs-on: ubuntu-latest
+<<<<<<< Updated upstream
     permissions:
       packages: write
+=======
+
+    permissions:
+      contents: read
+      packages: write
+      attestations: write
+      id-token: write
+
+>>>>>>> Stashed changes
     steps:
     - name: Check out the repo
       uses: actions/checkout@v5
@@ -32,6 +41,7 @@ jobs:
       with:
         images: ${{ secrets.DOCKER_USERNAME }}/clamav-alpine:latest
 
+<<<<<<< Updated upstream
     - name: Extract metadata (tags, labels) for Docker
       id: meta-edge
       uses: docker/metadata-action@032a4b3bda1b716928481836ac5bfe36e1feaad6
@@ -39,6 +49,9 @@ jobs:
         images: ${{ secrets.DOCKER_USERNAME }}/clamav-alpine:edge
 
     - name: Build it, Push it - Latest
+=======
+    - name: Push it - Latest
+>>>>>>> Stashed changes
       uses: docker/build-push-action@v6.18.0
       with:
         context: .
@@ -54,6 +67,12 @@ jobs:
         push: true
         tags: ${{ secrets.DOCKER_USERNAME }}/clamav-alpine:edge 
 
+    - name: Extract metadata (tags, labels) for Docker
+      id: meta-edge
+      uses: docker/metadata-action@032a4b3bda1b716928481836ac5bfe36e1feaad6
+      with:
+        images: ${{ secrets.DOCKER_USERNAME }}/clamav-alpine:edge
+ 
     - name: Log in to the GitHub Container Registry
       uses: docker/login-action@v3
       with:
@@ -64,18 +83,44 @@ jobs:
 
     - name: Build it, Push it - Latest - Github Container Registry
       # This step pushes the image to the GitHub Container Registry
+      id: push-latest
       uses: docker/build-push-action@v6.18.0
       with:
         context: .
         file: ./Dockerfile
         push: true
+<<<<<<< Updated upstream
         tags: ghcr.io/${{ github.repository }}:latest 
       
     - name: Build it, Push it - Edge - Github Container Registry
+=======
+        tags: ${{ steps.meta-latest.outputs.tags }}
+        labels: ${{ steps.meta-latest.outputs.labels }}      
+    - name: Generate latest artifact attestation
+      uses: actions/attest-build-provenance@v3
+      with:
+        subject-name: ghcr.io/${{ github.repository }}/clamav-alpine
+        subject-digest: ${{ steps.push-latest.outputs.digest }}
+        push-to-registry: true
+
+    - name: Push it - Edge - Github Container Registry
+>>>>>>> Stashed changes
       # This step pushes the image to the GitHub Container Registry
+      id: push-edge
       uses: docker/build-push-action@v6.18.0
       with:
         context: .
         file: ./edge-Dockerfile
         push: true
+<<<<<<< Updated upstream
         tags: ghcr.io/${{ github.repository }}:edge
+=======
+        tags: ${{ steps.meta-edge.outputs.tags }}
+        labels: ${{ steps.meta-edge.outputs.labels }}
+    - name: Generate edgelatest artifact attestation
+      uses: actions/attest-build-provenance@v3
+      with:
+        subject-name: ghcr.io/${{ github.repository }}/clamav-alpine
+        subject-digest: ${{ steps.push-edge.outputs.digest }}
+        push-to-registry: true
+>>>>>>> Stashed changes

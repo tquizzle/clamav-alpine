@@ -6,6 +6,17 @@ on:
       paths-ignore:
         - './mkdocs.yml'
         - './docs/**'
+        - './.github/**'
+        - './Dockerfile'
+        - './README.md'
+        - './LICENSE'
+        - './CODE_OF_CONDUCT.md'
+        - './CONTRIBUTING.md'
+        - './SECURITY.md'
+        - './CHANGELOG.md'
+        - './edge-Dockerfile'
+        - './.dockerignore'
+        - './img/**'
     pull_request:
       branches: [ "master" ]
       paths-ignore:
