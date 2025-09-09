@@ -12,6 +12,8 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
+    permissions:
+      packages: write
     steps:
     - name: Check out the repo
       uses: actions/checkout@v5
@@ -36,7 +38,7 @@ jobs:
       with:
         images: ${{ secrets.DOCKER_USERNAME }}/clamav-alpine:edge
 
-    - name: Push it - Latest
+    - name: Build it, Push it - Latest
       uses: docker/build-push-action@v6.18.0
       with:
         context: .
@@ -44,7 +46,7 @@ jobs:
         push: true
         tags: ${{ secrets.DOCKER_USERNAME }}/clamav-alpine:latest 
       
-    - name: Push it - Edge
+    - name: Build it, Push it - Edge
       uses: docker/build-push-action@v6.18.0
       with:
         context: .
@@ -60,7 +62,7 @@ jobs:
         username: ${{ github.actor }}
         password: ${{ secrets.GITHUB_TOKEN }}
 
-    - name: Push it - Latest - Github Container Registry
+    - name: Build it, Push it - Latest - Github Container Registry
       # This step pushes the image to the GitHub Container Registry
       uses: docker/build-push-action@v6.18.0
       with:
@@ -69,7 +71,7 @@ jobs:
         push: true
         tags: ghcr.io/${{ github.repository }}:latest 
       
-    - name: Push it - Edge - Github Container Registry
+    - name: Build it, Push it - Edge - Github Container Registry
       # This step pushes the image to the GitHub Container Registry
       uses: docker/build-push-action@v6.18.0
       with:
