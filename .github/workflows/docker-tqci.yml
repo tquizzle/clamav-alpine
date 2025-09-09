@@ -12,7 +12,10 @@ jobs:
   build:
     runs-on: ubuntu-latest
     permissions:
+      contents: read
       packages: write
+      attestations: write
+      id-token: write
     steps:
     - name: Check out the repo
       uses: actions/checkout@v5
@@ -85,11 +88,11 @@ jobs:
         context: .
         file: ./edge-Dockerfile
         push: true
-        tags: ${{ steps.meta-edge2.outputs.tags }}
-        labels: ${{ steps.meta-edge2.outputs.labels }}
+        tags: ${{ steps.meta-edge.outputs.tags }}
+        labels: ${{ steps.meta-edge.outputs.labels }}
     - name: Generate edgelatest artifact attestation
       uses: actions/attest-build-provenance@v3
       with:
         subject-name: ghcr.io/${{ github.repository }}/clamav-alpine
-        subject-digest: ${{ steps.push-edge2.outputs.digest }}
+        subject-digest: ${{ steps.push-edge.outputs.digest }}
         push-to-registry: true
