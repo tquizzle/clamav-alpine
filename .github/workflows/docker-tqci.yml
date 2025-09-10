@@ -37,9 +37,9 @@ jobs:
           tags: edge
 
     outputs:
-      latest_tags: ${{ steps.meta-latest.outputs.tags }}
+#      latest_tags: ${{ steps.meta-latest.outputs.tags }}
       latest_labels: ${{ steps.meta-latest.outputs.labels }}
-      edge_tags: ${{ steps.meta-edge.outputs.tags }}
+#      edge_tags: ${{ steps.meta-edge.outputs.tags }}
       edge_labels: ${{ steps.meta-edge.outputs.labels }}
 
   build-and-push-dockerhub:
@@ -61,7 +61,8 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
-          tags: ${{ needs.extract-metadata.outputs.latest_tags }}
+#          tags: ${{ needs.extract-metadata.outputs.latest_tags }}
+          tags: ${{ secrets.DOCKER_USERNAME }}/clamav-alpine:latest
           labels: ${{ needs.extract-metadata.outputs.latest_labels }}
 
       - name: Build & Push - Edge
@@ -70,7 +71,8 @@ jobs:
           context: .
           file: ./edge-Dockerfile
           push: true
-          tags: ${{ needs.extract-metadata.outputs.edge_tags }}
+#          tags: ${{ needs.extract-metadata.outputs.edge_tags }}
+          tags: ${{ secrets.DOCKER_USERNAME }}/clamav-alpine:edge
           labels: ${{ needs.extract-metadata.outputs.edge_labels }}
 
   build-and-push-ghcr:
