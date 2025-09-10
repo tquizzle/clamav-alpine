@@ -6,39 +6,8 @@ on:
   workflow_dispatch:
 
 jobs:
-  dockerhub-login:
-    runs-on: ubuntu-latest
-    outputs:
-      username: ${{ steps.set-username.outputs.username }}
-    steps:
-      - name: Login to Docker Hub
-        id: dockerhub-login
-        uses: docker/login-action@v3
-        with:
-          username: ${{ secrets.DOCKER_USERNAME }}
-          password: ${{ secrets.DOCKER_TOKEN }}
-      - name: Set DockerHub Username Output
-        id: set-username
-        run: echo "username=${{ secrets.DOCKER_USERNAME }}" >> $GITHUB_OUTPUT
-
-  ghcr-login:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Log in to the GitHub Container Registry
-        uses: docker/login-action@v3
-        with:
-          registry: ghcr.io
-          username: ${{ github.actor }}
-          password: ${{ secrets.GITHUB_TOKEN }}
-
   extract-metadata:
     runs-on: ubuntu-latest
-    needs: [dockerhub-login]
-    outputs:
-      latest_tags: ${{ steps.meta-latest.outputs.tags }}
-      latest_labels: ${{ steps.meta-latest.outputs.labels }}
-      edge_tags: ${{ steps.meta-edge.outputs.tags }}
-      edge_labels: ${{ steps.meta-edge.outputs.labels }}
     steps:
       - name: Check out the repo
         uses: actions/checkout@v5
@@ -47,20 +16,34 @@ jobs:
         id: meta-latest
         uses: docker/metadata-action@v5
         with:
-          images: ${{ needs.dockerhub-login.outputs.username }}/clamav-alpine:latest
+          images: ${{ secrets.DOCKER_USERNAME }}/clamav-alpine
+          tags: latest
 
       - name: Extract metadata for Docker (edge)
         id: meta-edge
         uses: docker/metadata-action@v5
         with:
-          images: ${{ needs.dockerhub-login.outputs.username }}/clamav-alpine:edge
+          images: ${{ secrets.DOCKER_USERNAME }}/clamav-alpine
+          tags: edge
+
+    outputs:
+      latest_tags: ${{ steps.meta-latest.outputs.tags }}
+      latest_labels: ${{ steps.meta-latest.outputs.labels }}
+      edge_tags: ${{ steps.meta-edge.outputs.tags }}
+      edge_labels: ${{ steps.meta-edge.outputs.labels }}
 
   build-and-push-dockerhub:
     runs-on: ubuntu-latest
-    needs: [dockerhub-login, extract-metadata]
+    needs: extract-metadata
     steps:
       - name: Check out the repo
         uses: actions/checkout@v5
+
+      - name: Login to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_TOKEN }}
 
       - name: Build & Push - Latest
         uses: docker/build-push-action@v6
@@ -82,7 +65,7 @@ jobs:
 
   build-and-push-ghcr:
     runs-on: ubuntu-latest
-    needs: [ghcr-login, extract-metadata]
+    needs: extract-metadata
     permissions:
       contents: read
       packages: write
@@ -91,6 +74,13 @@ jobs:
     steps:
       - name: Check out the repo
         uses: actions/checkout@v5
+
+      - name: Log in to the GitHub Container Registry
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Build & Push - Latest (GHCR)
         id: push-latest
