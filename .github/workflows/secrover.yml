@@ -13,7 +13,7 @@ jobs:
       GH_PAT: ${{ secrets.GH_PAT }}
       GIT_AUTHOR_NAME: ${{ vars.GIT_AUTHOR_NAME }}
       GIT_AUTHOR_EMAIL: ${{ vars.GIT_AUTHOR_EMAIL }} 
-      SECROVER_PATH: secrover/docs
+      SECROVER_PATH: "$(pwd)/secrover/docs"
 
     steps:
       - name: Checkout repo
