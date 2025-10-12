@@ -5,6 +5,7 @@ on:
 #      branches: [ "master" ]
       paths-ignore:
         - './mkdocs.yml'
+        - './secrover/**'
         - './docs/**'
         - './.github/**'
         - './Dockerfile'
