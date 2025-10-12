@@ -26,9 +26,9 @@ jobs:
       - name: Pull and run Secrover
         run: |
           docker pull secrover/secrover
-          mkdir -p docs
+          mkdir -p "$(pwd)/secrover/docs"
           docker run --rm \
-            -v "$(pwd)/secrover/secrover-config.yml:/app/config.yaml" \
+            -v "$(pwd)/secrover/config.yml:/app/config.yaml" \
             -v "$(pwd)/secrover/docs:/output" \
             -e CONFIG_FILE=config.yaml \
             secrover/secrover
