@@ -6,4 +6,4 @@ repos:
   - url: https://github.com/tquizzle/clamav-alpine.git
     branch: master
     description: ClamAV Docker image based on Alpine Linux
-    docs_dir: docs
+    docs_dir: secrover/docs
