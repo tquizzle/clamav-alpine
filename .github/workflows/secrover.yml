@@ -12,7 +12,8 @@ jobs:
     env:
       GH_PAT: ${{ secrets.GH_PAT }}
       GIT_AUTHOR_NAME: ${{ vars.GIT_AUTHOR_NAME }}
-      GIT_AUTHOR_EMAIL: ${{ vars.GIT_AUTHOR_EMAIL }}  
+      GIT_AUTHOR_EMAIL: ${{ vars.GIT_AUTHOR_EMAIL }} 
+      SECROVER_PATH: secrover/docs
 
     steps:
       - name: Checkout repo
@@ -26,10 +27,10 @@ jobs:
       - name: Pull and run Secrover
         run: |
           docker pull secrover/secrover
-          mkdir -p "$(pwd)/secrover/docs"
+          mkdir -p ${{ env.SECROVER_PATH }}
           docker run --rm \
-            -v "$(pwd)/secrover/config.yml:/app/config.yaml" \
-            -v "$(pwd)/secrover/docs:/output" \
+            -v ${{ env.SECROVER_PATH }}/config.yaml:/app/config.yaml \
+            -v ${{ env.SECROVER_PATH }}/docs:/output \
             -e CONFIG_FILE=config.yaml \
             secrover/secrover
 
