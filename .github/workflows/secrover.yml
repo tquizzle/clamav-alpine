@@ -30,7 +30,7 @@ jobs:
           mkdir -p ${{ env.SECROVER_PATH }}
           docker run --rm \
             -v "$(pwd)/secrover/config.yaml:/app/config.yaml" \
-            -v $(pwd)/secrover/docs:/output" \
+            -v "$(pwd)/secrover/docs:/output" \
             -e CONFIG_FILE=config.yaml \
             secrover/secrover
 
