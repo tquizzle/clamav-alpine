@@ -1,0 +1,9 @@
+project:
+  name: Ghost Docker
+domains:
+  - https://tquizzle.github.io/clamav-alpine/
+repos:
+  - url: https://github.com/tquizzle/clamav-alpine.git
+    branch: main
+    description: ClamAV Docker image based on Alpine Linux
+    docs_dir: docs
