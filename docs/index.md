@@ -154,12 +154,17 @@ This command:
 
 | Tag      | ClamAV Version | Alpine Version |
 | :------- | :------------- | :------------- |
-| `latest` | 1.4.2-r0       | 3.21           |
-| `edge`   | 1.4.2-r0       | Edge           |
+| `latest` | 1.4.3-r0       | 3.22           |
+| `edge`   | 1.4.3-r2       | Edge           |
 
 -----
 
 ## Changelog 📜
+
+### 2025-10-28
+
+  * Updated ClamAV to **1.4.3-r2** on the `edge` tag.
+  * Updated ClamAV to **1.4.3-r0** on the `latest` tag.
 
 ### 2025-04-15
 
