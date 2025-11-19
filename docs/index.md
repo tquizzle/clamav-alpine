@@ -1,5 +1,5 @@
 ---
-title: "ClamAV on Alpine: Your Lightweight Container for Virus Scanning"
+title: "ClamAV on Alpine"
 description: "This container allows you a very simple way to scan a mounted directory using clamscan."
 ---
 # ClamAV on Alpine: Your Lightweight Container for Virus Scanning 🛡️
