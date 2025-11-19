@@ -1,16 +1,16 @@
 name: MkDocs Deploy
 on:
-  push:
-    paths: #Target only MkDocs config
-      - './mkdocs.yml'
-      - './docs/**'
-    branches:
-    - master
-  pull_request: #Target only MkDocs folder for content
-    paths:
-      - './mkdocs.yml'
-      - './docs/**'
-  workflow_dispatch:
+  # push:
+  #   paths: #Target only MkDocs config
+  #     - './mkdocs.yml'
+  #     - './docs/**'
+  #   branches:
+  #   - master
+  # pull_request: #Target only MkDocs folder for content
+  #   paths:
+  #     - './mkdocs.yml'
+  #     - './docs/**'
+  # workflow_dispatch:
 
 jobs:
   build:
