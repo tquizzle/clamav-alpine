@@ -3,26 +3,20 @@ name: Trivy Container Image Scan - Edge
 on:
     push:
 #      branches: [ "master" ]
-      paths-ignore:
-        - './mkdocs.yml'
-        - './secrover/**'
-        - './docs/**'
-        - './.github/**'
-        - './Dockerfile'
-        - './README.md'
-        - './LICENSE'
-        - './CODE_OF_CONDUCT.md'
-        - './CONTRIBUTING.md'
-        - './SECURITY.md'
-        - './CHANGELOG.md'
+      paths:
         - './edge-Dockerfile'
+        - './Dockerfile'
         - './.dockerignore'
-        - './img/**'
+        - './docker-compose.yml'
+        - './clamd.conf
+        - './freshclam.conf
+        - './scan.sh'
     pull_request:
       branches: [ "master" ]
       paths-ignore:
-        - './mkdocs.yml'
         - './docs/**'
+        - './.github/**'
+        - './zensical.toml'
     workflow_dispatch:
 
 jobs:
