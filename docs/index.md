@@ -32,7 +32,7 @@ This container supports two primary modes of operation, controlled by the `MODE`
 
 This is the classic way to use ClamAV: scan a mounted directory directly. If no `MODE` is specified, `scan` is the default.
 
-```bash
+```
 docker run --rm -e MODE=scan -v "$PWD/test_dir:/scan" tquinnelly/clamav-alpine
 ```
 
@@ -40,13 +40,13 @@ docker run --rm -e MODE=scan -v "$PWD/test_dir:/scan" tquinnelly/clamav-alpine
 
 Run ClamAV as a daemon, allowing other clients to connect and request scans.
 
-```bash
+```
 docker run --rm -e MODE=server -p 3310:3310 tquinnelly/clamav-alpine
 ```
 
 **Custom Port and Address:**
 
-```bash
+```
 docker run --rm -e MODE=server -e CLAMD_TCP_ADDR=10.17.2.1 -e CLAMD_TCP_PORT=3311 -p 3311:3311 tquinnelly/clamav-alpine
 ```
 
@@ -60,7 +60,7 @@ If you're running the container in Server Mode, you can configure `clamdscan` on
 2.  **Configure `clamdscan`:**
     Create a configuration file to point to your ClamAV server:
 
-    ```bash
+    ```
     cat << 'EOF' | sudo tee /etc/clamav/remote-clamd.conf
     TCPSocket PORT
     TCPAddr SERVER-IP
@@ -73,7 +73,7 @@ If you're running the container in Server Mode, you can configure `clamdscan` on
 3.  **Run `clamdscan`:**
     Execute a scan on the client, specifying the remote configuration:
 
-    ```bash
+    ```
     clamdscan --config-file=/etc/clamav/remote-clamd.conf /path/to/scan
     ```
 
@@ -81,7 +81,7 @@ If you're running the container in Server Mode, you can configure `clamdscan` on
 
 For more control over your scans, you can pass additional `clamscan` arguments directly to the container. The `-i` flag (only print infected files) is included by default, but you can override or add to it.
 
-```bash
+```
 docker run -it \
   -v /path/to/scan:/scan:ro \
   tquinnelly/clamav-alpine -i
@@ -114,13 +114,13 @@ Beyond the primary `/scan` directory, you can mount additional volumes for enhan
 
   * **Save AV Signatures:** Persist your ClamAV database updates to avoid re-downloading them on every container start.
 
-    ```bash
+    ```
     -v /path/to/sig:/var/lib/clamav
     ```
 
   * **Infected Files Directory:** Direct infected files to a specific location using `--move` or `--copy` post-arguments.
 
-    ```bash
+    ```
     -v /path/to/infected:/infected
     ```
 
@@ -130,7 +130,7 @@ Beyond the primary `/scan` directory, you can mount additional volumes for enhan
 
 Here's an example of a more advanced setup, typical for a persistent ClamAV scanner:
 
-```bash
+```
 docker run -d --name=ClamAV \
   --cpuset-cpus='0,1' \
   -v /path/to/scan:/scan:ro \
