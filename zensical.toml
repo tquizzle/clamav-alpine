@@ -5,8 +5,8 @@ site_author = "TQ"
 copyright = "&copy; 2025 TQ. All rights reserved."
 repo_url = "https://github.com/tquizzle/clamav-alpine/"
 [project.theme]
-logo = "/img/clamav-docker-removebg-preview.png"
-favicon = "/img/clamav-docker.ico"
+logo = "img/clamav-docker-removebg-preview.png"
+favicon = "img/clamav-docker.ico"
 [project.extra]
 generator = true
 [[project.extra.social]]
