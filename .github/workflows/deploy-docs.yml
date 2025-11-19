@@ -1,7 +1,7 @@
 name: Deploy docmd docs to GitHub Pages
 
 on:
-  push:
+  # push:
   #   branches: ["master"]  # Your default branch
   # workflow_dispatch:   # Allows manual workflow trigger from Actions tab
 
