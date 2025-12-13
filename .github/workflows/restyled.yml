@@ -24,7 +24,7 @@ jobs:
 
       # Maintain a sibling PR of the style fixes
       - if: ${{ !cancelled() && steps.restyler.outputs.success == 'true' }}
-        uses: peter-evans/create-pull-request@v7
+        uses: peter-evans/create-pull-request@v8
         with:
           base: ${{ steps.restyler.outputs.restyled-base }}
           branch: ${{ steps.restyler.outputs.restyled-head }}
