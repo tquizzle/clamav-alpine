@@ -105,7 +105,7 @@ jobs:
           labels: ${{ needs.extract-metadata.outputs.latest_labels }}
 
       - name: Generate latest artifact attestation
-        uses: actions/attest-build-provenance@v3
+        uses: actions/attest-build-provenance@v4
         with:
           subject-name: ghcr.io/${{ github.repository }}:latest
           subject-digest: ${{ steps.push-latest.outputs.digest }}
@@ -122,7 +122,7 @@ jobs:
           labels: ${{ needs.extract-metadata.outputs.edge_labels }}
 
       - name: Generate edge artifact attestation
-        uses: actions/attest-build-provenance@v3
+        uses: actions/attest-build-provenance@v4
         with:
           subject-name: ghcr.io/${{ github.repository }}:edge
           subject-digest: ${{ steps.push-edge.outputs.digest }}
