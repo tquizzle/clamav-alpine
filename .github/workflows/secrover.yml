@@ -22,7 +22,7 @@ jobs:
           token: ${{ secrets.GH_PAT }}
 
       - name: Set up Docker
-        uses: docker/setup-buildx-action@v3
+        uses: docker/setup-buildx-action@v4
 
       - name: Pull and run Secrover
         run: |
