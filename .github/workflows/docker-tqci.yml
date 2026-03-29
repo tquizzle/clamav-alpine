@@ -75,55 +75,54 @@ jobs:
           tags: ${{ secrets.DOCKER_USERNAME }}/clamav-alpine:edge
           labels: ${{ needs.extract-metadata.outputs.edge_labels }}
 
-  build-and-push-ghcr:
-    runs-on: ubuntu-latest
-    needs: extract-metadata
-    permissions:
-      contents: read
-      packages: write
-      attestations: write
-      id-token: write
-    steps:
-      - name: Check out the repo
-        uses: actions/checkout@v6
+#  build-and-push-ghcr:
+#    runs-on: ubuntu-latest
+#    needs: extract-metadata
+#    permissions:
+#      contents: read
+#      packages: write
+#      attestations: write
+#      id-token: write
+#    steps:
+#      - name: Check out the repo
+#        uses: actions/checkout@v6
 
-      - name: Log in to the GitHub Container Registry
-        uses: docker/login-action@v4
-        with:
-          registry: ghcr.io
-          username: ${{ github.actor }}
-          password: ${{ secrets.GH_PAT }}
+#      - name: Log in to the GitHub Container Registry
+#        uses: docker/login-action@v4
+#        with:
+#          registry: ghcr.io
+#          username: ${{ github.actor }}
+#          password: ${{ secrets.GH_PAT }}
+#      - name: Build & Push - Latest (GHCR)
+#        id: push-latest
+#        uses: docker/build-push-action@v7
+#        with:
+#          context: .
+#          file: ./Dockerfile
+#          push: true
+#          tags: ghcr.io/${{ github.repository }}:latest
+#          labels: ${{ needs.extract-metadata.outputs.latest_labels }}
+#
+#      - name: Generate latest artifact attestation
+#        uses: actions/attest-build-provenance@v4
+#        with:
+#          subject-name: ghcr.io/${{ github.repository }}:latest
+#          subject-digest: ${{ steps.push-latest.outputs.digest }}
+#          push-to-registry: true
+#
+#      - name: Build & Push - Edge (GHCR)
+#        id: push-edge
+#        uses: docker/build-push-action@v7
+#        with:
+#          context: .
+#          file: ./edge-Dockerfile
+#          push: true
+#          tags: ghcr.io/${{ github.repository }}:edge
+#          labels: ${{ needs.extract-metadata.outputs.edge_labels }}#
 
-      - name: Build & Push - Latest (GHCR)
-        id: push-latest
-        uses: docker/build-push-action@v7
-        with:
-          context: .
-          file: ./Dockerfile
-          push: true
-          tags: ghcr.io/${{ github.repository }}:latest
-          labels: ${{ needs.extract-metadata.outputs.latest_labels }}
-
-      - name: Generate latest artifact attestation
-        uses: actions/attest-build-provenance@v4
-        with:
-          subject-name: ghcr.io/${{ github.repository }}:latest
-          subject-digest: ${{ steps.push-latest.outputs.digest }}
-          push-to-registry: true
-
-      - name: Build & Push - Edge (GHCR)
-        id: push-edge
-        uses: docker/build-push-action@v7
-        with:
-          context: .
-          file: ./edge-Dockerfile
-          push: true
-          tags: ghcr.io/${{ github.repository }}:edge
-          labels: ${{ needs.extract-metadata.outputs.edge_labels }}
-
-      - name: Generate edge artifact attestation
-        uses: actions/attest-build-provenance@v4
-        with:
-          subject-name: ghcr.io/${{ github.repository }}:edge
-          subject-digest: ${{ steps.push-edge.outputs.digest }}
-          push-to-registry: true
+#      - name: Generate edge artifact attestation
+#        uses: actions/attest-build-provenance@v4
+#        with:
+#          subject-name: ghcr.io/${{ github.repository }}:edge
+#          subject-digest: ${{ steps.push-edge.outputs.digest }}
+#          push-to-registry: true
