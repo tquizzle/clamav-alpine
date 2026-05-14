@@ -11,5 +11,9 @@ RUN apk update && \
 ENV SCANDIR=/scan
 COPY scan.sh /scan.sh
 COPY clamd.conf /etc/clamav/clamd.conf
+# freshclam.conf is the Alpine default with DatabaseOwner set to root
+# so freshclam can write to mounted volumes regardless of host UID/GID.
+# Sourced via: docker run --rm alpine:3.23 sh -c "apk add -q clamav && cat /etc/clamav/freshclam.conf"
+COPY freshclam.conf /etc/clamav/freshclam.conf
 
 ENTRYPOINT ["sh", "/scan.sh"]
