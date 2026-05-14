@@ -24,14 +24,14 @@ jobs:
 
       - name: Extract metadata for Docker (latest)
         id: meta-latest
-        uses: docker/metadata-action@v5
+        uses: docker/metadata-action@v6
         with:
           images: ${{ secrets.DOCKER_USERNAME }}/clamav-alpine
           tags: latest
 
       - name: Extract metadata for Docker (edge)
         id: meta-edge
-        uses: docker/metadata-action@v5
+        uses: docker/metadata-action@v6
         with:
           images: ${{ secrets.DOCKER_USERNAME }}/clamav-alpine
           tags: edge
