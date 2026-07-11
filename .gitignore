@@ -11,3 +11,6 @@ dist/**
 *.iml
 out/**
 *.log
+docs-old/**
+secrover/**
+.github/workflows/trivy**
