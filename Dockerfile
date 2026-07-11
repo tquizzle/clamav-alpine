@@ -1,7 +1,7 @@
 FROM alpine:3.24@sha256:a2d49ea686c2adfe3c992e47dc3b5e7fa6e6b5055609400dc2acaeb241c829f4
 LABEL maintainer="Travis Quinnelly"
 LABEL maintainer_url="https://github.com/tquizzle/"
-LABEL clamav_version="1.4.4-r0"
+LABEL clamav_version="1.4.5-r0"
 
 RUN apk update && \
     apk add --no-cache pv ca-certificates clamav clamav-libunrar tzdata && \
