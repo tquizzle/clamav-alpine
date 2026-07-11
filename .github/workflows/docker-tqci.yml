@@ -73,13 +73,13 @@ jobs:
         with:
           image: ${{ secrets.DOCKER_USERNAME }}/clamav-alpine:latest
           fail-build: false
+          severity-cutoff: critical
           cache-db: true
       - name: upload Anchore scan SARIF report
+        if: success()
         uses: github/codeql-action/upload-sarif@v4
         with:
           sarif_file: ${{ steps.scanlatest.outputs.sarif }}
-      - name: Inspect Latest SARIF
-        run: cat ${{ steps.scanlatest.outputs.sarif }}
           
       - name: Build & Push - Edge
         uses: docker/build-push-action@v7
@@ -96,13 +96,13 @@ jobs:
         with:
           image: ${{ secrets.DOCKER_USERNAME }}/clamav-alpine:edge
           fail-build: false
+          severity-cutoff: critical
           cache-db: true
       - name: upload Anchore scan SARIF report
+        if: success()
         uses: github/codeql-action/upload-sarif@v4
         with:
           sarif_file: ${{ steps.scanedge.outputs.sarif }}
-      - name: Inspect Edge SARIF
-        run: cat ${{ steps.scanedge.outputs.sarif }}
 
 #  build-and-push-ghcr:
 #    runs-on: ubuntu-latest
