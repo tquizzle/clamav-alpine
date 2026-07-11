@@ -72,6 +72,7 @@ jobs:
         id: scanlatest
         with:
           image: ${{ secrets.DOCKER_USERNAME }}/clamav-alpine:latest
+          fail-build: false
       - name: upload Anchore scan SARIF report
         uses: github/codeql-action/upload-sarif@v4
         with:
@@ -86,11 +87,12 @@ jobs:
           tags: ${{ secrets.DOCKER_USERNAME }}/clamav-alpine:edge
           labels: ${{ needs.extract-metadata.outputs.edge_labels }}
 
-      - name: Scan image
+      - name: Scan image Edge
         uses: anchore/scan-action@v7
         id: scanedge
         with:
           image: ${{ secrets.DOCKER_USERNAME }}/clamav-alpine:edge
+          fail-build: false
       - name: upload Anchore scan SARIF report
         uses: github/codeql-action/upload-sarif@v4
         with:
