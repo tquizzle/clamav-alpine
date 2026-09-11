@@ -45,7 +45,8 @@ elif [ "$MODE" = "scan" ]; then
     echo ""
     echo -e "Scanning $SCANDIR"
     echo ""
-    clamscan -r $SCANDIR ${CLAMSCAN_OPTS:-} $@
+    # shellcheck disable=SC2086
+    clamscan -r "$SCANDIR" ${CLAMSCAN_OPTS:-} "$@"
     echo ""
     echo -e "$( date -I'seconds' ) ClamAV scanning finished"
 else
