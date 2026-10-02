@@ -1,11 +1,11 @@
 FROM alpine:3.24@sha256:28bd5fe8b56d1bd048e5babf5b10710ebe0bae67db86916198a6eec434943f8b
 LABEL maintainer="Travis Quinnelly"
 LABEL maintainer_url="https://github.com/tquizzle/"
-LABEL clamav_version="1.4.5-r0"
+LABEL clamav_version="1.4.6-r0"
 
 RUN apk update && \
     apk add --no-cache pv ca-certificates clamav clamav-libunrar tzdata && \
-    apk add --upgrade apk-tools libcurl openssl busybox && \
+    apk add --no-cache --upgrade apk-tools libcurl openssl busybox && \
     rm -rf /var/cache/apk/*
 
 ENV SCANDIR=/scan
