@@ -11,20 +11,20 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       # Checkout the PR's branch
-      - uses: actions/checkout@v7
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
         with:
           ref: ${{ github.event.pull_request.head.ref }}
 
       # Install and run the Restyled CLI, failing on differences
-      - uses: restyled-io/actions/setup@v4
+      - uses: restyled-io/actions/setup@4f4c3dc169f17c48a68a9c7311c369fdef55e829 # v4
       - id: restyler
-        uses: restyled-io/actions/run@v4
+        uses: restyled-io/actions/run@4f4c3dc169f17c48a68a9c7311c369fdef55e829 # v4
         with:
           fail-on-differences: true
 
       # Maintain a sibling PR of the style fixes
       - if: ${{ !cancelled() && steps.restyler.outputs.success == 'true' }}
-        uses: peter-evans/create-pull-request@v8
+        uses: peter-evans/create-pull-request@3ffccacd46053766916f087ce41d627c0b8cf2d1 # v8
         with:
           base: ${{ steps.restyler.outputs.restyled-base }}
           branch: ${{ steps.restyler.outputs.restyled-head }}

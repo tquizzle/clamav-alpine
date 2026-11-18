@@ -11,7 +11,7 @@ jobs:
     steps:
       - name: Login to Docker Hub
         id: dockerhub-login
-        uses: docker/login-action@v4
+        uses: docker/login-action@8aa5831fb8d48d8f76594c7ddde61ae58019f550 # v4
         with:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_TOKEN }}
@@ -20,18 +20,18 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check out the repo
-        uses: actions/checkout@v7
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
 
       - name: Extract metadata for Docker (latest)
         id: meta-latest
-        uses: docker/metadata-action@v6
+        uses: docker/metadata-action@dc802804100637a589fabce1cb79ff13a1411302 # v6
         with:
           images: ${{ secrets.DOCKER_USERNAME }}/clamav-alpine
           tags: latest
 
       - name: Extract metadata for Docker (edge)
         id: meta-edge
-        uses: docker/metadata-action@v6
+        uses: docker/metadata-action@dc802804100637a589fabce1cb79ff13a1411302 # v6
         with:
           images: ${{ secrets.DOCKER_USERNAME }}/clamav-alpine
           tags: edge
@@ -49,16 +49,16 @@ jobs:
     needs: extract-metadata
     steps:
       - name: Check out the repo
-        uses: actions/checkout@v7
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
 
       - name: Login to Docker Hub
-        uses: docker/login-action@v4
+        uses: docker/login-action@8aa5831fb8d48d8f76594c7ddde61ae58019f550 # v4
         with:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_TOKEN }}
 
       - name: Build & Push - Latest
-        uses: docker/build-push-action@v7
+        uses: docker/build-push-action@c3c9e263c25d99ce0380d002d59b67737d91b0dc # v7
         with:
           context: .
           file: ./Dockerfile
@@ -68,7 +68,7 @@ jobs:
           labels: ${{ needs.extract-metadata.outputs.latest_labels }}
 
       - name: Scan image latest
-        uses: anchore/scan-action@v7
+        uses: anchore/scan-action@e1165082ffb1fe366ebaf02d8526e7c4989ea9d2 # v7
         id: scanlatest
         with:
           image: ${{ secrets.DOCKER_USERNAME }}/clamav-alpine:latest
@@ -77,13 +77,13 @@ jobs:
           cache-db: true
       - name: upload Anchore scan SARIF report
         if: success()
-        uses: github/codeql-action/upload-sarif@v4
+        uses: github/codeql-action/upload-sarif@33d7b85da1a04171e211befe2c739303b9a4c066 # v4
         with:
           sarif_file: ${{ steps.scanlatest.outputs.sarif }}
           category: grype-latest
           
       - name: Build & Push - Edge
-        uses: docker/build-push-action@v7
+        uses: docker/build-push-action@c3c9e263c25d99ce0380d002d59b67737d91b0dc # v7
         with:
           context: .
           file: ./edge-Dockerfile
@@ -92,7 +92,7 @@ jobs:
           labels: ${{ needs.extract-metadata.outputs.edge_labels }}
 
       - name: Scan image Edge
-        uses: anchore/scan-action@v7
+        uses: anchore/scan-action@e1165082ffb1fe366ebaf02d8526e7c4989ea9d2 # v7
         id: scanedge
         with:
           image: ${{ secrets.DOCKER_USERNAME }}/clamav-alpine:edge
@@ -101,7 +101,7 @@ jobs:
           cache-db: true
       - name: upload Anchore scan SARIF report
         if: success()
-        uses: github/codeql-action/upload-sarif@v4
+        uses: github/codeql-action/upload-sarif@33d7b85da1a04171e211befe2c739303b9a4c066 # v4
         with:
           sarif_file: ${{ steps.scanedge.outputs.sarif }}
           category: grype-edge
